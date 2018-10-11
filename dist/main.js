@@ -164,6 +164,23 @@ var widgets = ""; // widget code
 var ampscript = ""; // ampscript code
 var html = ""; // super content for preview
 
+var ampscriptVars = {'var1':'value1', 'var2':'value2'};
+
+// parse the variables
+ampscript += "%%["
+$('.workspace-container').html('');
+for (const prop in ampscriptVars) {
+  ampscript += '\n     SET @' + prop + ' = "' + ampscriptVars[prop] + '"';
+
+  widget = '\n<div class="slds-form-element">\n<label class="slds-form-element__label" for="input-id-'+prop+'">'+prop+'</label>\n<div class="slds-form-element__control">\n<input class="slds-input" type="text" id="input-id-'+prop+'" placeholder="" />\n</div>\n</div>'
+  $('.workspace-container').append(widget);
+
+  $('#input-id-'+prop).data({'id': prop}).val(ampscriptVars[prop]);
+}
+ampscript += "\n]%%"
+
+
+/*
 function updateContent() {
   sdk.setContent(ampscript + '\n' + html);
 }
@@ -186,7 +203,7 @@ for (const prop in ampscriptVars) {
 
   widgets += '\n<div class="slds-form-element">\n<label class="slds-form-element__label" for="input-id-'+prop+'">'+prop+'</label>\n<div class="slds-form-element__control">\n<input class="slds-input" type="text" id="input-id-'+prop+'" placeholder="" />\n</div>\n</div>'
 
-  $('#input-id-'+prop).data({'id': prop}).change(function() {
+  $('#input-id-'+prop).data({'id': prop}).val(ampscriptVars[prop]).change(function() {
     ampscriptVars[$(this).data('id')] = $(this).text();
     sdk.setData({
       'ampscriptVars': ampScriptVars
@@ -203,7 +220,7 @@ $("#editor").change(function() {
   sdk.setSuperContent(html);
   updateContent();
 });
-
+*/
 
 
 /**********************/
