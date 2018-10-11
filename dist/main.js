@@ -172,15 +172,18 @@ function addWidget(name, val) {
   $('#input-id-'+name).data({'id': name}).val(val);
 }
 
+// add the widgets to the page
 $('#workspace-container').html('');
 for (const prop in ampscriptVars) {
   addWidget(prop, ampscriptVars[prop])
 }
 
+// add the html to the editor
 $('#editor').html(html);
 
-$('add-parameter-button').click(function() {
-  var widgetName = $('add-parameter-name').val();
+// add a new widget
+$('#add-parameter-button').click(function() {
+  var widgetName = $('#add-parameter-name').val();
   if (widgetName) addWidget(widgetName, '');
 });
 
