@@ -168,12 +168,12 @@ var ampscriptVars = {'var1':'value1', 'var2':'value2'};
 
 // parse the variables
 ampscript += "%%["
-$('.workspace-container').html('');
+$('#workspace-container').html('');
 for (const prop in ampscriptVars) {
   ampscript += '\n     SET @' + prop + ' = "' + ampscriptVars[prop] + '"';
 
   widget = '\n<div class="slds-form-element">\n<label class="slds-form-element__label" for="input-id-'+prop+'">'+prop+'</label>\n<div class="slds-form-element__control">\n<input class="slds-input" type="text" id="input-id-'+prop+'" placeholder="" />\n</div>\n</div>'
-  $('.workspace-container').append(widget);
+  $('#workspace-container').append(widget);
 
   $('#input-id-'+prop).data({'id': prop}).val(ampscriptVars[prop]);
 }
