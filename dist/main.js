@@ -161,8 +161,6 @@ document.getElementById('workspace').addEventListener("input", function () {
 /* --- */
 
 var ampscript = ""; // ampscript code
-var html = ""; // super content for preview
-
 var ampscriptVars = {};
 var html = 'This is some %%=v(@var1)=%% html.'
 
@@ -170,10 +168,11 @@ sdk.getData(function (data) {
   ampscriptVars = data['ampscriptVars'];
 });
 
-function addWidget(name, val) {
+function addWidget(name, value) {
   var widget = '\n<div class="slds-form-element">\n<label class="slds-form-element__label" for="input-id-'+name+'">'+name+'</label>\n<div class="slds-form-element__control">\n<input class="slds-input" type="text" id="input-id-'+name+'" placeholder="Value" />\n</div>\n</div>'
   $('#workspace-container').append(widget);
-  $('#input-id-'+name).data({'id': name}).val(val).change(function() {
+  $('#input-id-'+name).data({'id': name}).val(value).change(function() {
+    alert($(this).data('id') + ' ' + $(this).val());
     ampscriptVars[$(this).data('id')] = $(this).val();
     sdk.setData({
       'ampscriptVars': ampScriptVars
