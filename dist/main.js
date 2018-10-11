@@ -181,7 +181,7 @@ $('#editor').html(html);
 
 $('add-parameter-button').click(function() {
   var widgetName = $('add-parameter-name').val();
-  if (widgetName) addWidget(, '');
+  if (widgetName) addWidget(widgetName, '');
 });
 
 /*
