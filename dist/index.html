@@ -24,8 +24,9 @@
 		    </header>
 		  </div>
 		  <div class="slds-card__body slds-card__body_inner">
-			  <div id="workspace">
+			  <div id="workspace-container">
 
+			  	<!--
 					<div class="slds-form-element">
 						<label class="slds-form-element__label" for="input-id-01">Text Input</label>
 						<div class="slds-form-element__control">
@@ -45,25 +46,27 @@
 								<span class="slds-slider__value" id="slider-id-01-val" aria-hidden="true">200</span>
 							</div>
 						</div>
-					</div>	   
+					</div>
+					-->
 
 				</div>
 
 			  <hr>
 			  
-			  <div class="editor-container">
+			  <div id="editor-container">
 					<div class="slds-form-element">
-					  <label class="slds-form-element__label" for="textarea-id-01">Textarea Label</label>
+					  <label class="slds-form-element__label" for="editor">Code</label>
 					  <div class="slds-form-element__control">
-					    <textarea id="textarea-id-01" class="slds-textarea" placeholder="Placeholder Text"></textarea>
+					    <textarea id="editor" class="slds-textarea" placeholder="AMPscript/HTML code here"></textarea>
 					  </div>
 					</div>
 			  </div>
-			  
+
 		  </div>
 		  <footer class="slds-card__footer"></footer>
 		</article>
 		
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
 		<script src="./main.js"></script>
 	</body>
 </html>

@@ -158,6 +158,54 @@ document.getElementById('workspace').addEventListener("input", function () {
 });
 */
 
+/* --- */
+
+var widgets = ""; // widget code
+var ampscript = ""; // ampscript code
+var html = ""; // super content for preview
+
+function updateContent() {
+  sdk.setContent(ampscript + '\n' + html);
+}
+
+sdk.getContent(function (content) {
+  // strip off initial ampscript block
+  html = content.substring(content.indexOf(']%%') + 3);
+  $('#editor').innerHTML(html);
+});
+
+sdk.getData(function (data) {
+  ampscriptVars = data['ampscriptVars'];
+});
+// var ampscriptVars = {'var1':'value1', 'var2':'value2'};
+
+// parse the variables
+ampscript += "%%["
+for (const prop in ampscriptVars) {
+  ampscript += '\n     SET @' + prop + ' = "' + ampscriptVars[prop] + '"';
+
+  widgets += '\n<div class="slds-form-element">\n<label class="slds-form-element__label" for="input-id-'+prop+'">'+prop+'</label>\n<div class="slds-form-element__control">\n<input class="slds-input" type="text" id="input-id-'+prop+'" placeholder="" />\n</div>\n</div>'
+
+  $('#input-id-'+prop).data({'id': prop}).change(function() {
+    ampscriptVars[$(this).data('id')] = $(this).text();
+    sdk.setData({
+      'ampscriptVars': ampScriptVars
+    });
+    updateContent();
+  });
+}
+ampscript += "\n]%%"
+
+$('.workspace-container').innerHTML(widgets);
+
+$("#editor").change(function() {
+  html = $(this).text();
+  sdk.setSuperContent(html);
+  updateContent();
+});
+
+
+
 /**********************/
 
 /***/ }),
