@@ -163,13 +163,22 @@ document.getElementById('workspace').addEventListener("input", function () {
 var ampscript = ""; // ampscript code
 var html = ""; // super content for preview
 
-var ampscriptVars = {'var1':'value1', 'var2':'value2'};
+var ampscriptVars = {};
 var html = 'This is some %%=v(@var1)=%% html.'
+
+sdk.getData(function (data) {
+  ampscriptVars = data['ampscriptVars'];
+});
 
 function addWidget(name, val) {
   var widget = '\n<div class="slds-form-element">\n<label class="slds-form-element__label" for="input-id-'+name+'">'+name+'</label>\n<div class="slds-form-element__control">\n<input class="slds-input" type="text" id="input-id-'+name+'" placeholder="Value" />\n</div>\n</div>'
   $('#workspace-container').append(widget);
-  $('#input-id-'+name).data({'id': name}).val(val);
+  $('#input-id-'+name).data({'id': name}).val(val).change(function() {
+    ampscriptVars[$(this).data('id')] = $(this).val();
+    sdk.setData({
+      'ampscriptVars': ampScriptVars
+    });
+  });
 }
 
 // add the widgets to the page
@@ -184,7 +193,10 @@ $('#editor').html(html);
 // add a new widget
 $('#add-parameter-button').click(function() {
   var widgetName = $('#add-parameter-name').val();
-  if (widgetName) addWidget(widgetName, '');
+  if (widgetName) {
+    addWidget(widgetName, '');
+    $('#add-parameter-name').val('')
+  }
 });
 
 /*
