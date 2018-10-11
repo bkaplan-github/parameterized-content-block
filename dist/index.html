@@ -29,7 +29,7 @@
 					<div class="slds-form-element">
 						<label class="slds-form-element__label" for="input-id-01">Text Input</label>
 						<div class="slds-form-element__control">
-							<input class="slds-input" type="text" id="text-input-id-0" placeholder="Your Google Maps API key" />
+							<input class="slds-input" type="text" id="input-id-01" placeholder="Value" />
 						</div>
 					</div>
 
@@ -50,19 +50,16 @@
 				</div>
 
 			  <div id="new-container">
-					<div class="slds-form-element">
-						<label class="slds-form-element__label" for="input-id-01">Add Parameter</label>
-						<div class="slds-form-element__control">
-							<input class="slds-input" type="text" id="text-input-id-0" placeholder="Your Google Maps API key" />
-							<button class="slds-button slds-button_icon slds-button_icon-brand" title="New">
-							  <svg class="slds-button__icon" aria-hidden="true">
-							    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#new"></use>
-							  </svg>
-							  <span class="slds-assistive-text">Add Parameter</span>
-							</button>
-						</div>
+					<label class="slds-form-element__label" for="add-parameter">Add Parameter</label>
+					<div id="add-parameter" style="padding:0.5rem; background-color:#f4f6f9">
+						<input id="add-parameter-name" class="slds-input" type="text" placeholder="Parameter Name" />
+					  <button class="slds-button slds-button_icon slds-button_icon-border-filled" title="Search">
+					    <svg class="slds-button__icon" aria-hidden="true">
+					      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#new"></use>
+					    </svg>
+					    <span class="slds-assistive-text">Search</span>
+					  </button>
 					</div>
-
 				</div>
 
 			  <hr>
