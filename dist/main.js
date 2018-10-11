@@ -165,19 +165,22 @@ var ampscript = ""; // ampscript code
 var html = ""; // super content for preview
 
 var ampscriptVars = {'var1':'value1', 'var2':'value2'};
+var html = 'This is some %%=v(@var1)=%% html.'
 
 // parse the variables
-ampscript += "%%["
+// ampscript += "%%["
 $('#workspace-container').html('');
 for (const prop in ampscriptVars) {
-  ampscript += '\n     SET @' + prop + ' = "' + ampscriptVars[prop] + '"';
+  // ampscript += '\n     SET @' + prop + ' = "' + ampscriptVars[prop] + '"';
 
   widget = '\n<div class="slds-form-element">\n<label class="slds-form-element__label" for="input-id-'+prop+'">'+prop+'</label>\n<div class="slds-form-element__control">\n<input class="slds-input" type="text" id="input-id-'+prop+'" placeholder="" />\n</div>\n</div>'
   $('#workspace-container').append(widget);
 
   $('#input-id-'+prop).data({'id': prop}).val(ampscriptVars[prop]);
 }
-ampscript += "\n]%%"
+// ampscript += "\n]%%"
+
+$('#editor').html(html);
 
 
 /*
@@ -188,7 +191,7 @@ function updateContent() {
 sdk.getContent(function (content) {
   // strip off initial ampscript block
   html = content.substring(content.indexOf(']%%') + 3);
-  $('#editor').innerHTML(html);
+  $('#editor').html(html);
 });
 
 sdk.getData(function (data) {
@@ -213,7 +216,7 @@ for (const prop in ampscriptVars) {
 }
 ampscript += "\n]%%"
 
-$('.workspace-container').innerHTML(widgets);
+$('.workspace-container').html(widgets);
 
 $("#editor").change(function() {
   html = $(this).text();
