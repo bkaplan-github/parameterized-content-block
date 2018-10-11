@@ -160,28 +160,29 @@ document.getElementById('workspace').addEventListener("input", function () {
 
 /* --- */
 
-var widgets = ""; // widget code
 var ampscript = ""; // ampscript code
 var html = ""; // super content for preview
 
 var ampscriptVars = {'var1':'value1', 'var2':'value2'};
 var html = 'This is some %%=v(@var1)=%% html.'
 
-// parse the variables
-// ampscript += "%%["
+function addWidget(name, val) {
+  var widget = '\n<div class="slds-form-element">\n<label class="slds-form-element__label" for="input-id-'+name+'">'+name+'</label>\n<div class="slds-form-element__control">\n<input class="slds-input" type="text" id="input-id-'+name+'" placeholder="Value" />\n</div>\n</div>'
+  $('#workspace-container').append(widget);
+  $('#input-id-'+name).data({'id': name}).val(val);
+}
+
 $('#workspace-container').html('');
 for (const prop in ampscriptVars) {
-  // ampscript += '\n     SET @' + prop + ' = "' + ampscriptVars[prop] + '"';
-
-  widget = '\n<div class="slds-form-element">\n<label class="slds-form-element__label" for="input-id-'+prop+'">'+prop+'</label>\n<div class="slds-form-element__control">\n<input class="slds-input" type="text" id="input-id-'+prop+'" placeholder="" />\n</div>\n</div>'
-  $('#workspace-container').append(widget);
-
-  $('#input-id-'+prop).data({'id': prop}).val(ampscriptVars[prop]);
+  addWidget(prop, ampscriptVars[prop])
 }
-// ampscript += "\n]%%"
 
 $('#editor').html(html);
 
+$('add-parameter-button').click(function() {
+  var widgetName = $('add-parameter-name').val();
+  if (widgetName) addWidget(, '');
+});
 
 /*
 function updateContent() {
