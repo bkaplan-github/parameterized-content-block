@@ -27,7 +27,7 @@
 			  <div id="workspace">
 
 					<div class="slds-form-element">
-						<label class="slds-form-element__label" for="input-id-01">Maps Key</label>
+						<label class="slds-form-element__label" for="input-id-01">Text Input</label>
 						<div class="slds-form-element__control">
 							<input class="slds-input" type="text" id="text-input-id-0" placeholder="Your Google Maps API key" />
 						</div>
@@ -36,7 +36,7 @@
 					<div class="slds-form-element">
 						<label class="slds-form-element__label" for="slider-id-01">
 							<span class="slds-slider-label">
-								<span class="slds-slider-label__label">Image Width</span>
+								<span class="slds-slider-label__label">Slider</span>
 							</span>
 						</label>
 						<div class="slds-form-element__control">
@@ -47,306 +47,19 @@
 						</div>
 					</div>	   
 
+				</div>
+
+			  <hr>
+			  
+			  <div class="editor-container">
 					<div class="slds-form-element">
 					  <label class="slds-form-element__label" for="textarea-id-01">Textarea Label</label>
 					  <div class="slds-form-element__control">
 					    <textarea id="textarea-id-01" class="slds-textarea" placeholder="Placeholder Text"></textarea>
 					  </div>
 					</div>
-
-					<div class="slds-color-picker">
-					  <div class="slds-color-picker__summary">
-					    <label class="slds-color-picker__summary-label" for="color-picker-summary-input">Choose Color</label>
-					    <button class="slds-button slds-color-picker__summary-button slds-button_icon slds-button_icon-more" title="Choose Color">
-					      <span class="slds-swatch" style="background: rgb(87, 123, 193);">
-					        <span class="slds-assistive-text">hsl(220, 46%, 55%)</span>
-					      </span>
-					      <svg class="slds-button__icon slds-button__icon_small slds-m-left_xx-small" aria-hidden="true">
-					        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down" />
-					      </svg>
-					      <span class="slds-assistive-text">Choose a color. Current color: #5679C0</span>
-					    </button>
-					    <div class="slds-form-element slds-color-picker__summary-input">
-					      <div class="slds-form-element__control">
-					        <input id="color-picker-summary-input" class="slds-input" type="text" value="#5679C0" />
-					      </div>
-					    </div>
-					  </div>
-					  <section class="slds-popover slds-color-picker__selector slds-hide" role="dialog" aria-label="Choose a color" aria-describedby="dialog-body-id-2">
-					    <div class="slds-popover__body" id="dialog-body-id-2">
-					      <div class="slds-tabs_default">
-					        <ul class="slds-tabs_default__nav" role="tablist">
-					          <li class="slds-tabs_default__item slds-is-active" title="Default" role="presentation"><a class="slds-tabs_default__link" href="javascript:void(0);" role="tab" tabindex="0" aria-selected="true" aria-controls="color-picker-default" id="color-picker-default__item">Default</a></li>
-					          <li class="slds-tabs_default__item" title="Custom"
-					            role="presentation"><a class="slds-tabs_default__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="color-picker-custom" id="color-picker-custom__item">Custom</a></li>
-					        </ul>
-					        <div id="color-picker-default" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="color-picker-default__item">
-					          <ul class="slds-color-picker__swatches" role="listbox">
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="0">
-					                <span class="slds-swatch" style="background: rgb(227, 171, 236);">
-					                  <span class="slds-assistive-text">#e3abec</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(194, 219, 247);">
-					                  <span class="slds-assistive-text">#c2dbf7</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(159, 214, 255);">
-					                  <span class="slds-assistive-text">#9fd6ff</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(157, 231, 218);">
-					                  <span class="slds-assistive-text">#9de7da</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(157, 240, 192);">
-					                  <span class="slds-assistive-text">#9df0c0</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(255, 240, 153);">
-					                  <span class="slds-assistive-text">#fff099</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(254, 212, 154);">
-					                  <span class="slds-assistive-text">#fed49a</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(208, 115, 224);">
-					                  <span class="slds-assistive-text">#d073e0</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(134, 186, 243);">
-					                  <span class="slds-assistive-text">#86baf3</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(94, 187, 255);">
-					                  <span class="slds-assistive-text">#5ebbff</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(68, 216, 190);">
-					                  <span class="slds-assistive-text">#44d8be</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(59, 226, 130);">
-					                  <span class="slds-assistive-text">#3be282</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(255, 230, 84);">
-					                  <span class="slds-assistive-text">#ffe654</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(255, 183, 88);">
-					                  <span class="slds-assistive-text">#ffb758</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(189, 53, 189);">
-					                  <span class="slds-assistive-text">#bd35bd</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(87, 121, 193);">
-					                  <span class="slds-assistive-text">#5779c1</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(94, 187, 255);">
-					                  <span class="slds-assistive-text">#5ebbff</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(0, 174, 169);">
-					                  <span class="slds-assistive-text">#00aea9</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(60, 186, 76);">
-					                  <span class="slds-assistive-text">#3cba4c</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(245, 188, 37);">
-					                  <span class="slds-assistive-text">#f5bc25</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(249, 146, 33);">
-					                  <span class="slds-assistive-text">#f99221</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(88, 13, 140);">
-					                  <span class="slds-assistive-text">#580d8c</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(0, 25, 112);">
-					                  <span class="slds-assistive-text">#001970</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(10, 35, 153);">
-					                  <span class="slds-assistive-text">#0a2399</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(11, 116, 119);">
-					                  <span class="slds-assistive-text">#0b7477</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(11, 107, 80);">
-					                  <span class="slds-assistive-text">#0b6b50</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(182, 126, 17);">
-					                  <span class="slds-assistive-text">#b67e11</span>
-					                </span>
-					              </a>
-					            </li>
-					            <li class="slds-color-picker__swatch" role="presentation">
-					              <a class="slds-color-picker__swatch-trigger" href="#" role="option" tabindex="-1">
-					                <span class="slds-swatch" style="background: rgb(184, 93, 13);">
-					                  <span class="slds-assistive-text">#b85d0d</span>
-					                </span>
-					              </a>
-					            </li>
-					          </ul>
-					        </div>
-					        <div id="color-picker-custom" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="color-picker-custom__item">
-					          <div class="slds-color-picker__custom">
-					            <p id="color-picker-instructions" class="slds-assistive-text">Use arrow keys to select a saturation and brightness, on an x and y axis.</p>
-					            <div class="slds-color-picker__custom-range" style="background: rgb(0, 85, 255);">
-					              <a class="slds-color-picker__range-indicator" href="#" aria-live="assertive" aria-atomic="true" aria-describedby="color-picker-instructions" style="bottom: 45%; left: 46%;">
-					                <span class="slds-assistive-text">Saturation: 46%. Brightness: 45%.</span>
-					              </a>
-					            </div>
-					            <div class="slds-color-picker__hue-and-preview">
-					              <label class="slds-assistive-text" for="color-picker-input-range-2">Select Hue</label>
-					              <input type="range" class="slds-color-picker__hue-slider" min="0" max="360" id="color-picker-input-range-2" value="208" />
-					              <span class="slds-swatch" style="background: rgb(86, 121, 192);">
-					                <span class="slds-assistive-text" aria-hidden="true">#5679C0</span>
-					              </span>
-					            </div>
-					            <div class="slds-color-picker__custom-inputs">
-					              <div class="slds-form-element slds-color-picker__input-custom-hex">
-					                <label class="slds-form-element__label" for="color-picker-input-hex-2">Hex</label>
-					                <div class="slds-form-element__control">
-					                  <input id="color-picker-input-hex-2" class="slds-input" type="text" value="#5679C0" />
-					                </div>
-					              </div>
-					              <div class="slds-form-element">
-					                <label class="slds-form-element__label" for="color-picker-input-r-2">
-					                  <abbr title="Red">R</abbr>
-					                </label>
-					                <div class="slds-form-element__control">
-					                  <input id="color-picker-input-r-2" class="slds-input" type="text" value="86" />
-					                </div>
-					              </div>
-					              <div class="slds-form-element">
-					                <label class="slds-form-element__label" for="color-picker-input-g-2">
-					                  <abbr title="Green">G</abbr>
-					                </label>
-					                <div class="slds-form-element__control">
-					                  <input id="color-picker-input-g-2" class="slds-input" type="text" value="121" />
-					                </div>
-					              </div>
-					              <div class="slds-form-element">
-					                <label class="slds-form-element__label" for="color-picker-input-b-2">
-					                  <abbr title="blue">B</abbr>
-					                </label>
-					                <div class="slds-form-element__control">
-					                  <input id="color-picker-input-b-2" class="slds-input" type="text" value="192" />
-					                </div>
-					              </div>
-					            </div>
-					          </div>
-					        </div>
-					      </div>
-					    </div>
-					    <footer class="slds-popover__footer">
-					      <div class="slds-color-picker__selector-footer">
-					        <button class="slds-button slds-button_neutral">Cancel</button>
-					        <button class="slds-button slds-button_brand">Done</button>
-					      </div>
-					    </footer>
-					  </section>
-					</div>
-
-				  <hr>
-
-				  <div class="editor-container">
-				  </div>
-
-
-				</div>
+			  </div>
+			  
 		  </div>
 		  <footer class="slds-card__footer"></footer>
 		</article>
