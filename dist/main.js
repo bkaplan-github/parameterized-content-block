@@ -187,25 +187,26 @@ sdk.getData(function (data) {
   params = data['params'];
   if (typeof params == 'undefined') params = {};
   alert(getParams());
-});
 
-// add the widgets to the page
-$('#workspace-container').html('');
-for (const param in params) {
-  addWidget(param, params[param])
-}
-
-// add the html to the editor
-$('#editor').html(html);
-
-// add a new widget
-$('#add-parameter-button').click(function() {
-  var widgetName = $('#add-parameter-name').val();
-  if (widgetName) {
-    addWidget(widgetName, '');
-    $('#add-parameter-name').val('')
+  // add the widgets to the page
+  $('#workspace-container').html('');
+  for (const param in params) {
+    addWidget(param, params[param])
   }
+  
+  // add the html to the editor
+  $('#editor').html(html);
+
+  // add a new widget
+  $('#add-parameter-button').click(function() {
+    var widgetName = $('#add-parameter-name').val();
+    if (widgetName) {
+      addWidget(widgetName, '');
+      $('#add-parameter-name').val('')
+    }
+  });
 });
+
 
 /*
 function updateContent() {
