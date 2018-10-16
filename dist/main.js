@@ -163,6 +163,17 @@ document.getElementById('workspace').addEventListener("input", function () {
 var params = {}; // parameter metadata
 var html = 'This is some %%=v(@param1)=%% html.' // html code
 
+function updateContent() {
+  var ampscript += "%%["
+  for (const param in ampscriptVars) {
+    ampscript += '\n     SET @' + param + ' = "' + ampscriptVars[param] + '"';
+  }
+  ampscript += "\n]%%"
+
+  sdk.setSuperContent(ampscript+"\n"+html);
+  sdk.setContent(ampscript+"\n"+html);
+}
+
 function addWidget(name, value) {
   var widget = '\n<div class="slds-form-element">\n<label class="slds-form-element__label" for="input-id-'+name+'">'+name+'</label>\n<div class="slds-form-element__control">\n<input class="slds-input" type="text" id="input-id-'+name+'" placeholder="Value" />\n</div>\n</div>'
   $('#workspace-container').append(widget);
@@ -172,9 +183,11 @@ function addWidget(name, value) {
     var value = $(this).val();
     params[name] = value;
     sdk.setData({'params': params});
+    updateContent();
   });
 }
 
+/*
 function getParams() {
   var output = "";
   for (const param in params) {
@@ -182,20 +195,23 @@ function getParams() {
   }
   return output;
 }
+*/
 
 sdk.getData(function (data) {
   params = data['params'];
   if (typeof params == 'undefined') params = {};
-  alert(getParams());
+  // alert(getParams());
 
   // add the widgets to the page
   $('#workspace-container').html('');
   for (const param in params) {
     addWidget(param, params[param])
   }
-  
+
   // add the html to the editor
   $('#editor').html(html);
+
+  updateContent();
 
   // add a new widget
   $('#add-parameter-button').click(function() {
@@ -205,6 +221,14 @@ sdk.getData(function (data) {
       $('#add-parameter-name').val('')
     }
   });
+
+  // update the editor
+  $("#editor").change(function() {
+    html = $(this).text();
+    sdk.setSuperContent(html);
+    updateContent();
+  });
+
 });
 
 
