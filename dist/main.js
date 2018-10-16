@@ -165,8 +165,8 @@ var html = 'This is some %%=v(@param1)=%% html.' // html code
 
 function updateContent() {
   var ampscript = "%%[";
-  for (const param in ampscriptVars) {
-    ampscript += '\n     SET @' + param + ' = "' + ampscriptVars[param] + '"';
+  for (const param in params) {
+    ampscript += '\n     SET @' + param + ' = "' + params[param] + '"';
   }
   ampscript += "\n]%%";
 
@@ -213,7 +213,6 @@ sdk.getData(function (data) {
 
   updateContent();
 
-/*
   // add a new widget
   $('#add-parameter-button').click(function() {
     var widgetName = $('#add-parameter-name').val();
@@ -226,10 +225,8 @@ sdk.getData(function (data) {
   // update the editor
   $("#editor").change(function() {
     html = $(this).text();
-    sdk.setSuperContent(html);
     updateContent();
   });
-*/
 });
 
 
