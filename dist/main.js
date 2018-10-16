@@ -174,7 +174,8 @@ function updateContent() {
   ampscript += "\r\n]%%";
 
   sdk.setSuperContent(fakehtml);
-  sdk.setContent(ampscript+"\r\n"+html);
+  // sdk.setContent(ampscript+"\r\n"+html);
+  sdk.setContent(html);
 }
 
 function addWidget(name, value) {
