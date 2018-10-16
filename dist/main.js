@@ -177,7 +177,7 @@ function addWidget(name, value) {
 
 sdk.getData(function (data) {
   params = data['params'];
-  // alert(params);
+  alert(params);
 });
 
 // add the widgets to the page
