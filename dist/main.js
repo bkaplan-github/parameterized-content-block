@@ -170,7 +170,7 @@ function addWidget(name, value) {
     // alert($(this).data('id') + ' ' + $(this).val());
     var name = $(this).data('id');
     var value = $(this).val()
-    params[name] = value
+    params[name] = value;
     sdk.setData({'params': params});
     alert(name+"="+value);
   });
