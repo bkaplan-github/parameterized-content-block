@@ -178,6 +178,7 @@ function addWidget(name, value) {
 
 sdk.getData(function (data) {
   params = data['params'];
+  if (typeof params == 'undefined') params = {};
 });
 
 // add the widgets to the page
