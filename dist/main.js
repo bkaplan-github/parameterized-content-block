@@ -169,7 +169,7 @@ function addWidget(name, value) {
   $('#input-id-'+name).data({'id': name}).val(value).change(function() {
     // alert($(this).data('id') + ' ' + $(this).val());
     var name = $(this).data('id');
-    var value = $(this).val()
+    var value = $(this).val();
     params[name] = value;
     sdk.setData({'params': params});
     alert(name+"="+value);
