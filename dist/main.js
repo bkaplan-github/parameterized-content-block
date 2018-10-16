@@ -169,7 +169,7 @@ function updateContent() {
   var ampscript = "\r\n%%[";
   for (const param in params) {
     ampscript += '\r\n     SET @' + param + ' = "' + params[param] + '"';
-    var regex = "/%%=v(@"+param+")=%%/gi";
+    var regex = new RegExp("%%=v(@"+param+")=%%", "gi");
     fakehtml = fakehtml.replace(regex, params[param]);
   }
   ampscript += "\r\n]%%";
