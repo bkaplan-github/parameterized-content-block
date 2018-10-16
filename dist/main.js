@@ -168,15 +168,16 @@ function addWidget(name, value) {
   $('#workspace-container').append(widget);
   $('#input-id-'+name).data({'id': name}).val(value).change(function() {
     // alert($(this).data('id') + ' ' + $(this).val());
-    params[$(this).data('id')] = $(this).val();
+    var name = $(this).data('id');
+    var value = $(this).val()
+    params[name] = value
     sdk.setData({'params': params});
-    alert(sdk.getData());
+    alert(name+"="+value);
   });
 }
 
 sdk.getData(function (data) {
   params = data['params'];
-  alert(params);
 });
 
 // add the widgets to the page
