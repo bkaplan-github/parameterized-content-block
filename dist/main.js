@@ -164,11 +164,11 @@ var params = {}; // parameter metadata
 var html = 'This is some %%=v(@param1)=%% html.' // html code
 
 function updateContent() {
-  var ampscript += "%%["
+  var ampscript += "%%[";
   for (const param in ampscriptVars) {
     ampscript += '\n     SET @' + param + ' = "' + ampscriptVars[param] + '"';
   }
-  ampscript += "\n]%%"
+  ampscript += "\n]%%";
 
   sdk.setSuperContent(ampscript+"\n"+html);
   sdk.setContent(ampscript+"\n"+html);
