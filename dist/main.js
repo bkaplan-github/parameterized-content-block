@@ -228,7 +228,7 @@ sdk.getData(function (data) {
   });
 
   // update the editor
-  $("#editor").change(function() {
+  $("#editor").keyup(function() {
     html = $(this).val();
     updateContent();
   });
