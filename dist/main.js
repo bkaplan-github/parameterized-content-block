@@ -161,9 +161,7 @@ document.getElementById('workspace').addEventListener("input", function () {
 /* --- */
 
 var params = {}; // parameter metadata
-var html = 'This is some %%=v(@var1)=%% html.' // html code
-
-
+var html = 'This is some %%=v(@param1)=%% html.' // html code
 
 function addWidget(name, value) {
   var widget = '\n<div class="slds-form-element">\n<label class="slds-form-element__label" for="input-id-'+name+'">'+name+'</label>\n<div class="slds-form-element__control">\n<input class="slds-input" type="text" id="input-id-'+name+'" placeholder="Value" />\n</div>\n</div>'
@@ -172,6 +170,7 @@ function addWidget(name, value) {
     // alert($(this).data('id') + ' ' + $(this).val());
     params[$(this).data('id')] = $(this).val();
     sdk.setData({'params': params});
+    alert(sdk.getData());
   });
 }
 
