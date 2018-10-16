@@ -175,10 +175,18 @@ function addWidget(name, value) {
   });
 }
 
+function getParams() {
+  var output = "";
+  for (const param in params) {
+    output += param+"="+params[param]+", ";
+  }
+  return output;
+}
+
 sdk.getData(function (data) {
   params = data['params'];
   if (typeof params == 'undefined') params = {};
-  alert(params.toString());
+  alert(getParams());
 });
 
 // add the widgets to the page
