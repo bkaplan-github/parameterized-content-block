@@ -166,12 +166,12 @@ var html = 'This is some %%=v(@param1)=%% html.' // html code
 function updateContent() {
   var ampscript = "%%[";
   for (const param in params) {
-    ampscript += '\n     SET @' + param + ' = "' + params[param] + '"';
+    ampscript += '\r\n     SET @' + param + ' = "' + params[param] + '"';
   }
-  ampscript += "\n]%%";
+  ampscript += "\r\n]%%";
 
-  sdk.setSuperContent(ampscript+"\n"+html);
-  sdk.setContent(ampscript+"\n"+html);
+  sdk.setSuperContent(ampscript+"\r\n"+html);
+  sdk.setContent(ampscript+"\r\n"+html);
 }
 
 function addWidget(name, value) {
