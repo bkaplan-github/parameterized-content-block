@@ -169,7 +169,8 @@ function updateContent() {
   var ampscript = "\r\n%%[";
   for (const param in params) {
     ampscript += '\r\n     SET @' + param + ' = "' + params[param] + '"';
-    fakehtml = fakehtml.replace("%%=v(@"+param+")=%%", params[param]);
+    var regex = "/%%=v(@"+param+")=%%/gi";
+    fakehtml = fakehtml.replace(regex, params[param]);
   }
   ampscript += "\r\n]%%";
 
@@ -228,7 +229,7 @@ sdk.getData(function (data) {
   });
 
   // update the editor
-  $("#editor").keyup(function() {
+  $("#editor").keyup(function() { // change()
     html = $(this).val();
     updateContent();
   });
