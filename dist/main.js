@@ -224,7 +224,7 @@ sdk.getData(function (data) {
 
   // update the editor
   $("#editor").change(function() {
-    html = $(this).text();
+    html = $(this).val();
     updateContent();
   });
 });
