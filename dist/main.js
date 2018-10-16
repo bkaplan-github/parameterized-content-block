@@ -172,13 +172,13 @@ function addWidget(name, value) {
     var value = $(this).val();
     params[name] = value;
     sdk.setData({'params': params});
-    alert(name+"="+value);
   });
 }
 
 sdk.getData(function (data) {
   params = data['params'];
   if (typeof params == 'undefined') params = {};
+  alert(params);
 });
 
 // add the widgets to the page
