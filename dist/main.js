@@ -161,18 +161,19 @@ document.getElementById('workspace').addEventListener("input", function () {
 /* --- */
 
 var params = {}; // parameter metadata
-var html = 'This is some %%=v(@param1)=%% html.' // html code
+var html = '' // html code
 
 function updateContent() {
   var fakehtml = html;
 
-  var ampscript = "%%[";
+  var ampscript = "\r\n%%[";
   for (const param in params) {
     ampscript += '\r\n     SET @' + param + ' = "' + params[param] + '"';
     fakehtml = fakehtml.replace("%%=v(@"+param+")=%%", params[param]);
   }
   ampscript += "\r\n]%%";
 
+  sdk.setData({'params': params, 'html': html});
   sdk.setSuperContent(fakehtml);
   sdk.setContent(ampscript+"\r\n"+html);
 }
@@ -185,7 +186,6 @@ function addWidget(name, value) {
     var name = $(this).data('id');
     var value = $(this).val();
     params[name] = value;
-    sdk.setData({'params': params});
     updateContent();
   });
 }
@@ -203,6 +203,8 @@ function getParams() {
 sdk.getData(function (data) {
   params = data['params'];
   if (typeof params == 'undefined') params = {};
+  html = data['html'];
+  if (typeof html == 'undefined') html = "";
   // alert(getParams());
 
   // add the widgets to the page
