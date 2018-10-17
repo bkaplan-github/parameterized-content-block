@@ -163,15 +163,19 @@ document.getElementById('workspace').addEventListener("input", function () {
 var params = {}; // parameter metadata
 var html = '' // html code
 
+function escapeRegExp(text) {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+}
+
 function updateContent() {
   var fakehtml = html;
 
   var ampscript = "\r\n%%[";
   for (const param in params) {
     ampscript += '\r\n     SET @' + param + ' = "' + params[param] + '"';
-    var regex = new RegExp("%%=v\\(@"+param+"\\)=%%", "gi");
+    var regex = new RegExp(escapeRegExp("%%=v\(@"+param+"\)=%%"), "gi");
     console.log(regex);
-    fakehtml = fakehtml.replace(/%%=v\(@param1\)=%%/gi, params[param]);
+    fakehtml = fakehtml.replace(regex, params[param]);
     // fakehtml = fakehtml.replace("%%=v(@"+param+")=%%", params[param]);
   }
   ampscript += "\r\n]%%";
