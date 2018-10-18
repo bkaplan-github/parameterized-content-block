@@ -175,14 +175,12 @@ function updateContent() {
     ampscript += '\r\n     SET @' + param + ' = "' + params[param] + '"';
     regex = new RegExp(escapeRegExp("%%=v(@"+param+")=%%"), "gi");
     fakehtml = fakehtml.replace(regex, params[param]);
-    console.log(regex + " " + params[param] + " " + fakehtml);
-    // fakehtml = fakehtml.replace("%%=v(@"+param+")=%%", params[param]);
   }
   ampscript += "\r\n]%%";
 
   sdk.setData({'params': params, 'html': html});
   sdk.setSuperContent(fakehtml);
-  sdk.setContent(ampscript+"\r\n"+html);
+  sdk.setContent(/* ampscript+"\r\n"+ */ html);
 }
 
 function addWidget(name, value) {
