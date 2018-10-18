@@ -168,8 +168,10 @@ function escapeRegExp(text) {
 }
 
 function updateContent() {
-var regex = new RegExp(escapeRegExp("%%=v(@"+param+")=%%"), "gi");
-console.log(regex + " " + html.replace(regex, params[param]););
+  var regex;
+
+regex = new RegExp(escapeRegExp("%%=v(@"+"param1"+")=%%"), "gi");
+console.log(regex + " " + html.replace(regex, params[param]));
 
   var fakehtml = html;
 
