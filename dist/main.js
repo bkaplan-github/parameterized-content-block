@@ -169,7 +169,7 @@ function escapeRegExp(text) {
 
 function updateContent() {
 var regex = new RegExp(escapeRegExp("%%=v(@"+param+")=%%"), "gi");
-console.log(regex + " " + fakehtml.replace(regex, params[param]););
+console.log(regex + " " + html.replace(regex, params[param]););
 
   var fakehtml = html;
 
