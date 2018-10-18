@@ -169,17 +169,13 @@ function escapeRegExp(text) {
 
 function updateContent() {
   var regex;
-
-regex = new RegExp(escapeRegExp("%%=v(@"+"param1"+")=%%"), "gi");
-console.log(regex + " " + html.replace(regex, "value1"));
-
   var fakehtml = html;
-
   var ampscript = "\r\n%%[";
   for (const param in params) {
     ampscript += '\r\n     SET @' + param + ' = "' + params[param] + '"';
     regex = new RegExp(escapeRegExp("%%=v(@"+param+")=%%"), "gi");
     fakehtml = fakehtml.replace(regex, params[param]);
+    console.log(regex + " " + params[param] + " " + fakehtml);
     // fakehtml = fakehtml.replace("%%=v(@"+param+")=%%", params[param]);
   }
   ampscript += "\r\n]%%";
