@@ -171,7 +171,7 @@ function updateContent() {
   var regex;
 
 regex = new RegExp(escapeRegExp("%%=v(@"+"param1"+")=%%"), "gi");
-console.log(regex + " " + html.replace(regex, params[param]));
+console.log(regex + " " + html.replace(regex, "value1"));
 
   var fakehtml = html;
 
