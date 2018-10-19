@@ -1,6 +1,7 @@
 
-    /* var BlockSDK = require('blocksdk'); */
-    var sdk = window.sfdc.BlockSDK(); /* new BlockSDK(); */
+    var BlockSDK = require('blocksdk');
+    var sdk = new BlockSDK();
+    // var sdk = window.sfdc.BlockSDK();
     console.log(sdk);
 
     var params = {}; // parameter metadata
