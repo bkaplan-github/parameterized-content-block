@@ -1,3 +1,4 @@
+  console.log("here");
 
   /* var BlockSDK = require('blocksdk'); */
   if (window.self === window.top) {
