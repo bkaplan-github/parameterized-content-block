@@ -2,7 +2,6 @@
     // var BlockSDK = require('blocksdk');
     // var sdk = new BlockSDK();
     var sdk = new window.sfdc.BlockSDK();
-    console.log(sdk);
 
     var params = {}; // parameter metadata
     var html = '' // html code
@@ -55,7 +54,7 @@
     }
 
     function addWidget(name, value) {
-      var widget = '\n<div class="slds-form-element">\n<label class="slds-form-element__label" for="input-id-'+name+'">'+name+'</label>\n<div class="slds-form-element__control">\n<input class="slds-input" type="text" id="input-id-'+name+'" placeholder="Value" />\n</div>\n</div>'
+      var widget = '\n<div class="slds-form-element">\n<label class="slds-form-element__label" for="input-id-' + name + '">' + name + '</label>\n<div class="slds-form-element__control">\n<input class="slds-input" type="text" id="input-id-' + name + '" placeholder="Value" />\n</div>\n</div>'
       $('#workspace-container').append(widget);
       $('#input-id-'+name).data({'id': name}).val(value).change(function() {
         // alert($(this).data('id') + ' ' + $(this).val());
@@ -64,6 +63,7 @@
         params[name] = value;
         updateContent();
       });
+      updateContent();
     }
 
     sdk.getData(function (data) {
