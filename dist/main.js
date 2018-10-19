@@ -1,10 +1,7 @@
-  console.log("here");
 
-  /* var BlockSDK = require('blocksdk'); */
-  if (window.self === window.top) {
-    document.body.innerText = 'This application is for use in the Salesforce Marketing Cloud Content Builder Editor only.';
-  } else {
+    /* var BlockSDK = require('blocksdk'); */
     var sdk = window.sfdc.BlockSDK(); /* new BlockSDK(); */
+    console.log(sdk);
 
     var params = {}; // parameter metadata
     var html = '' // html code
@@ -102,4 +99,3 @@
       });
     });
 
-  }
