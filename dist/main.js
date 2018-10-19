@@ -71,7 +71,7 @@
         updateContent();
       });
 
-      params[name] = val;
+      params[name] = value;
       updateContent();
     }
 
