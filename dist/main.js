@@ -71,6 +71,7 @@
         updateContent();
       });
 
+      params[name] = val;
       updateContent();
     }
 
@@ -98,7 +99,6 @@
         if (widgetName) {
           addWidget(widgetName, '');
           $('#add-parameter-name').val('')
-          updateContent();
         }
       });
 
