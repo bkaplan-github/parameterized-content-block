@@ -54,7 +54,7 @@
     }
 
     function addWidget(name, value) {
-      var widget = '\n<div class="slds-form-element">\n<label class="slds-form-element__label" for="input-id-' + name + '">' + name + '</label>\n<div class="slds-form-element__control">\n<input class="slds-input" type="text" id="input-id-' + name + '" placeholder="Value" />\n</div>\n</div>'
+      var widget = '\n<div id="widget-' + name + '" class="slds-form-element">\n<label class="slds-form-element__label" for="input-id-' + name + '">' + name + '</label>\n<div class="slds-form-element__control">\n<input class="slds-input" type="text" id="input-id-' + name + '" placeholder="Value" />\n<button id="delete-parameter-button-' + name + '" class="slds-button slds-button_icon slds-button_icon-border-filled" title="Delete Parameter"><svg class="slds-button__icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#new"></use></svg><span class="slds-assistive-text">Delete Parameter</span></button>\n</div>\n</div>';
       $('#workspace-container').append(widget);
       $('#input-id-'+name).data({'id': name}).val(value).change(function() {
         // alert($(this).data('id') + ' ' + $(this).val());
@@ -63,6 +63,14 @@
         params[name] = value;
         updateContent();
       });
+      $('#delete-parameter-button-'+name).data({'id': name}).click(function() {
+        // alert($(this).data('id') + ' ' + $(this).val());
+        var name = $(this).data('id');
+        $("#widget-"+name).remove();
+        delete params[name];
+        updateContent();
+      });
+
       updateContent();
     }
 
