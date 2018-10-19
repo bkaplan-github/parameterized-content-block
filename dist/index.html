@@ -3,6 +3,7 @@
 	<head>
 		<title>Parameterized Block</title>
 		<link rel="stylesheet" href="./lightning.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
 	</head>
 	<body>
 		<article class="slds-card">
@@ -53,8 +54,8 @@
 			  <div id="new-container">
 					<label class="slds-form-element__label" for="add-parameter">Add Parameter</label>
 					<div id="add-parameter" style="padding:0.5rem; background-color:#f4f6f9;">
-						<input id="add-parameter-name" class="slds-input" type="text" placeholder="Parameter Name" />
-					  <button id="add-parameter-button" class="slds-button slds-button_icon slds-button_icon-border-filled" title="New Parameter">
+						<input id="add-parameter-name" class="slds-input" type="text" placeholder="Parameter Name" style="float:left;" />
+					  <button id="add-parameter-button" class="slds-button slds-button_icon slds-button_icon-border-filled" title="New Parameter" style="float:right;">
 					    <svg class="slds-button__icon" aria-hidden="true">
 					      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#new"></use>
 					    </svg>
@@ -78,7 +79,6 @@
 		  <footer class="slds-card__footer"></footer>
 		</article>
 		
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
 		<script src="./blocksdk.js"></script>
 		<script src="./main.js"></script>
 	</body>
