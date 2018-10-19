@@ -180,7 +180,7 @@ function updateContent() {
 
   sdk.setData({'params': params, 'html': html});
   sdk.setSuperContent(fakehtml);
-  sdk.setContent(/* ampscript+"\r\n"+ */ html);
+  sdk.setContent(ampscript+"\r\n"+html);
 }
 
 function addWidget(name, value) {
