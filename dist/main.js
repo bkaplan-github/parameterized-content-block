@@ -118,12 +118,14 @@
           var amp = data.substring(paramTextStart, paramTextEnd);
           var ampArray = amp.split("SET @");
           params = {};
-          for (String a : ampArray) {
+          for (var i = 0; i < ampArray.length; i++) {
+            var a = ampArray[i];
             var nameEnd = a.indexOf(" ");
             var p = a.substring(0, nameEnd);
-            var v = a.substring(a.indexOf("= ")+3);
-            params[p] = v;
+            var vStart = a.substring(a.indexOf('= "') + 3);
+            var v = vStart.substring(0, indexOf('"'));
             console.log(p+"="+v);
+            params[p] = v;
           }
 
           html = .substring(paramTextEnd + 24);
