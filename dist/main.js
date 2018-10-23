@@ -42,9 +42,11 @@
       var fakehtml = html;
       var ampscript = "%%[\r\n     /* PARAMETERS START */";
       for (const param in params) {
-        ampscript += '\r\n     SET @' + param + ' = "' + params[param] + '"';
-        regex = new RegExp(escapeRegExp("%%=v(@"+param+")=%%"), "gi");
-        fakehtml = fakehtml.replace(regex, params[param]);
+        var name = params[param]['name'];
+        var value = params[param]['value'];
+        ampscript += '\r\n     SET @' + name + ' = "' + value + '"';
+        regex = new RegExp(escapeRegExp("%%=v(@"+name+")=%%"), "gi");
+        fakehtml = fakehtml.replace(regex, value);
       }
       ampscript += "\r\n     /* PARAMETERS END */\r\n]%%";
 
@@ -62,10 +64,11 @@
         // alert($(this).data('id') + ' ' + $(this).val());
         var name = $(this).data('id');
         var value = $(this).val();
-        params[name] = value;
+        params[name]['name'] = name;
+        params[name]['value'] = value;
         updateContent();
       });
-      $('#delete-parameter-button-'+name).data({'id': name}).click(function() {
+      $('#delete-parameter-button-'+name).click(function() {
         // alert($(this).data('id') + ' ' + $(this).val());
         var name = $(this).data('id');
         $("#widget-"+name).remove();
@@ -73,7 +76,8 @@
         updateContent();
       });
 
-      params[name] = value;
+      params[name]['name'] = name;
+      params[name]['value'] = value;
       updateContent();
     }
 
@@ -87,7 +91,7 @@
       // add the widgets to the page
       $('#workspace-container').html('');
       for (const param in params) {
-        addWidget(param, params[param])
+        addWidget(params[param]['name'], params[param]['value'])
       }
 
       // add the html to the editor
@@ -126,7 +130,8 @@
             var vStart = a.substring(a.indexOf('= "') + 3);
             var v = vStart.substring(0, vStart.indexOf('"'));
             // console.log(p+"="+v);
-            params[p] = v;
+            params[p]['name'] = p;
+            params[p]['value'] = v;
             addWidget(p, v);
           }
 
