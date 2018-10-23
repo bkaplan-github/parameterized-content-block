@@ -64,7 +64,7 @@
         // alert($(this).data('id') + ' ' + $(this).val());
         var name = $(this).data('id');
         var value = $(this).val();
-        params[name]['value'] = value;
+        params[name] = {'name': name, 'value': value};
         updateContent();
       });
       $('#delete-parameter-button-'+name).data({'id': name}).click(function() {
