@@ -45,15 +45,18 @@
       if (preview_html == "") fakehtml = html;
       else fakehtml = preview_html;
 
+console.log("update start");
       var ampscript = "%%[ /* PARAMETERS START */";
       for (const param in params) {
         var name = params[param]['name'];
         var value = params[param]['value'];
+console.log(name+"="+value);
         ampscript += '\r\nSET @' + name + ' = "' + value + '"';
         regex = new RegExp(escapeRegExp("%%=v(@"+name+")=%%"), "gi");
         fakehtml = fakehtml.replace(regex, value);
       }
       ampscript += "\r\n/* PARAMETERS END */ ]%%\r\n";
+console.log("update end");
 
       $("#editor").val(ampscript+"\r\n"+html);
 
