@@ -128,8 +128,6 @@
             var vStart = a.substring(a.indexOf('= "') + 3);
             var v = vStart.substring(0, vStart.indexOf('"'));
             // console.log(p+"="+v);
-            params[p]['name'] = p;
-            params[p]['value'] = v;
             addWidget(p, v);
           }
 
