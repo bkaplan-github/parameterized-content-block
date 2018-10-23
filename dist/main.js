@@ -69,7 +69,7 @@
       $('#input-id-'+name).data({'id': name}).val(value).change(function() {
         var name = $(this).data('id');
         var value = $(this).val();
-        params[name]['value'] = value;
+        params[name] = {'name': name, 'value': value};
         updateContent();
       });
 
