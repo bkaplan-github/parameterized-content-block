@@ -73,6 +73,7 @@
         var name = $(this).data('id');
         var value = $(this).val();
         params[name] = {'name': name, 'value': value};
+        console.log("edit param val");
         updateContent();
       });
 
@@ -81,6 +82,7 @@
         var name = $(this).data('id');
         $("#widget-"+name).remove();
         delete params[name];
+        console.log("delete param");
         updateContent();
       });
     }
@@ -106,6 +108,7 @@
       // add the html to the preview
       $('#preview').html(preview_html);
 
+      console.log("init");
       updateContent();
 
       // add a new widget
@@ -114,6 +117,7 @@
         if (widgetName) {
           addWidget(widgetName, '');
           $('#add-parameter-name').val('');
+          console.log("add param");
           updateContent();
         }
       });
@@ -146,12 +150,14 @@
           html = data.substring(paramTextEnd + 26);
         }
 
+        console.log("editor");
         updateContent();
       });
 
       // update the preview
       $("#preview").change(function() { // keyup()
         preview_html = $(this).val();
+        console.log("preview");
         updateContent();
       });
     });
