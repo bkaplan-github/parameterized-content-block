@@ -123,7 +123,7 @@
             var nameEnd = a.indexOf(" ");
             var p = a.substring(0, nameEnd);
             var vStart = a.substring(a.indexOf('= "') + 3);
-            var v = vStart.substring(0, indexOf('"'));
+            var v = vStart.substring(0, vStart.indexOf('"'));
             console.log(p+"="+v);
             params[p] = v;
           }
