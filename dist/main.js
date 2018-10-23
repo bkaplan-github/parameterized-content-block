@@ -115,11 +115,11 @@
         }
         else {
           var paramTextEnd = data.indexOf("/* PARAMETERS END */ ]%%");
-          var amp = data.substring(paramTextStart + 27, paramTextEnd);
+          var amp = data.substring(paramTextStart, paramTextEnd);
           var ampArray = amp.split("SET @");
           params = {};
           $('#workspace-container').html('');
-          for (var i = 0; i < ampArray.length; i++) {
+          for (var i = 1; i < ampArray.length; i++) {
             var a = ampArray[i];
             var nameEnd = a.indexOf(" ");
             var p = a.substring(0, nameEnd);
