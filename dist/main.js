@@ -4,7 +4,8 @@
     var sdk = new window.sfdc.BlockSDK();
 
     var params = {}; // parameter metadata
-    var html = '' // html code
+    var ampscript = ''; // ampscript variables
+    var html = '' // html code without ampscript
     var preview_html = '' // preview html code
 
     /*
@@ -45,7 +46,7 @@
       if (preview_html == "") fakehtml = html;
       else fakehtml = preview_html;
 
-      var ampscript = "%%[ /* PARAMETERS START */";
+      ampscript = "%%[ /* PARAMETERS START */";
       for (const param in params) {
         var name = params[param]['name'];
         var value = params[param]['value'];
@@ -58,7 +59,7 @@ console.log(name+"="+value);
 
       $("#editor").val(ampscript+"\r\n"+html);
 
-      sdk.setData({'params': params, 'html': html, 'preview_html': preview_html});
+      sdk.setData({'params': params, 'ampscript': ampscript, 'html': html, 'preview_html': preview_html});
       sdk.setSuperContent(fakehtml);
       sdk.setContent(ampscript+"\r\n"+html);
     }
@@ -86,6 +87,8 @@ console.log("value changed: "+name+"="+value);
     sdk.getData(function (data) {
       params = data['params'];
       if (typeof params == 'undefined') params = {};
+      ampscript = data['ampscript'];
+      if (typeof ampscript == 'undefined') ampscript = "";
       html = data['html'];
       if (typeof html == 'undefined') html = "";
       preview_html = data['preview_html'];
@@ -99,7 +102,7 @@ console.log("value changed: "+name+"="+value);
       }
 
       // add the html and ampscript to the editor
-      $('#editor').html(html);
+      $("#editor").val(ampscript+"\r\n"+html);
 
       // add the html to the preview
       $('#preview').html(preview_html);
