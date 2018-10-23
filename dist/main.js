@@ -64,7 +64,6 @@
         // alert($(this).data('id') + ' ' + $(this).val());
         var name = $(this).data('id');
         var value = $(this).val();
-        params[name]['name'] = name;
         params[name]['value'] = value;
         updateContent();
       });
@@ -76,8 +75,7 @@
         updateContent();
       });
 
-      params[name]['name'] = name;
-      params[name]['value'] = value;
+      params[name] = {'name': name, 'value': value};
       updateContent();
     }
 
