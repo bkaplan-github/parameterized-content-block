@@ -67,7 +67,7 @@
         params[name]['value'] = value;
         updateContent();
       });
-      $('#delete-parameter-button-'+name).click(function() {
+      $('#delete-parameter-button-'+name).data({'id': name}).click(function() {
         // alert($(this).data('id') + ' ' + $(this).val());
         var name = $(this).data('id');
         $("#widget-"+name).remove();
