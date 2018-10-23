@@ -50,7 +50,7 @@
       for (const param in params) {
         var name = params[param]['name'];
         var value = params[param]['value'];
-console.log(name+"="+value);
+console.log("update: "+name+"="+value);
         ampscript += '\r\nSET @' + name + ' = "' + value + '"';
         regex = new RegExp(escapeRegExp("%%=v(@"+name+")=%%"), "gi");
         fakehtml = fakehtml.replace(regex, value);
@@ -69,17 +69,17 @@ console.log(name+"="+value);
       $('#workspace-container').append(widget);
 
       $('#input-id-'+name).data({'id': name}).val(value).change(function() {
-        var name = $(this).data('id');
-        var value = $(this).val();
-console.log("value changed: "+name+"="+value);
-        params[name]['value'] = value;
+        var n = $(this).data('id');
+        var v = $(this).val();
+console.log("value changed: "+n+"="+v);
+        params[n]['value'] = v;
         updateContent();
       });
 
       $('#delete-parameter-button-'+name).data({'id': name}).click(function() {
-        var name = $(this).data('id');
-        $("#widget-"+name).remove();
-        delete params[name];
+        var n = $(this).data('id');
+        $("#widget-"+n).remove();
+        delete params[n];
         updateContent();
       });
     }
@@ -98,6 +98,7 @@ console.log("value changed: "+name+"="+value);
       // add the widgets to the page
       $('#workspace-container').html('');
       for (const param in params) {
+console.log("init: "+params[param]['name']+"="+params[param]['value']);
         addWidget(params[param]['name'], params[param]['value'])
       }
 
