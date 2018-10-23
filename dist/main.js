@@ -67,7 +67,6 @@
       $('#workspace-container').append(widget);
 
       $('#input-id-'+name).data({'id': name}).val(value).change(function() {
-        // alert($(this).data('id') + ' ' + $(this).val());
         var name = $(this).data('id');
         var value = $(this).val();
         params[name]['value'] = value;
@@ -75,7 +74,6 @@
       });
 
       $('#delete-parameter-button-'+name).data({'id': name}).click(function() {
-        // alert($(this).data('id') + ' ' + $(this).val());
         var name = $(this).data('id');
         $("#widget-"+name).remove();
         delete params[name];
@@ -112,8 +110,8 @@
         if (name) {
           params[name] = {'name': name, 'value': ""};
           addWidget(name, '');
-          $('#add-parameter-name').val('');
           updateContent();
+          $('#add-parameter-name').val('');
         }
       });
 
@@ -138,7 +136,7 @@
             var name = a.substring(0, nameEnd);
             var vStart = a.substring(a.indexOf('= "') + 3);
             var value = vStart.substring(0, vStart.indexOf('"'));
-            params[p] = {'name': name, 'value': value};
+            params[name] = {'name': name, 'value': value};
             addWidget(name, value);
           }
 
