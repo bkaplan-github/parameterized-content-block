@@ -115,9 +115,10 @@
         }
         else {
           var paramTextEnd = data.indexOf("/* PARAMETERS END */ ]%%");
-          var amp = data.substring(paramTextStart, paramTextEnd);
+          var amp = data.substring(paramTextStart + 27, paramTextEnd);
           var ampArray = amp.split("SET @");
           params = {};
+          $('#workspace-container').html('');
           for (var i = 0; i < ampArray.length; i++) {
             var a = ampArray[i];
             var nameEnd = a.indexOf(" ");
@@ -126,15 +127,10 @@
             var v = vStart.substring(0, vStart.indexOf('"'));
             console.log(p+"="+v);
             params[p] = v;
+            addWidget(p, v);
           }
 
           html = data.substring(paramTextEnd + 24);
-        }
-
-        // update the widgets
-        $('#workspace-container').html('');
-        for (const param in params) {
-          addWidget(param, params[param])
         }
 
         updateContent();
