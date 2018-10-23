@@ -70,7 +70,7 @@
         // alert($(this).data('id') + ' ' + $(this).val());
         var name = $(this).data('id');
         var value = $(this).val();
-        params[name][value] = value;
+        params[name]['value'] = value;
         updateContent();
       });
 
