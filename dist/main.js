@@ -71,7 +71,6 @@ console.log(name+"="+value);
         var name = $(this).data('id');
         var value = $(this).val();
 console.log("value changed: "+name+"="+value);
-        params[name]['name'] = name;
         params[name]['value'] = value;
         updateContent();
       });
@@ -105,7 +104,7 @@ console.log("value changed: "+name+"="+value);
       // add the html to the preview
       $('#preview').html(preview_html);
 
-      updateContent();
+      // updateContent();
 
       // add a new widget
       $('#add-parameter-button').click(function() {
