@@ -40,13 +40,15 @@
     function updateContent() {
       var regex;
       var fakehtml = html;
-      var ampscript = "\r\n%%[";
+      var ampscript = "\r\n%%[\r\n     /* PARAMETERS START */";
       for (const param in params) {
         ampscript += '\r\n     SET @' + param + ' = "' + params[param] + '"';
         regex = new RegExp(escapeRegExp("%%=v(@"+param+")=%%"), "gi");
         fakehtml = fakehtml.replace(regex, params[param]);
       }
-      ampscript += "\r\n]%%";
+      ampscript += "\r\n     /* PARAMETERS END */\r\n]%%";
+
+      $("#editor").val(ampscript+"\r\n"+html);
 
       sdk.setData({'params': params, 'html': html});
       sdk.setSuperContent(fakehtml);
@@ -103,8 +105,20 @@
       });
 
       // update the editor
-      $("#editor").keyup(function() { // change()
+      $("#editor")change.(function() { // keyup()
         html = $(this).val();
+
+        // parse out the parameters
+        params = {};
+        params['param1'] = 'val1';
+        params['param2'] = 'val2';
+
+        // update the widgets
+        $('#workspace-container').html('');
+        for (const param in params) {
+          addWidget(param, params[param])
+        }
+
         updateContent();
       });
     });
