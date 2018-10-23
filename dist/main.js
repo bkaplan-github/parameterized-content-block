@@ -105,7 +105,7 @@
       });
 
       // update the editor
-      $("#editor")change.(function() { // keyup()
+      $("#editor").change.(function() { // keyup()
         html = $(this).val();
 
         // parse out the parameters
