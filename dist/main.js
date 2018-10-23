@@ -5,6 +5,7 @@
 
     var params = {}; // parameter metadata
     var html = '' // html code
+    var preview_html = '' // preview html code
 
     /*
     function debounce (func, wait, immediate) {
@@ -39,7 +40,11 @@
 
     function updateContent() {
       var regex;
-      var fakehtml = html;
+      var fakehtml;
+
+      if (preview_html == "") fakehtml = html;
+      else fakehtml = preview_html;
+
       var ampscript = "%%[ /* PARAMETERS START */";
       for (const param in params) {
         var name = params[param]['name'];
@@ -52,7 +57,7 @@
 
       $("#editor").val(ampscript+"\r\n"+html);
 
-      sdk.setData({'params': params, 'html': html});
+      sdk.setData({'params': params, 'html': html, 'preview_html': preview_html});
       sdk.setSuperContent(fakehtml);
       sdk.setContent(ampscript+"\r\n"+html);
     }
@@ -84,6 +89,8 @@
       if (typeof params == 'undefined') params = {};
       html = data['html'];
       if (typeof html == 'undefined') html = "";
+      preview_html = data['preview_html'];
+      if (typeof preview_html == 'undefined') preview_html = "";
       // alert(getParams());
 
       // add the widgets to the page
@@ -105,6 +112,10 @@
           $('#add-parameter-name').val('')
         }
       });
+      // update the editor
+      $("#preview").change(function() { // keyup()
+        var preview_html = $(this).val();
+      }
 
       // update the editor
       $("#editor").change(function() { // keyup()
