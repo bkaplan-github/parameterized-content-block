@@ -45,18 +45,15 @@
       if (preview_html == "") fakehtml = html;
       else fakehtml = preview_html;
 
-console.log("update start");
       var ampscript = "%%[ /* PARAMETERS START */";
       for (const param in params) {
         var name = params[param]['name'];
         var value = params[param]['value'];
-console.log(name+"="+value);
         ampscript += '\r\nSET @' + name + ' = "' + value + '"';
         regex = new RegExp(escapeRegExp("%%=v(@"+name+")=%%"), "gi");
         fakehtml = fakehtml.replace(regex, value);
       }
       ampscript += "\r\n/* PARAMETERS END */ ]%%\r\n";
-console.log("update end");
 
       $("#editor").val(ampscript+"\r\n"+html);
 
@@ -73,8 +70,7 @@ console.log("update end");
         // alert($(this).data('id') + ' ' + $(this).val());
         var name = $(this).data('id');
         var value = $(this).val();
-        params[name] = {'name': name, 'value': value};
-        console.log("edit param val");
+        params[name][value] = value;
         updateContent();
       });
 
@@ -83,7 +79,6 @@ console.log("update end");
         var name = $(this).data('id');
         $("#widget-"+name).remove();
         delete params[name];
-        console.log("delete param");
         updateContent();
       });
     }
@@ -109,7 +104,6 @@ console.log("update end");
       // add the html to the preview
       $('#preview').html(preview_html);
 
-      console.log("init");
       updateContent();
 
       // add a new widget
@@ -119,7 +113,6 @@ console.log("update end");
           params[name] = {'name': name, 'value': ""};
           addWidget(name, '');
           $('#add-parameter-name').val('');
-          console.log("add param");
           updateContent();
         }
       });
@@ -145,7 +138,6 @@ console.log("update end");
             var name = a.substring(0, nameEnd);
             var vStart = a.substring(a.indexOf('= "') + 3);
             var value = vStart.substring(0, vStart.indexOf('"'));
-            // console.log(p+"="+v);
             params[p] = {'name': name, 'value': value};
             addWidget(name, value);
           }
@@ -153,14 +145,12 @@ console.log("update end");
           html = data.substring(paramTextEnd + 26);
         }
 
-        console.log("editor");
         updateContent();
       });
 
       // update the preview
       $("#preview").change(function() { // keyup()
         preview_html = $(this).val();
-        console.log("preview");
         updateContent();
       });
     });
