@@ -114,7 +114,8 @@
       });
       // update the editor
       $("#preview").change(function() { // keyup()
-        var preview_html = $(this).val();
+        preview_html = $(this).val();
+        updateContent();
       });
 
       // update the editor
