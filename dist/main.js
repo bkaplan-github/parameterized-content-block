@@ -128,7 +128,7 @@
             params[p] = v;
           }
 
-          html = .substring(paramTextEnd + 24);
+          html = data.substring(paramTextEnd + 24);
         }
 
         // update the widgets
