@@ -71,7 +71,8 @@ console.log(name+"="+value);
         var name = $(this).data('id');
         var value = $(this).val();
 console.log("value changed: "+name+"="+value);
-        params[name] = {'name': name, 'value': value};
+        params[name]['name'] = name;
+        params[name]['value'] = value;
         updateContent();
       });
 
