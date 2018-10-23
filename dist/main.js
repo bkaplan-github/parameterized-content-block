@@ -40,7 +40,7 @@
     function updateContent() {
       var regex;
       var fakehtml = html;
-      var ampscript = "\r\n%%[\r\n     /* PARAMETERS START */";
+      var ampscript = "%%[\r\n     /* PARAMETERS START */";
       for (const param in params) {
         ampscript += '\r\n     SET @' + param + ' = "' + params[param] + '"';
         regex = new RegExp(escapeRegExp("%%=v(@"+param+")=%%"), "gi");
@@ -125,12 +125,12 @@
             var p = a.substring(0, nameEnd);
             var vStart = a.substring(a.indexOf('= "') + 3);
             var v = vStart.substring(0, vStart.indexOf('"'));
-            console.log(p+"="+v);
+            // console.log(p+"="+v);
             params[p] = v;
             addWidget(p, v);
           }
 
-          html = data.substring(paramTextEnd + 24);
+          html = data.substring(paramTextEnd + 25);
         }
 
         updateContent();
