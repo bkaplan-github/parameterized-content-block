@@ -106,12 +106,28 @@
 
       // update the editor
       $("#editor").change(function() { // keyup()
-        html = $(this).val();
+        var data = $(this).val();
 
         // parse out the parameters
-        params = {};
-        params['param1'] = 'val1';
-        params['param2'] = 'val2';
+        var paramTextStart = data.indexOf("%%[ /* PARAMETERS START */");
+        if (paramTextStart < 0) {
+          html = data;
+        }
+        else {
+          var paramTextEnd = data.indexOf("/* PARAMETERS END */ ]%%");
+          var amp = data.substring(paramTextStart, paramTextEnd);
+          var ampArray = amp.split("SET @");
+          params = {};
+          for (String a : ampArray) {
+            var nameEnd = a.indexOf(" ");
+            var p = a.substring(0, nameEnd);
+            var v = a.substring(a.indexOf("= ")+3);
+            params[p] = v;
+            console.log(p+"="+v);
+          }
+
+          html = .substring(paramTextEnd + 24);
+        }
 
         // update the widgets
         $('#workspace-container').html('');
