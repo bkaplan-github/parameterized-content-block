@@ -131,7 +131,7 @@
             addWidget(p, v);
           }
 
-          html = data.substring(paramTextEnd + 24);
+          html = data.substring(paramTextEnd + 27);
         }
 
         updateContent();
