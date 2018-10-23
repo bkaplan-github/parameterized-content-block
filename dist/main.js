@@ -109,13 +109,13 @@
         var widgetName = $('#add-parameter-name').val();
         if (widgetName) {
           addWidget(widgetName, '');
-          $('#add-parameter-name').val('')
+          $('#add-parameter-name').val('');
         }
       });
       // update the editor
       $("#preview").change(function() { // keyup()
         var preview_html = $(this).val();
-      }
+      });
 
       // update the editor
       $("#editor").change(function() { // keyup()
