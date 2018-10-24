@@ -75,6 +75,7 @@ function addWidget(id, name, value) {
     var value = $(this).val();
     var regex = new RegExp(escapeRegExp('"'), "gi");
     var escaped = value.replace(regex, "&quot;");
+    $(this).val(escaped);
     params[id]['value'] = escaped;
     updateContent();
   });
