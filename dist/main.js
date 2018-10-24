@@ -73,7 +73,9 @@ function addWidget(id, name, value) {
   $('#input-id-'+id).data({'id': id}).val(value).change(function() {
     var id = $(this).data('id');
     var value = $(this).val();
-    params[id]['value'] = value;
+    var regex = new RegExp(escapeRegExp('"'), "gi");
+    var escaped = value.replace(regex, "&quot;");
+    params[id]['value'] = escaped;
     updateContent();
   });
 }
