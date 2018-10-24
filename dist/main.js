@@ -69,17 +69,17 @@ console.log("update: "+name+"="+value);
       $('#workspace-container').append(widget);
 
       $('#input-id-'+name).data({'id': name}).val(value).change(function() {
-        var n = $(this).data('id');
-        var v = $(this).val();
-console.log("value changed: "+n+"="+v);
-        params[n]['value'] = v;
+        var name = $(this).data('id');
+        var value = $(this).val();
+console.log("value changed: "+name+"="+value);
+        params[name.toLowerCase()]['value'] = value;
         updateContent();
       });
 
       $('#delete-parameter-button-'+name).data({'id': name}).click(function() {
-        var n = $(this).data('id');
-        $("#widget-"+n).remove();
-        delete params[n];
+        var name = $(this).data('id');
+        $("#widget-"+name).remove();
+        delete params[name.toLowerCase()];
         updateContent();
       });
     }
@@ -114,7 +114,7 @@ console.log("init: "+params[param]['name']+"="+params[param]['value']);
       $('#add-parameter-button').click(function() {
         var name = $('#add-parameter-name').val();
         if (name) {
-          params[name] = {'name': name, 'value': ""};
+          params[name.toLowerCase()] = {'name': name, 'value': ""};
           addWidget(name, '');
           updateContent();
           $('#add-parameter-name').val('');
@@ -142,7 +142,7 @@ console.log("init: "+params[param]['name']+"="+params[param]['value']);
             var name = a.substring(0, nameEnd);
             var vStart = a.substring(a.indexOf('= "') + 3);
             var value = vStart.substring(0, vStart.indexOf('"'));
-            params[name] = {'name': name, 'value': value};
+            params[name.toLowerCase()] = {'name': name, 'value': value};
             addWidget(name, value);
           }
 
