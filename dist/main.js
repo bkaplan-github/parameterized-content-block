@@ -72,6 +72,11 @@ console.log("update: "+name+"="+value);
         var name = $(this).data('id');
         var value = $(this).val();
 console.log("value changed: "+name+"="+value);
+for (const param in params) {
+  var name = params[param]['name'];
+  var value = params[param]['value'];
+  console.log(param+" : {"+name+" : "+value+"}");
+}
         params[name.toLowerCase()]['value'] = value;
         updateContent();
       });
