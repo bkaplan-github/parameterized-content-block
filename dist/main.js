@@ -66,7 +66,7 @@
     function addWidget(name, value) {
       var id = name.toLowerCase();
 
-      var widget = '\n<div id="widget-' + id + '" class="slds-form-element" style="margin-bottom:10px;">\n<label class="slds-form-element__label" for="input-id-' + id + '">' + name + '</label>\n<div class="slds-form-element__control slds-input-has-fixed-addon">\n<input class="slds-input" type="text" id="input-id-' + id + '" placeholder="Value" />\n</div>\n</div>';
+      var widget = '\n<div id="widget-' + id + '" class="slds-form-element" style="margin-bottom:10px;">\n<label class="slds-form-element__label" for="input-id-' + id + '">' + name.replace("_", " ") + '</label>\n<div class="slds-form-element__control slds-input-has-fixed-addon">\n<input class="slds-input" type="text" id="input-id-' + id + '" placeholder="Empty Value" />\n</div>\n</div>';
       $('#workspace-container').append(widget);
 
       $('#input-id-'+id).data({'id': id}).val(value).change(function() {
@@ -91,7 +91,7 @@
       // add the widgets to the page
       $('#workspace-container').html('');
       for (const param in params) {
-        addWidget(params[param]['name'], params[param]['value'])
+        addWidget(params[param]['name'], params[param]['value']);
       }
 
       // add the html and ampscript to the editor
