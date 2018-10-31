@@ -91,7 +91,7 @@ function addWidget(id, name, value) {
   var widget = '\n<div id="widget-' + id + '" class="slds-form-element" style="margin-bottom:10px;">\n<label class="slds-form-element__label" for="input-id-' + id + '">' + title + '</label>\n<div class="slds-form-element__control slds-input-has-fixed-addon">\n<input class="slds-input" type="text" id="input-id-' + id + '" placeholder="Empty Value" />\n</div>\n</div>';
   $('#workspace-container').append(widget);
 
-  $('#input-id-'+id).data({'id': id}).val(htmlUnescape(value)).change(function() {
+  $('#input-id-'+id).data({'id': id}).val(value).change(function() {
     var id = $(this).data('id');
     var value = $(this).val();
     params[id]['value'] = value;
@@ -139,13 +139,17 @@ sdk.getData(function (data) {
       $('#workspace-container').html('');
       for (var i = 1; i < ampArray.length; i++) {
         var a = ampArray[i];
+
         var nameEnd = a.indexOf(" ");
         var name = a.substring(0, nameEnd);
+
         var id = name.toLowerCase();
+
         var vStart = a.substring(a.indexOf('"') + 1);
         var value = vStart.substring(0, vStart.indexOf('"'));
+
         params[id] = {'id': id, 'name': name, 'value': value};
-        addWidget(name, htmlUnescape(value));
+        addWidget(id, name, htmlUnescape(value));
       }
 
       html = data.substring(paramTextEnd + 26);
