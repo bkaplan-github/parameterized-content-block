@@ -71,7 +71,7 @@ function updateContent() {
   for (const param in params) {
     var name = params[param]['name'];
     var value = params[param]['value'];
-    ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + value + '")';
+    ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + htmlEscape(value) + '")';
     regex = new RegExp(escapeRegExp("%%=v(@"+name+")=%%"), "gi");
     fakehtml = fakehtml.replace(regex, value);
   }
@@ -93,7 +93,7 @@ function addWidget(id, name, value) {
 
   $('#input-id-'+id).data({'id': id}).val(htmlUnescape(value)).change(function() {
     var id = $(this).data('id');
-    var value = htmlEscape($(this).val());
+    var value = $(this).val();
     params[id]['value'] = value;
     updateContent();
   });
@@ -142,10 +142,10 @@ sdk.getData(function (data) {
         var nameEnd = a.indexOf(" ");
         var name = a.substring(0, nameEnd);
         var id = name.toLowerCase();
-        var vStart = a.substring(a.indexOf('= "') + 3);
+        var vStart = a.substring(a.indexOf('"') + 1);
         var value = vStart.substring(0, vStart.indexOf('"'));
         params[id] = {'id': id, 'name': name, 'value': value};
-        addWidget(name, value);
+        addWidget(name, htmlUnescape(value));
       }
 
       html = data.substring(paramTextEnd + 26);
