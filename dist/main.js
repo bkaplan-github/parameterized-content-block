@@ -39,6 +39,27 @@ function escapeRegExp(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 }
 
+function htmlEscape(str) {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    // .replace(/'/g, '&#39;')
+    // .replace(/\//g, '&#x2F;'); // forward slash
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+// I needed the opposite function today, so adding here too:
+function htmlUnescape(str){
+  return str
+    .replace(/&quot;/g, '"')
+    // .replace(/&#39;/g, "'")
+    // .replace(/&#x2F;/g, '/'); // forward slash
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&');
+}
+
 function updateContent() {
   var regex;
   var fakehtml;
@@ -50,7 +71,7 @@ function updateContent() {
   for (const param in params) {
     var name = params[param]['name'];
     var value = params[param]['value'];
-    ampscript += '\r\nSET @' + name + ' = "' + value + '"';
+    ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + value + '")';
     regex = new RegExp(escapeRegExp("%%=v(@"+name+")=%%"), "gi");
     fakehtml = fakehtml.replace(regex, value);
   }
@@ -70,13 +91,10 @@ function addWidget(id, name, value) {
   var widget = '\n<div id="widget-' + id + '" class="slds-form-element" style="margin-bottom:10px;">\n<label class="slds-form-element__label" for="input-id-' + id + '">' + title + '</label>\n<div class="slds-form-element__control slds-input-has-fixed-addon">\n<input class="slds-input" type="text" id="input-id-' + id + '" placeholder="Empty Value" />\n</div>\n</div>';
   $('#workspace-container').append(widget);
 
-  $('#input-id-'+id).data({'id': id}).val(value).change(function() {
+  $('#input-id-'+id).data({'id': id}).val(htmlUnescape(value)).change(function() {
     var id = $(this).data('id');
-    var value = $(this).val();
-    var regex = new RegExp(escapeRegExp('"'), "gi");
-    var escaped = value.replace(regex, "&quot;");
-    $(this).val(escaped);
-    params[id]['value'] = escaped;
+    var value = htmlEscape($(this).val());
+    params[id]['value'] = value;
     updateContent();
   });
 }
