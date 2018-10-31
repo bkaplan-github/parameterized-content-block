@@ -120,7 +120,7 @@ sdk.getData(function (data) {
   $("#editor").val(ampscript+"\r\n"+html);
 
   // add the html to the preview
-  $('#preview').html(preview_html);
+  $('#preview').val(preview_html);
 
   // update the editor
   $("#editor").change(function() { // keyup()
