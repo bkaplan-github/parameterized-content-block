@@ -70,8 +70,8 @@ function updateContent() {
   ampscript = "%%[ /* PARAMETERS START */";
   for (const param in params) {
     var name = params[param]['name'];
-    var value = params[param]['value'];
-    ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + htmlEscape(value) + '")';
+    var value = htmlEscape(params[param]['value']);
+    ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + value + '")';
     regex = new RegExp(escapeRegExp("%%=v(@"+name+")=%%"), "gi");
     fakehtml = fakehtml.replace(regex, value);
   }
