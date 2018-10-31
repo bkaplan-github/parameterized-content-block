@@ -41,23 +41,23 @@ function escapeRegExp(text) {
 
 function htmlEscape(str) {
   return str
-    .replace(/&/g, '&amp;amp;')
-    .replace(/"/g, '&amp;quot;')
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
     // .replace(/'/g, '&#39;')
     // .replace(/\//g, '&#x2F;'); // forward slash
-    .replace(/</g, '&amp;lt;')
-    .replace(/>/g, '&amp;gt;');
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
 }
 
 // I needed the opposite function today, so adding here too:
 function htmlUnescape(str){
   return str
-    .replace(/&amp;quot;/g, '"')
+    .replace(/&quot;/g, '"')
     // .replace(/&#39;/g, "'")
     // .replace(/&#x2F;/g, '/'); // forward slash
-    .replace(/&amp;lt;/g, '<')
-    .replace(/&amp;gt;/g, '>')
-    .replace(/&amp;amp;/g, '&');
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&');
 }
 
 function updateContent() {
