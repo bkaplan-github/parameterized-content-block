@@ -146,10 +146,10 @@ sdk.getData(function (data) {
         var id = name.toLowerCase();
 
         var vStart = a.substring(a.indexOf('"') + 1);
-        var value = vStart.substring(0, vStart.indexOf('"'));
+        var value = htmlUnescape(vStart.substring(0, vStart.indexOf('"')));
 
         params[id] = {'id': id, 'name': name, 'value': value};
-        addWidget(id, name, htmlUnescape(value));
+        addWidget(id, name, value);
       }
 
       html = data.substring(paramTextEnd + 26);
