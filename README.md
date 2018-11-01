@@ -8,7 +8,7 @@ https://github.com/bkaplan-github/parameterized-content-block
 The Parameterized Content Block allows you to paste in parameterized HTML and automatically generates inputs for each parameter. Parameterized HTML is HTML that contains AMPscript variables of the form "%%=v(@Variable)=%%" and has a block of AMPscript "SET" statements at the top to define those variables.
 
 ## How to Use
-Create your parameterized HTML and add your block of SET calls with default values to the top like this:
+Create your parameterized HTML and add your block of SET statements with default values to the top like this:
 
     %%[ /* PARAMETERS START */
     SET @Body_Text = "Here is some text"
