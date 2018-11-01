@@ -1,0 +1,53 @@
+%%[ /* PARAMETERS START */
+SET @Video_URL = "https://www.w3schools.com/html/mov_bbb.mp4"
+SET @Video_Poster_Image = "http://image.exct.net/lib/fe611570736303787417/m/1/7a2b36cf-40e4-49a3-afae-4ca3ba7f63e9.jpg"
+SET @Video_Fallback_URL = "https://www.salesforce.com"
+SET @Video_Fallback_Image = TreatAsContent("%%=v(@Video_Poster_Image)=%%")
+SET @Video_Fallback_Alias = "Video Link"
+SET @Video_Width = "425"
+SET @Video_Height = "auto"
+SET @Background_Color = "#ffffff"
+/* PARAMETERS END */ ]%%
+
+<style type="text/css">
+  .video-wrapper {display:none;}
+  @media (-webkit-min-device-pixel-ratio: 0) and (min-device-width:1024px) 
+  {
+    .video-wrapper { display:block!important; }
+    .video-fallback { display:none!important; }
+  }
+  @supports (-webkit-overflow-scrolling:touch) and (color:#ffffffff) {
+    div[class^=video-wrapper] { display:block!important; }
+    div[class^=video-fallback] { display:none!important; }
+  }
+  #MessageViewBody .video-wrapper { display:block!important; }
+  #MessageViewBody .video-fallback { display:none!important; }
+  
+  @media only screen and (max-width: 480px) {
+    .video {
+      width: 100% !important;
+      height: auto !important;
+      max-width: %%=v(@Video_Width)=%%px !important;
+    }
+  }
+</style>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td bgcolor="%%=v(@Background_Color)=%%" align="center" valign="middle">
+
+      <!-- video section -->
+      <div class="video-wrapper" style="display:none;">
+        <video class="video" width="%%=v(@Video_Width)=%%" height="%%=v(@Video_Height)=%%" controls="controls" poster="%%=v(@Video_Poster_Image)=%%" src="%%=v(@Video_URL)=%%">
+          <!-- fallback -->
+          <a href="%%=RedirectTo(@Video_Fallback_URL)=%%" alias="%%=v(@Video_Fallback_Alias)=%%" target="_blank"><img class="video" width="%%=v(@Video_Width)=%%" height="%%=v(@Video_Height)=%%" src="%%=v(@Video_Fallback_Image)=%%"></a>
+        </video>
+      </div>
+
+      <!-- fallback section -->
+      <div class="video-fallback">
+        <a href="%%=RedirectTo(@Video_Fallback_URL)=%%" alias="%%=v(@Video_Fallback_Alias)=%%" target="_blank"><img class="video" width="%%=v(@Video_Width)=%%" height="%%=v(@Video_Height)=%%" src="%%=v(@Video_Fallback_Image)=%%"></a>
+      </div>
+
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,29 @@
+<!-- show on desktop only -->
+<table class="%%=v(@Mobile_Hide_Class)=%%" width="100%" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top" align="left">
+      <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td valign="top" align="center"><img class="%%=v(@Mobile_Image_Class)=%%" src="%%=v(@Desktop_Image)=%%" alt="%%=v(@Image_Alt)=%%" style="display: block; border: none; font-family: Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; line-height: 20px; color: #000001; mso-line-height-rule: exactly;" width="%%=v(@Desktop_Image_Width)=%%"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!-- show on mobile only -->
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+  <!--[if !mso]><!-- -->
+  <tr>
+    <td style="font-size:0%; line-height: 0px; padding:0;" bgcolor="#ffffff">
+      <div class="%%=v(@Mobile_Show_Class)=%%" style="font-size:0%; max-height: 0; overflow: hidden; display: none;">
+        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td valign="top" align="center"><img class="%%=v(@Mobile_Image_Class)=%%" src="%%=v(@Mobile_Image)=%%" alt="%%=v(@Image_Alt)=%%" style="display: block; border: none; font-family: Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; line-height: 20px; color: #000001; mso-line-height-rule: exactly;" width="%%=v(@Desktop_Image_Width)=%%"></td>
+          </tr>
+        </table>
+      </div>
+    </td>
+  </tr>
+  <!--<![endif]-->
+</table>
