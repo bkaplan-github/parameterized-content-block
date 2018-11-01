@@ -1,44 +1,29 @@
 # parameterized content block
 Salesforce Marketing Cloud Content Builder Block using the [blocksdk](https://github.com/salesforce-marketingcloud/blocksdk).
 
+The Parameterized Content Block allows you to paste in parameterized HTML and generates inputs for each parameter.  Parameterized HTML is HTML that contains AMPscript variables of the form "%%=v(@Variable)=%%" and has a block of AMPscript "SET" calls at the top to define those variables.
 
+## How to Use
+Create your parameterized HTML content block, and add your clock of SET calls to the top surrounded by "%%[ /* PARAMETERS START */" and "/* PARAMETERS END */ ]%%".  For example:
 
+    %%[ /* PARAMETERS START */
+    SET @Body_Text = "Here is some text"
+    SET @Text_Color = "#ff0000"
+    /* PARAMETERS END */ ]%%
 
-## Deployment
-As a node app:
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td align="left" valign="top" style="font-family: Helvetica, Arial, sans-serif; font-weight: normal; font-size: 16px; line-height: 20px; color: %%=v(@Text_Color)=%%; mso-line-height-rule: exactly;">%%=v(@Body_Text)=%%</td>
+        </tr>
+    </table>
 
-```bash
-npm install
-npm start
-```
-One click deployment to heroku:
+Paste your code into the "CODE" input.  The parameters will automatically be created so that a user can type in values for body text and text color without knowing how to edit the AMPscript variables.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+You can add alternate HTML code to the "PREVIEW" input that will be the code that renders in the editor.
 
-## Building your own block from here
+The above example isn't particularly useful since a text block can be edited using the Freeform editor, but this would be useful for more complex code that cannot be edited in the freeform editor.
 
-```bash
-# do not fork
-git clone https://github.com/tbesluau/sampleblock.git <my block name e.g. myblock>
-cd <my block name e.g. mybock>
-# create your own empty github repository for your new block and copy the clone url for it
-git remote set-url origin <your empty repo url>
-npm install
-```
+This is useful for quickly adding an interface to nearly any code without having to know the Block SDK to create your own custom content block.  It could be used to implement many of the custom content blocks that have already been created by other developers, all without having to use the block SDK.
 
-Files to edit:
+Example code is included in the "examples" folder for an image that will swap on mobile, text on a background image, and embedding a video in an email (all things that cannot be done within the standard content blocks), all of which can now be implemented using this content block without having to create a new custom content block.
 
- * src/main.js for your code
- * dist/index.html for your markup
- * package.json for your block name and description
- * README.md to be your own README
- 
-To test your changes locally:
-
-```bash
-npm run build; npm start
-```
-
-Then go to the block tester app and enter `http://localhost:3000` in the text field and click a block. You will have to allow unsecure iframes in your bowser (top right in the url bar in Chrome) first.
-
-Once ready to deploy, commit your changes to your repo and click the deploy to heroku button on it.
