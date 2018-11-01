@@ -5,7 +5,7 @@ adds an interface to parameterized HTML without having to know or use the Block 
 
 https://github.com/bkaplan-github/parameterized-content-block
 
-The Parameterized Content Block allows you to paste in parameterized HTML and generates inputs for each parameter. Parameterized HTML is HTML that contains AMPscript variables of the form "%%=v(@Variable)=%%" and has a block of AMPscript "SET" calls at the top to define those variables.
+The Parameterized Content Block allows you to paste in parameterized HTML and automatically generates inputs for each parameter. Parameterized HTML is HTML that contains AMPscript variables of the form "%%=v(@Variable)=%%" and has a block of AMPscript "SET" calls at the top to define those variables.
 
 ## How to Use
 Create your parameterized HTML and add your block of SET calls to the top like this:
