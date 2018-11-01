@@ -4,7 +4,7 @@ Salesforce Marketing Cloud Content Builder Block using the [blocksdk](https://gi
 The Parameterized Content Block allows you to paste in parameterized HTML and generates inputs for each parameter.  Parameterized HTML is HTML that contains AMPscript variables of the form "%%=v(@Variable)=%%" and has a block of AMPscript "SET" calls at the top to define those variables.
 
 ## How to Use
-Create your parameterized HTML content block, and add your clock of SET calls to the top surrounded by "%%[ /* PARAMETERS START */" and "/* PARAMETERS END */ ]%%".  For example:
+Create your parameterized HTML content block, and add your clock of SET calls to the top surrounded by AMPscript block / comment lines in a specific format.  For example:
 
     %%[ /* PARAMETERS START */
     SET @Body_Text = "Here is some text"
