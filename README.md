@@ -30,5 +30,5 @@ This is useful for quickly adding an interface to nearly any code without having
 Example code is included in the "examples" folder for an image that will swap on mobile, text on a background image, and embedding a video in an email (all things that cannot be done within the standard content blocks), all of which can now be implemented using this content block without having to create a new custom content block.
 
 ## Future Enhancements
-May add support for other types of inputs (sliders, color pickers, etc).
+Add support for other types of inputs (sliders, color pickers, etc).
 
