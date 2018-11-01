@@ -21,7 +21,7 @@ Create your parameterized HTML content block, and add your clock of SET calls to
 
 Paste your code into the "CODE" input.  The parameters will automatically be created so that a user can type in values for body text and text color without knowing how to edit the AMPscript variables.
 
-You can add alternate HTML code to the "PREVIEW" input that will be the code that renders in the editor.
+You can add alternate HTML code to the "PREVIEW" input that will be alternate code that renders in the editor (useful if your code won't render properly in the editor).
 
 The above example isn't particularly useful since a text block can be edited using the Freeform editor, but this would be useful for more complex code that cannot be edited in the freeform editor.
 
