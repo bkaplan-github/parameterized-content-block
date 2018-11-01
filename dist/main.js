@@ -78,6 +78,7 @@ function updateContent() {
   ampscript += "\r\n/* PARAMETERS END */ ]%%\r\n";
 
   $("#editor").val(ampscript+"\r\n"+html);
+console.log(preview.html);
 
   sdk.setData({'params': params, 'ampscript': ampscript, 'html': html, 'preview_html': preview_html});
   sdk.setSuperContent(fakehtml);
@@ -88,7 +89,7 @@ function addWidget(id, name, value) {
   var regex = new RegExp(escapeRegExp("_"), "gi");
   var title = name.replace(regex, " ");
 
-  var widget = '\n<div id="widget-' + id + '" class="slds-form-element" style="margin-bottom:10px;">\n<label class="slds-form-element__label" for="input-id-' + id + '">' + title + '</label>\n<div class="slds-form-element__control slds-input-has-fixed-addon">\n<input class="slds-input" type="text" id="input-id-' + id + '" placeholder="Empty Value" />\n</div>\n</div>';
+  var widget = '\n<div id="widget-' + id + '" class="slds-form-element" style="margin-bottom:10px;">\n<label class="slds-form-element__label" for="input-id-' + id + '">' + title + '</label>\n<div class="slds-form-element__control slds-input-has-fixed-addon">\n<input class="slds-input" type="text" id="input-id-' + id + '" placeholder="" />\n</div>\n</div>';
   $('#workspace-container').append(widget);
 
   $('#input-id-'+id).data({'id': id}).val(value).change(function() {
@@ -140,8 +141,7 @@ sdk.getData(function (data) {
       for (var i = 1; i < ampArray.length; i++) {
         var a = ampArray[i];
 
-        var nameEnd = a.indexOf(" ");
-        var name = a.substring(0, nameEnd);
+        var name = a.substring(0, a.indexOf(" "));
 
         var id = name.toLowerCase();
 
