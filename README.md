@@ -3,7 +3,9 @@ Parameterized Content Block is a custom Salesforce Marketing Cloud Content Build
 
 Parameterized Content Block adds an interface to parameterized HTML code without having to know or use the Block SDK, Javascript, Github, or Heroku.  It allows you to paste in parameterized HTML and automatically generates inputs for each parameter. Parameterized HTML is HTML that contains AMPscript variables of the form "%%=v(@Variable)=%%" and has a block of AMPscript "SET" statements at the top to define those variables.
 
-https://github.com/bkaplan-github/parameterized-content-block
+Github:  https://github.com/bkaplan-github/parameterized-content-block
+
+Heroku app: https://parameterized-content-block.herokuapp.com/
 
 ## How to Use
 Create your parameterized HTML and add your block of SET statements with default values to the top like this:
@@ -34,4 +36,4 @@ Parameterized Content Block is useful for easily adding an interface to nearly a
 Examples are included in the "examples" folder for a mobile-swappable image, text on a background image, and embedding a video in an email (all things that cannot be done with standard freeform content blocks), all of which can now be implemented using Parameterized Content Block without having to create a new custom content block.
 
 ## Future Enhancements
-Add support for other types of inputs (sliders, color pickers, etc).
+Add support for other types of inputs (select menu, sliders, color pickers, etc).
