@@ -8,7 +8,7 @@ Github repository:  https://github.com/bkaplan-github/parameterized-content-bloc
 Heroku app: https://parameterized-content-block.herokuapp.com/
 
 
-[![Parameterized Content Block](https://github.com/bkaplan-github/parameterized-content-block/blob/master/ParameterizedCB.jpg)](https://github.com/bkaplan-github/parameterized-content-block)
+[![Parameterized Content Block](https://github.com/bkaplan-github/parameterized-content-block/blob/master/ParameterizedCB2.jpg)](https://github.com/bkaplan-github/parameterized-content-block)
 
 ## How to Use
 Create your parameterized HTML and add your block of SET statements with default values to the top like this:
