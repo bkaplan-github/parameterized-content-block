@@ -32,11 +32,11 @@ The above is only an example and isn't particularly useful since a simple text b
 
 Note that the AMPscript block containing the SET statement must be at the top, and the lines above and below the SET statements must be in the exact format shown above in order for the SET statements to be properly parsed. You can add additional AMPscript blocks below.
 
-Paste your code into the "Code" input. The parameter inputs will automatically be created so that a user can enter or edit the values in the inputs (in the above example, for body text and text color) without knowing AMPscript. Parameter input names will be taken from the names of the AMPscript variables with underscores turned into spaces.
+Paste your code into the "Code" input. The parameter inputs will automatically be created so that a user can enter or edit the values in the inputs (in the above example, for body text and text color) without knowing AMPscript.
 
 The code will be rendered in the editor with the variables replaced with parameter values. You can add alternate HTML code to the "Preview" input that will be rendered only in the editor (useful if your code won't render properly in the editor due to AMPscript in the code).
 
-Examples are included in the "examples" folder for a mobile-swappable image, text on a background image, and embedding a video in an email (all things that cannot be done with standard freeform content blocks), all of which can now be implemented using Parameterized Content Block without having to create a new custom content block and without having to know how to use the Block SDK, Javascript, Github, or Heroku.
+Examples are included in the "examples" folder for a mobile-swappable image, text on a background image, and embedding a video in an email (all things that cannot be done with standard freeform content blocks).  Many different types of custom content can be implemented using Parameterized Content Block without having to create a new custom content block and without having to know how to use the Block SDK, Javascript, Github, or Heroku.
 
 ## Future Enhancements
 Add support for other types of inputs (select menu, sliders, color pickers, etc).
