@@ -174,7 +174,7 @@ sdk.getData(function (data) {
         var options = {};
         var extra = vStart.substring(vEnd);
         var cStart = extra.indexOf("/* {");
-        if (hasComment >= 0) {
+        if (cStart >= 0) {
           var cEnd = extra.indexOf("*/");
           var comment = cStart.substring(cStart + 4, cEnd).trim();
           var options = JSON.parse(comment);
