@@ -173,7 +173,7 @@ sdk.getData(function (data) {
         var comment = "";
         var options = {};
         var cStart = vStart.substring(vEnd);
-        var hasComment = indexOf("/* {");
+        var hasComment = cStart.indexOf("/* {");
         if (hasComment >= 0) {
           var comment = cStart.substring(hasComment, indexOf("*/")).trim();
           var options = JSON.parse(comment);
