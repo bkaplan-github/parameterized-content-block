@@ -172,10 +172,11 @@ sdk.getData(function (data) {
         var paramType = 'input';
         var comment = "";
         var options = {};
-        var cStart = vStart.substring(vEnd);
-        var hasComment = cStart.indexOf("/* {");
+        var extra = vStart.substring(vEnd);
+        var cStart = extra.indexOf("/* {");
         if (hasComment >= 0) {
-          var comment = cStart.substring(hasComment, indexOf("*/")).trim();
+          var cEnd = extra.indexOf("*/");
+          var comment = cStart.substring(cStart + 4, cEnd).trim();
           var options = JSON.parse(comment);
           var pType = options['type'];
           if (typeof pType != 'undefined') paramType = pType.toLowerCase();
