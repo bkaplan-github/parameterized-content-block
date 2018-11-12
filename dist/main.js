@@ -181,7 +181,7 @@ sdk.getData(function (data) {
           if (typeof pType != 'undefined') paramType = pType.toLowerCase();
         }
 
-        params[id] = {'id': id, 'name': name, 'value': value, 'type': paramType, 'options', comment};
+        params[id] = {'id': id, 'name': name, 'value': value, 'type': paramType, 'options': comment};
         addWidget(id, name, value, type, options);
       }
 
