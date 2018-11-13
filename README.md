@@ -54,7 +54,11 @@ Advanced features like rollover descriptions and different input types are achie
         </tr>
     </table>
 
-The Body_Text parameter has a rollover description added to the text input.  The Text_Color parameter has been changed from the default text input to a selection input with three options provided.
+### Text Input
+A rollover description can be added to a text input by adding "description" data.  See "Body_Text" parameter in the above example.
+
+### Selection Input
+A selection input is specified by adding "type" data with a value of "selection".  A rollover description can be added to a selection input by adding "description" data.  The options for the selection list are specified using the "options" data.  See "Text_Color" parameter in the above example.
 
 The options of a selection parameter can define a value that is different than the option text displayed in the list, for example:
 
