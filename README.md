@@ -38,5 +38,27 @@ The code will be rendered in the editor with the variables replaced with paramet
 
 Examples are included in the "examples" folder for a mobile-swappable image, text on a background image, and embedding a video in an email (all things that cannot be done with standard freeform content blocks).  Many different types of custom content can be implemented using Parameterized Content Block without having to create a new custom content block and without having to know how to use the Block SDK, Javascript, Github, or Heroku.
 
+## Advanced Features
+Advanced features like rollover descriptions and different input types are achieved by adding comments after the AMPscript "SET" statements that provide more information.  For example:
+
+    %%[ /* PARAMETERS START */
+    SET @Body_Text = "Here is some text" /* {"description":"type your body text here"} */
+    SET @Text_Color = "#ff0000" /* {"description":"select a text color","type":"selection","options":["#ff0000","#00ff00","#0000ff"]} */
+    /* PARAMETERS END */ ]%%
+
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td align="left" valign="top" style="font-family: Helvetica, Arial, sans-serif; 
+            font-weight: normal; font-size: 16px; line-height: 20px; color: %%=v(@Text_Color)=%%; 
+            mso-line-height-rule: exactly;">%%=v(@Body_Text)=%%</td>
+        </tr>
+    </table>
+
+The Body_Text parameter has a rollover description added to the text input.  The Text_Color parameter has been changed from the default text input to a selection input with three options provided.
+
+The options of a selection parameter can define values that are different than the options displayed in the list, for example:
+
+    SET @Text_Color = "#ff0000" /* {"description":"select a text color","type":"selection","options":[{"value":"#ff0000","text":"Red"},{"value":"#00ff00","text":"Green"},{"value":"#0000ff","text":"Blue"}]} */ 
+
 ## Future Enhancements
 Add support for other types of inputs (select menu, sliders, color pickers, etc).
