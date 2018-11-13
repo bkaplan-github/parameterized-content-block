@@ -177,11 +177,11 @@ sdk.getData(function (data) {
         if (cStart >= 0) {
           var cEnd = extra.indexOf("*/");
           var comment = extra.substring(cStart + 3, cEnd).trim();
-          console.log(comment);
           var options = JSON.parse(comment);
           var pType = options['type'];
           if (typeof pType != 'undefined') paramType = pType.toLowerCase();
         }
+console.log(paramType);
 
         params[id] = {'id': id, 'name': name, 'value': value, 'type': paramType, 'options': comment};
         addWidget(id, name, value, paramType, options);
