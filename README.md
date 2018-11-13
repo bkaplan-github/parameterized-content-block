@@ -39,7 +39,7 @@ The code will be rendered in the editor with the variables replaced with paramet
 Examples are included in the "examples" folder for a mobile-swappable image, text on a background image, and embedding a video in an email (all things that cannot be done with standard freeform content blocks).  Many different types of custom content can be implemented using Parameterized Content Block without having to create a new custom content block and without having to know how to use the Block SDK, Javascript, Github, or Heroku.
 
 ## Advanced Features
-Advanced features like rollover descriptions and different input types are achieved by adding comments after the AMPscript "SET" statements that provide more information.  For example:
+Advanced features like rollover descriptions and different input types are achieved by adding comments after the AMPscript "SET" statements.  For example:
 
     %%[ /* PARAMETERS START */
     SET @Body_Text = "Here is some text" /* {"description":"type your body text here"} */
