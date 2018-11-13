@@ -82,7 +82,7 @@ function addWidget(id, name, value, type, options) {
 
   switch(type) {
     case 'selection':
-      widget = '\r\n<div id="widget-' + id + '" class="slds-form-element">\r\n<label class="slds-form-element__label" for="selection-id-' + id + '">' + title + '</label>\r\n<div class="slds-form-element__control">\r\n<div class="slds-select_container">\r\n<select class="slds-select" id="input-id' + id + '">';
+      widget = '\r\n<div id="widget-' + id + '" class="slds-form-element">\r\n<label class="slds-form-element__label" for="selection-id-' + id + '">' + title + '</label>\r\n<div class="slds-form-element__control">\r\n<div class="slds-select_container">\r\n<select class="slds-select" id="input-id-' + id + '">';
       var olist = options["list"];
       for (var i = 0; i < olist.length; i++) {
         var opt = olist[i];
@@ -182,7 +182,6 @@ sdk.getData(function (data) {
           var pType = options['type'];
           if (typeof pType != 'undefined') paramType = pType.toLowerCase();
         }
-console.log(paramType);
 
         params[id] = {'id': id, 'name': name, 'value': value, 'type': paramType, 'options': comment};
         addWidget(id, name, value, paramType, options);
