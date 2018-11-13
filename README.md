@@ -61,4 +61,4 @@ The options of a selection parameter can define a value that is different than t
     SET @Text_Color = "#ff0000" /* {"description":"select a text color","type":"selection","options":[{"value":"#ff0000","text":"Red"},{"value":"#00ff00","text":"Green"},{"value":"#0000ff","text":"Blue"}]} */ 
 
 ## Future Enhancements
-Add support for other types of inputs (select menu, sliders, color pickers, etc).
+Add support for other types of inputs (sliders, color pickers, etc).
