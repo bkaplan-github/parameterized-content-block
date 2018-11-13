@@ -88,7 +88,7 @@ function addWidget(id, name, value, type, options) {
   switch(type) {
     case 'selection':
       widget = '\r\n<div id="widget-' + id + '" class="slds-form-element" title="' + description + '">\r\n<label class="slds-form-element__label" for="selection-id-' + id + '">' + title + '</label>\r\n<div class="slds-form-element__control">\r\n<div class="slds-select_container">\r\n<select class="slds-select" id="input-id-' + id + '">';
-      var olist = options["list"];
+      var olist = options['options'];
       for (var i = 0; i < olist.length; i++) {
         var opt = olist[i];
         var oValue;
