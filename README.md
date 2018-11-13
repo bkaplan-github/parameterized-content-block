@@ -56,7 +56,7 @@ Advanced features like rollover descriptions and different input types are achie
 
 The Body_Text parameter has a rollover description added to the text input.  The Text_Color parameter has been changed from the default text input to a selection input with three options provided.
 
-The options of a selection parameter can define values that are different than the options displayed in the list, for example:
+The options of a selection parameter can define a value that is different than the option text displayed in the list, for example:
 
     SET @Text_Color = "#ff0000" /* {"description":"select a text color","type":"selection","options":[{"value":"#ff0000","text":"Red"},{"value":"#00ff00","text":"Green"},{"value":"#0000ff","text":"Blue"}]} */ 
 
