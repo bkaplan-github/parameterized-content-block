@@ -184,7 +184,7 @@ sdk.getData(function (data) {
         }
 
         params[id] = {'id': id, 'name': name, 'value': value, 'type': paramType, 'options': comment};
-        addWidget(id, name, value, type, options);
+        addWidget(id, name, value, paramType, options);
       }
 
       html = data.substring(paramTextEnd + 26);
