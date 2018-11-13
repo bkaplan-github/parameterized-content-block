@@ -55,12 +55,12 @@ Advanced features like rollover descriptions and different input types are achie
     </table>
 
 ### Text Input
-A rollover description can be added to a text input by adding "description" data.  See "Body_Text" parameter in the above example.
+A rollover description can be added to a text input by adding "description" data.  See the "Body_Text" parameter in the above example.
 
 ### Selection Input
-A selection input is specified by adding "type" data with a value of "selection".  A rollover description can be added to a selection input by adding "description" data.  The options for the selection list are specified using the "options" data.  See "Text_Color" parameter in the above example.
+A selection input is specified by adding "type" data with a value of "selection".  A rollover description can be added to a selection input by adding "description" data.  The options for the selection list are specified using the "options" data.  See the "Text_Color" parameter in the above example.
 
-The options of a selection parameter can define a value that is different than the option text displayed in the list, for example:
+The options of a selection parameter can define a value that is different than the option text displayed in the list using the following syntax:
 
     SET @Text_Color = "#ff0000" /* {"description":"select a text color","type":"selection","options":[{"value":"#ff0000","text":"Red"},{"value":"#00ff00","text":"Green"},{"value":"#0000ff","text":"Blue"}]} */ 
 
