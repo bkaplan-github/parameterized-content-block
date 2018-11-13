@@ -1,15 +1,15 @@
 <!-- background image -->
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
-    <td class="%%=v(@Mobile_Class)=%%" align="%%=v(@Text_Align)=%%" valign="%%=v(@Text_Valign)=%%" width="%%=v(@BG_Width)=%%" height="%%=v(@BG_Height)=%%" bgcolor="%%=v(@BG_Fallback_Color)=%%" background="%%=v(@BG_Image)=%%" style="background-size: %%=v(@BG_Size)=%%; background-position: %%=v(@BG_Position)=%% %%=v(@BG_Vposition)=%%; background-repeat: repeat;">
+    <td class="%%=v(@Mobile_Class)=%%" align="%%=v(@Text_Horizontal_Align)=%%" valign="%%=v(@Text_Vertical_Align)=%%" width="%%=v(@BG_Width)=%%" height="%%=v(@BG_Height)=%%" bgcolor="%%=v(@BG_Fallback_Color)=%%" background="%%=v(@BG_Image)=%%" style="background-size: %%=v(@Mobile_BG_Size)=%%; background-position: %%=v(@Mobile_BG_Horizontal_Position)=%% %%=v(@Mobile_BG_Vertical_Position)=%%; background-repeat: repeat;">
       <div>
         <table width="100%" height="%%=v(@BG_Height)=%%" border="0" cellpadding="0" cellspacing="0">
           <tr>
-            <td height="%%=v(@BG_Height)=%%" align="%%=v(@Text_Align)=%%" valign="%%=v(@Text_Valign)=%%">
+            <td height="%%=v(@BG_Height)=%%" align="%%=v(@Text_Horizontal_Align)=%%" valign="%%=v(@Text_Vertical_Align)=%%">
 
               <table width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td class="%%=v(@Mobile_Text_Class)=%%" align="%%=v(@Text_Align)=%%" valign="%%=v(@Text_Valign)=%%" style="padding: %%=v(@Text_Padding)=%%; font-family: %%=v(@Text_Font_Family)=%%; font-weight: %%=v(@Text_Font_Weight)=%%; font-size: %%=v(@Text_Font_Size)=%%; line-height: %%=v(@Text_Line_Height)=%%; color: %%=v(@Text_Color)=%%; mso-line-height-rule: exactly;">%%=v(@Text)=%%</td>
+                  <td class="%%=v(@Mobile_Text_Class)=%%" align="%%=v(@Text_Horizontal_Align)=%%" valign="%%=v(@Text_Vertical_Align)=%%" style="padding: %%=v(@Text_Padding)=%%; font-family: %%=v(@Text_Font_Family)=%%; font-weight: %%=v(@Text_Font_Weight)=%%; font-size: %%=v(@Text_Font_Size)=%%; line-height: %%=v(@Text_Line_Height)=%%; color: %%=v(@Text_Color)=%%; mso-line-height-rule: exactly;">%%=v(@Text)=%%</td>
                 </tr>
               </table>
 
