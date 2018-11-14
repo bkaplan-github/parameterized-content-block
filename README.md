@@ -43,7 +43,7 @@ Advanced features like rollover descriptions and different input types are achie
 
     %%[ /* PARAMETERS START */
     SET @Body_Text = "Here is some text" /* {"description":"type your body text here"} */
-    SET @Text_Color = "#ff0000" /* {"description":"select a text color","type":"selection","options":["#ff0000","#00ff00","#0000ff"]} */
+    SET @Text_Color = "#ff0000" /* {"type":"selection","options":["#ff0000","#00ff00","#0000ff"],"description":"select a text color"} */
     /* PARAMETERS END */ ]%%
 
     <table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -55,14 +55,14 @@ Advanced features like rollover descriptions and different input types are achie
     </table>
 
 ### Text Input
-A rollover description can be added to a text input by adding "description" data.  See the "Body_Text" parameter in the above example.
+Text input is the default input type so no "type" data is required.  A rollover description can be added to a text input by adding "description" data.  See the "Body_Text" parameter in the above example.
 
 ### Selection Input
-A selection input is specified by adding "type" data with a value of "selection".  A rollover description can be added to a selection input by adding "description" data.  The options for the selection list are specified using the "options" data.  See the "Text_Color" parameter in the above example.
+A selection input is specified by adding "type" data with a value of "selection".  The options for the selection list are specified using the "options" data. A rollover description can be added to a selection input by adding "description" data. See the "Text_Color" parameter in the above example.
 
 The options of a selection parameter can define a value that is different than the option text displayed in the list using the following syntax:
 
-    SET @Text_Color = "#ff0000" /* {"description":"select a text color","type":"selection","options":[{"value":"#ff0000","text":"Red"},{"value":"#00ff00","text":"Green"},{"value":"#0000ff","text":"Blue"}]} */ 
+    SET @Text_Color = "#ff0000" /* {"type":"selection","options":[{"value":"#ff0000","text":"Red"},{"value":"#00ff00","text":"Green"},{"value":"#0000ff","text":"Blue"},"description":"select a text color"]} */ 
 
 ## Future Enhancements
 Add support for other types of inputs (sliders, color pickers, etc).
