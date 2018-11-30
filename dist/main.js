@@ -124,7 +124,7 @@ function addWidget(id, name, value, type, options) {
 
       $('#workspace-container').append(widget);
 
-      $('#slider-id-'+id).data({'id': id, 'prev_val', value}).val(value).mousemove(function() {
+      $('#slider-id-'+id).data({'id': id, 'prev_val': value}).val(value).mousemove(function() {
         var id = $(this).data('id');
         var value = $(this).val();
         var prev_value = $(this).data('prev_val');
