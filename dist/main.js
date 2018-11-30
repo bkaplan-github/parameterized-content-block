@@ -70,7 +70,8 @@ function updateContent() {
     ampscript += "\r\n/* PARAMETERS END */ ]%%\r\n";
   }
 
-  $("#editor").val(ampscript+"\r\n"+html);
+  if (ampscript = "" && html == "") $("#editor").val("");
+  else $("#editor").val(ampscript+"\r\n"+html);
 
   sdk.setData({'params': params, 'ampscript': ampscript, 'html': html, 'preview_html': preview_html});
   sdk.setSuperContent(fakehtml);
