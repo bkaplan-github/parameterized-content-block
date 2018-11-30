@@ -183,6 +183,9 @@ sdk.getData(function (data) {
   $("#editor").change(function() { // keyup()
     var data = $(this).val();
 
+    params = {};
+    $('#workspace-container').html('');
+
     // parse out the parameters
     var paramTextStart = data.indexOf("%%[ /* PARAMETERS START */");
     if (paramTextStart < 0) {
@@ -192,8 +195,6 @@ sdk.getData(function (data) {
       var paramTextEnd = data.indexOf("/* PARAMETERS END */ ]%%");
       var amp = data.substring(paramTextStart, paramTextEnd);
       var ampArray = amp.split("SET @");
-      params = {};
-      $('#workspace-container').html('');
       for (var i = 1; i < ampArray.length; i++) {
         var a = ampArray[i];
 
