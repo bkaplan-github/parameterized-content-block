@@ -56,16 +56,19 @@ function updateContent() {
   if (preview_html == "") fakehtml = html;
   else fakehtml = preview_html;
 
-  ampscript = "%%[ /* PARAMETERS START */";
-  for (const param in params) {
-    var name = params[param]['name'];
-    var value = htmlEscape(params[param]['value']);
-    var options = params[param]['options'];
-    ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + value + '") /* ' + options + ' */';
-    regex = new RegExp(escapeRegExp("%%=v(@"+name+")=%%"), "gi");
-    fakehtml = fakehtml.replace(regex, value);
+  ampscript = "";
+  if (Object.keys(params).length) {
+    ampscript = "%%[ /* PARAMETERS START */";
+    for (const param in params) {
+      var name = params[param]['name'];
+      var value = htmlEscape(params[param]['value']);
+      var options = params[param]['options'];
+      ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + value + '") /* ' + options + ' */';
+      regex = new RegExp(escapeRegExp("%%=v(@"+name+")=%%"), "gi");
+      fakehtml = fakehtml.replace(regex, value);
+    }
+    ampscript += "\r\n/* PARAMETERS END */ ]%%\r\n";
   }
-  ampscript += "\r\n/* PARAMETERS END */ ]%%\r\n";
 
   $("#editor").val(ampscript+"\r\n"+html);
 
