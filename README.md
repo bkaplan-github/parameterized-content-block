@@ -18,12 +18,13 @@ Create your parameterized HTML and add your block of SET statements with default
     %%[ /* PARAMETERS START */
     SET @Body_Text = "Here is some text"
     SET @Text_Color = "#ff0000"
+    SET @Text_Size = "16"
     /* PARAMETERS END */ ]%%
 
     <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
             <td align="left" valign="top" style="font-family: Helvetica, Arial, sans-serif; 
-            font-weight: normal; font-size: 16px; line-height: 20px; color: %%=v(@Text_Color)=%%; 
+            font-weight: normal; font-size: %%=v(@Text_Size)=%%px; line-height: 20px; color: %%=v(@Text_Color)=%%; 
             mso-line-height-rule: exactly;">%%=v(@Body_Text)=%%</td>
         </tr>
     </table>
