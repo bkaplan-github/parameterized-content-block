@@ -44,12 +44,13 @@ Advanced features like rollover descriptions and different input types are achie
     %%[ /* PARAMETERS START */
     SET @Body_Text = "Here is some text" /* {"description":"type your body text here"} */
     SET @Text_Color = "#ff0000" /* {"type":"selection","options":["#ff0000","#00ff00","#0000ff"],"description":"select a text color"} */
+    SET @Text_Size = "16" /* {"type":"slider","min":1,"max":50,"description":"text size"} */
     /* PARAMETERS END */ ]%%
 
     <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
             <td align="left" valign="top" style="font-family: Helvetica, Arial, sans-serif; 
-            font-weight: normal; font-size: 16px; line-height: 20px; color: %%=v(@Text_Color)=%%; 
+            font-weight: normal; font-size: %%=v(@Text_Size)=%%px; line-height: 20px; color: %%=v(@Text_Color)=%%; 
             mso-line-height-rule: exactly;">%%=v(@Body_Text)=%%</td>
         </tr>
     </table>
@@ -64,5 +65,8 @@ The options of a selection parameter can define a value that is different than t
 
     SET @Text_Color = "#ff0000" /* {"type":"selection","options":[{"value":"#ff0000","text":"Red"},{"value":"#00ff00","text":"Green"},{"value":"#0000ff","text":"Blue"},"description":"select a text color"]} */ 
 
+### Slider Input
+A slider input is specified by adding "type" data with a value of "slider".  The minimum and maximum slider values are specified using the "min" and "max" data. A rollover description can be added to a selection input by adding "description" data. See the "Text_Size" parameter in the above example.
+
 ## Future Enhancements
-Add support for other types of inputs (sliders, color pickers, etc).
+Add support for other types of inputs (color pickers, etc).
