@@ -51,12 +51,12 @@ function htmlUnescape(str){
 
 function ampEscape(str){
   return str
-    .replace(/"/g, '""')
-    // .replace(/&#39;/g, "'")
-    // .replace(/&#x2F;/g, '/'); // forward slash
-    .replace(/&amp;lt;/g, '<')
-    .replace(/&amp;gt;/g, '>')
-    .replace(/&amp;amp;/g, '&');
+    .replace(/"/g, '""');
+}
+
+function ampUnescape(str){
+  return str
+    .replace(/""/g, '"');
 }
 
 function updateContent() {
@@ -221,7 +221,7 @@ sdk.getData(function (data) {
         // parse value
         var vStart = a.substring(a.indexOf('"') + 1);
         var vEnd = vStart.indexOf('"');
-        var value = htmlUnescape(vStart.substring(0, vEnd));
+        var value = ampUnescape(vStart.substring(0, vEnd));
 
         // parse type and options
         var paramType = 'input';
