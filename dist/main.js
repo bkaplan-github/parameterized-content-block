@@ -220,17 +220,15 @@ sdk.getData(function (data) {
 
         // parse value
         var vStart = a.substring(a.indexOf('"') + 1);
-
         // find the end quote (ignore any "")
         var vEnd = -2;
         var dEnd = -2;
         while (vEnd == dEnd) {
-          vEnd = tStart.indexOf(dEnd + 2, '"');
-          dEnd = tStart.indexOf(dEnd + 2, '""');
+          vEnd = vStart.indexOf(dEnd + 2, '"');
+          dEnd = vStart.indexOf(dEnd + 2, '""');
         }
-
         var value = ampUnescape(vStart.substring(0, vEnd));
-
+console.log(value);
         // parse type and options
         var paramType = 'input';
         var comment = "";
