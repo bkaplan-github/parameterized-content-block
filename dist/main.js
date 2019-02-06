@@ -49,6 +49,16 @@ function htmlUnescape(str){
     .replace(/&amp;amp;/g, '&');
 }
 
+function ampEscape(str){
+  return str
+    .replace(/"/g, '""')
+    // .replace(/&#39;/g, "'")
+    // .replace(/&#x2F;/g, '/'); // forward slash
+    .replace(/&amp;lt;/g, '<')
+    .replace(/&amp;gt;/g, '>')
+    .replace(/&amp;amp;/g, '&');
+}
+
 function updateContent() {
   var regex;
   var fakehtml;
@@ -61,7 +71,7 @@ function updateContent() {
     ampscript = "%%[ /* PARAMETERS START */";
     for (const param in params) {
       var name = params[param]['name'];
-      var value = htmlEscape(params[param]['value']);
+      var value = ampEscape(params[param]['value']);
       var options = params[param]['options'];
       ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + value + '") /* ' + options + ' */';
       regex = new RegExp(escapeRegExp("%%=v(@"+name+")=%%"), "gi");
