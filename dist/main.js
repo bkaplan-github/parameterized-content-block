@@ -222,7 +222,7 @@ sdk.getData(function (data) {
         var vStart = a.substring(a.indexOf('"') + 1);
         var vEnd = vStart.indexOf('"');
         var value = ampUnescape(vStart.substring(0, vEnd));
-
+console.log(value);
         // parse type and options
         var paramType = 'input';
         var comment = "";
