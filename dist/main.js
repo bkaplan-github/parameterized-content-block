@@ -220,8 +220,7 @@ sdk.getData(function (data) {
 
         // parse value
         var vStart = a.substring(a.indexOf('"') + 1);
-        vEnd = vStart.substring(0, vStart.indexOf('"'));
-        var value = ampUnescape(vStart.substring(0, vEnd));
+        var value = vStart.substring(0, vStart.indexOf('"'));
         // find the end quote (ignore any "")
         /*
         var dEnd = vStart.indexOf('""');
