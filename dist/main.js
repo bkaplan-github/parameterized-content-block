@@ -221,14 +221,15 @@ sdk.getData(function (data) {
         // parse value
         var vStart = a.substring(a.indexOf('"') + 1);
         // find the end quote (ignore any "")
-        var vEnd = -2;
-        var dEnd = -2;
-        while (vEnd == dEnd) {
-          vEnd = vStart.indexOf(dEnd + 2, '"');
-          dEnd = vStart.indexOf(dEnd + 2, '""');
+        var dEnd = vStart.indexOf(0, '""');
+        var vEnd = vStart.indexOf(0, '"');
+        while (vEnd > -1 && vEnd == dEnd) {
+          dEnd = vStart.indexOf(vEnd + 2, '""');
+          vEnd = vStart.indexOf(vEnd + 2, '"');
         }
         var value = ampUnescape(vStart.substring(0, vEnd));
 console.log(value);
+
         // parse type and options
         var paramType = 'input';
         var comment = "";
