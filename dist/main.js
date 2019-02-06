@@ -71,9 +71,9 @@ function updateContent() {
     ampscript = "%%[ /* PARAMETERS START */";
     for (const param in params) {
       var name = params[param]['name'];
-      var value = ampEscape(params[param]['value']);
+      var value = params[param]['value'];
       var options = params[param]['options'];
-      ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + value + '") /* ' + options + ' */';
+      ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + ampEscape(value) + '") /* ' + options + ' */';
       regex = new RegExp(escapeRegExp("%%=v(@"+name+")=%%"), "gi");
       fakehtml = fakehtml.replace(regex, value);
     }
@@ -220,9 +220,18 @@ sdk.getData(function (data) {
 
         // parse value
         var vStart = a.substring(a.indexOf('"') + 1);
-        var vEnd = vStart.indexOf('"');
+
+        // find the end quote (that's not a "")
+        var vEnd = -2;
+        var dEnd = -2;
+        while (vEnd == dEnd) {
+          tStart = vStart.substring(dEnd + 2);
+          vEnd = tStart.indexOf('"');
+          dEnd = tStart.indexOf('""');
+        }
+
         var value = ampUnescape(vStart.substring(0, vEnd));
-console.log(value);
+
         // parse type and options
         var paramType = 'input';
         var comment = "";
