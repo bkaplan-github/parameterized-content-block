@@ -221,13 +221,12 @@ sdk.getData(function (data) {
         // parse value
         var vStart = a.substring(a.indexOf('"') + 1);
 
-        // find the end quote (that's not a "")
+        // find the end quote (ignore any "")
         var vEnd = -2;
         var dEnd = -2;
         while (vEnd == dEnd) {
-          tStart = vStart.substring(dEnd + 2);
-          vEnd = tStart.indexOf('"');
-          dEnd = tStart.indexOf('""');
+          vEnd = tStart.indexOf(dEnd + 2, '"');
+          dEnd = tStart.indexOf(dEnd + 2, '""');
         }
 
         var value = ampUnescape(vStart.substring(0, vEnd));
