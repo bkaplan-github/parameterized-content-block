@@ -56,8 +56,11 @@ Advanced features like rollover descriptions and different input types are achie
         </tr>
     </table>
 
-### Text Input
-Text input is the default input type so no "type" data is required.  A rollover description can be added to a text input by adding "description" data.  See the "Body_Text" parameter in the above example.
+### HTML Text Input
+HTML Text input is the default input type so no "type" data is required.  A rollover description can be added to an HTML text input by adding "description" data.  HTML entities "<", ">", "&" and double-quotes are encoded with eqivalent HTML entities "&lt;", "%gt;", "&amp;" and "&quot;".  See the "Body_Text" parameter in the above example.
+
+### Plain Text Input
+Plain Text input is specified by adding "type" data with a value of "text".  A rollover description can be added to an HTML text input by adding "description" data.  See the "Body_Text" parameter in the above example.
 
 ### Selection Input
 A selection input is specified by adding "type" data with a value of "selection".  The options for the selection list are specified using the "options" data. A rollover description can be added to a selection input by adding "description" data. See the "Text_Color" parameter in the above example.
