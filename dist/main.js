@@ -5,7 +5,7 @@ var sdk = new window.sfdc.BlockSDK();
 
 var params = {}; // parameter metadata
 var ampscript = ''; // ampscript variables
-var html = '' // html code without ampscript
+var html = '' // html code without ampscript variables
 var preview_html = '' // preview html code
 
 /*
@@ -24,10 +24,6 @@ function debounce (func, wait, immediate) {
   };
 }
 */
-
-function escapeRegExp(text) {
-  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
-}
 
 function htmlEscape(str) {
   return str
@@ -59,6 +55,10 @@ function ampUnescape(str){
     .replace(/""/g, '"');
 }
 
+function escapeRegExp(text) {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+}
+
 function updateContent() {
   var regex;
   var fakehtml;
@@ -71,11 +71,21 @@ function updateContent() {
     ampscript = "%%[ /* PARAMETERS START */";
     for (const param in params) {
       var name = params[param]['name'];
+      var type = params[param]['type'];
       var value = params[param]['value'];
       var options = params[param]['options'];
-      ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + ampEscape(value) + '") /* ' + options + ' */';
+
+      // encode the value if needed
+      var encoding = "none";
+      var enc = options["encoding"];
+      if (typeof enc != 'undefined') encoding = enc;
+      if (encoding == "html") value = htmlEscape(value);
+
+      ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + ampEscape(htmlval) + '") /* ' + options + ' */';
+
+      // replace the ampscript variables with their html equivalent
       regex = new RegExp(escapeRegExp("%%=v(@"+name+")=%%"), "gi");
-      fakehtml = fakehtml.replace(regex, value);
+      fakehtml = fakehtml.replace(regex, htmlval);
     }
     ampscript += "\r\n/* PARAMETERS END */ ]%%\r\n";
   }
@@ -220,16 +230,14 @@ sdk.getData(function (data) {
 
         // parse value
         var vStart = a.substring(a.indexOf('"') + 1);
-        /*
-        var vEnd = vStart.indexOf('"');
-        */
+        // var vEnd = vStart.indexOf('"');
+        // find the end of the string (find a " ignoring "")
         var ind = 0;
         var vEnd = vStart.indexOf('"', ind);
         while (vStart.substring(vEnd+1, vEnd+2) == '"') {
           vEnd = vStart.indexOf('"', vEnd+2);
         }
         var value = ampUnescape(vStart.substring(0, vEnd));
-console.log(value);
 
         // parse type and options
         var paramType = 'input';
@@ -244,6 +252,12 @@ console.log(value);
           var pType = options['type'];
           if (typeof pType != 'undefined') paramType = pType.toLowerCase();
         }
+
+        // unencode the value if needed
+        var encoding = "none";
+        var enc = options["encoding"];
+        if (typeof enc != 'undefined') encoding = enc;
+        if (encoding == "html") value = htmlUnescape(value);
 
         params[id] = {'id': id, 'name': name, 'value': value, 'type': paramType, 'options': comment};
         addWidget(id, name, value, paramType, options);
