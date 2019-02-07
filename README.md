@@ -33,6 +33,15 @@ The above is only an example and isn't particularly useful since a simple text b
 
 Note that the AMPscript block containing the SET statement must be at the top, and the lines above and below the SET statements must be in the exact format shown above in order for the SET statements to be properly parsed. You can add additional AMPscript blocks below.
 
+The value for "SET" statements must contains strings within double quotes (&quot;) characters.  Double quotes within that value string can be specified with two double quote characters (&quot;&quot;).  For example, the following will add double quotes around the word "text":
+
+    SET @Body_Text = "Here is some ""text"""
+
+This is especially important if your code contains HTML which requires double quotes (although most of the time you can use single quotes instead).  For example, to make the word "some" blue, you could do one of the following:
+
+    SET @Body_Text = "Here is <span style=""color:#0000ff;"">some</span> text"
+    SET @Body_Text = "Here is <span style='color:#0000ff;'></span> text"
+
 Paste your code into the "Code" input. The parameter inputs will automatically be created so that a user can enter or edit the values in the inputs (in the above example, for body text and text color) without knowing AMPscript.
 
 The code will be rendered in the editor with the variables replaced with parameter values. You can add alternate HTML code to the "Preview" input that will be rendered only in the editor (useful if your code won't render properly in the editor due to AMPscript in the code).
