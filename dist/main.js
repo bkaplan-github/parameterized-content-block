@@ -80,7 +80,6 @@ function updateContent() {
       var enc = options["encoding"];
       if (typeof enc != 'undefined') encoding = enc;
       if (encoding == "html") value = htmlEscape(value);
-console.log("encoding:" + encoding + " encoded:" + value);
 
       ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + ampEscape(value) + '") /* ' + JSON.stringify(options) + ' */';
 
@@ -195,7 +194,7 @@ sdk.getData(function (data) {
   // add the widgets to the page
   $('#workspace-container').html('');
   for (const param in params) {
-    addWidget(params[param]['id'], params[param]['name'], params[param]['value'], params[param]['type'], JSON.parse(params[param]['options']));
+    addWidget(params[param]['id'], params[param]['name'], params[param]['value'], params[param]['type'], params[param]['options']);
   }
 
   // add the html and ampscript to the editor
@@ -259,8 +258,8 @@ sdk.getData(function (data) {
         var enc = options["encoding"];
         if (typeof enc != 'undefined') encoding = enc;
         if (encoding == "html") value = htmlUnescape(value);
-console.log("encoding:" + encoding + " decoded:" + value);
 
+        // store off the params into the object and add the widget
         params[id] = {'id': id, 'name': name, 'value': value, 'type': paramType, 'options': options};
         addWidget(id, name, value, paramType, options);
       }
