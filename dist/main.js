@@ -82,7 +82,7 @@ function updateContent() {
       if (encoding == "html") value = htmlEscape(value);
 console.log("encoding:" + encoding + " encoded:" + value);
 
-      ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + ampEscape(value) + '") /* ' + options + ' */';
+      ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + ampEscape(value) + '") /* ' + JSON.stringify(options) + ' */';
 
       // replace the ampscript variables with their html equivalent
       regex = new RegExp(escapeRegExp("%%=v(@"+name+")=%%"), "gi");
@@ -261,7 +261,7 @@ sdk.getData(function (data) {
         if (encoding == "html") value = htmlUnescape(value);
 console.log("encoding:" + encoding + " encoded:" + value);
 
-        params[id] = {'id': id, 'name': name, 'value': value, 'type': paramType, 'options': comment};
+        params[id] = {'id': id, 'name': name, 'value': value, 'type': paramType, 'options': options};
         addWidget(id, name, value, paramType, options);
       }
 
