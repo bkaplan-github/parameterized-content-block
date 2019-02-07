@@ -80,6 +80,7 @@ function updateContent() {
       var enc = options["encoding"];
       if (typeof enc != 'undefined') encoding = enc;
       if (encoding == "html") value = htmlEscape(value);
+console.log("encoded:" + value);
 
       ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + ampEscape(value) + '") /* ' + options + ' */';
 
@@ -258,6 +259,7 @@ sdk.getData(function (data) {
         var enc = options["encoding"];
         if (typeof enc != 'undefined') encoding = enc;
         if (encoding == "html") value = htmlUnescape(value);
+console.log("decoded:" + value);
 
         params[id] = {'id': id, 'name': name, 'value': value, 'type': paramType, 'options': comment};
         addWidget(id, name, value, paramType, options);
