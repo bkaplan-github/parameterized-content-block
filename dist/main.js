@@ -81,7 +81,7 @@ function updateContent() {
       if (typeof enc != 'undefined') encoding = enc;
       if (encoding == "html") value = htmlEscape(value);
 
-      ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + ampEscape(htmlval) + '") /* ' + options + ' */';
+      ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + ampEscape(value) + '") /* ' + options + ' */';
 
       // replace the ampscript variables with their html equivalent
       regex = new RegExp(escapeRegExp("%%=v(@"+name+")=%%"), "gi");
