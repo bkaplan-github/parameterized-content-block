@@ -220,18 +220,17 @@ sdk.getData(function (data) {
 
         // parse value
         var vStart = a.substring(a.indexOf('"') + 1);
-        var vEnd = vStart.indexOf('"');
-        var value = ampUnescape(vStart.substring(0, vEnd));
         /*
-        var dEnd = vStart.indexOf('""');
         var vEnd = vStart.indexOf('"');
-        while (vEnd > -1 && vEnd == dEnd) {
-          dEnd = vStart.indexOf('""', vEnd + 2);
-          vEnd = vStart.indexOf('"', vEnd + 2);
+        */
+        var ind = 0;
+        var vEnd = vStart.indexOf('"', ind);
+        while (vStart.substring(vEnd+1, vEnd+2) == '"') {
+          vEnd = vStart.indexOf('"', vEnd+2);
         }
         var value = ampUnescape(vStart.substring(0, vEnd));
-        */
 console.log(value);
+
         // parse type and options
         var paramType = 'input';
         var comment = "";
