@@ -40,7 +40,7 @@ The value for "SET" statements must contains strings within double quotes (&quot
 This is especially important if your code contains HTML which requires double quotes (although most of the time you can use single quotes instead).  For example, to make the word "some" blue, you could do one of the following:
 
     SET @Body_Text = "Here is <span style=""color:#0000ff;"">some</span> text"
-    SET @Body_Text = "Here is <span style='color:#0000ff;'></span> text"
+    SET @Body_Text = "Here is <span style='color:#0000ff;'>some</span> text"
 
 Paste your code into the "Code" input. The parameter inputs will automatically be created so that a user can enter or edit the values in the inputs (in the above example, for body text and text color) without knowing AMPscript.
 
