@@ -37,12 +37,12 @@ function htmlEscape(str) {
 
 function htmlUnescape(str){
   return str
-    .replace(/&amp;quot;/g, '"')
+    .replace(/&quot;/g, '"')
     // .replace(/&#39;/g, "'")
     // .replace(/&#x2F;/g, '/'); // forward slash
-    .replace(/&amp;lt;/g, '<')
-    .replace(/&amp;gt;/g, '>')
-    .replace(/&amp;amp;/g, '&');
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&');
 }
 
 function ampEscape(str){
