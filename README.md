@@ -81,5 +81,5 @@ The options of a selection parameter can define a value that is different than t
 A slider input is specified by adding "type" data with a value of "slider".  The minimum and maximum slider values are specified using the "min" and "max" data. A rollover description can be added to a selection input by adding "description" data. See the "Text_Size" parameter in the above example.
 
 ## Future Enhancements
-Add support for other types of inputs (color pickers, etc).
-Allow the use of single quotes in the "SET" statements.
+* Add support for other types of inputs (color pickers, etc).
+* Allow the use of single quotes in the "SET" statements.
