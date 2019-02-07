@@ -27,12 +27,12 @@ function debounce (func, wait, immediate) {
 
 function htmlEscape(str) {
   return str
-    .replace(/&/g, '&amp;amp;')
-    .replace(/"/g, '&amp;quot;')
-    // .replace(/'/g, '&#39;')
+    .replace(/&/g, '&amp;')
+    .replace(/>/g, '&gt;')
+    .replace(/</g, '&lt;')
     // .replace(/\//g, '&#x2F;'); // forward slash
-    .replace(/</g, '&amp;lt;')
-    .replace(/>/g, '&amp;gt;');
+    // .replace(/'/g, '&#39;')
+    .replace(/"/g, '&quot;');
 }
 
 function htmlUnescape(str){
@@ -259,7 +259,7 @@ sdk.getData(function (data) {
         var enc = options["encoding"];
         if (typeof enc != 'undefined') encoding = enc;
         if (encoding == "html") value = htmlUnescape(value);
-console.log("encoding:" + encoding + " encoded:" + value);
+console.log("encoding:" + encoding + " decoded:" + value);
 
         params[id] = {'id': id, 'name': name, 'value': value, 'type': paramType, 'options': options};
         addWidget(id, name, value, paramType, options);
