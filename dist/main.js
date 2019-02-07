@@ -85,7 +85,7 @@ function updateContent() {
 
       // replace the ampscript variables with their html equivalent
       regex = new RegExp(escapeRegExp("%%=v(@"+name+")=%%"), "gi");
-      fakehtml = fakehtml.replace(regex, htmlval);
+      fakehtml = fakehtml.replace(regex, value);
     }
     ampscript += "\r\n/* PARAMETERS END */ ]%%\r\n";
   }
