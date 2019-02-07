@@ -16,6 +16,7 @@ Parameterized Content Block is useful for easily adding an interface to nearly a
 Create your parameterized HTML and add your block of SET statements with default values to the top like this:
 
     %%[ /* PARAMETERS START */
+    SET @Subject_Line = "This is the subject line"
     SET @Body_Text = "Here is some text"
     SET @Text_Color = "#ff0000"
     SET @Text_Size = "16"
@@ -43,7 +44,7 @@ Examples are included in the "examples" folder for a mobile-swappable image, tex
 Advanced features like rollover descriptions and different input types are achieved by adding data within comments after the AMPscript "SET" statements.  For example:
 
     %%[ /* PARAMETERS START */
-    SET @Body_Text = "Here is some text" /* {"description":"type your body text here"} */
+    SET @Body_Text = "Here is some text" /* {"type":"html",encoding:"html","description":"type your body text here"} */
     SET @Text_Color = "#ff0000" /* {"type":"selection","options":["#ff0000","#00ff00","#0000ff"],"description":"select a text color"} */
     SET @Text_Size = "16" /* {"type":"slider","min":1,"max":50,"description":"text size"} */
     /* PARAMETERS END */ ]%%
@@ -56,11 +57,10 @@ Advanced features like rollover descriptions and different input types are achie
         </tr>
     </table>
 
-### HTML Text Input
-HTML Text input is the default input type so no "type" data is required.  A rollover description can be added to an HTML text input by adding "description" data.  HTML entities "<", ">", "&" and double-quotes are encoded with eqivalent HTML entities "&lt;", "%gt;", "&amp;" and "&quot;".  See the "Body_Text" parameter in the above example.
+### Text Input
+Text input is the default type so no "type" data is required (it defaults to "input"). The option "encoding" value can be set to "text" (it defaults to "html") to specify additional encoding should be done to the text.  A rollover description can be added to a text input by adding "description" data. See the "Body_Text" parameter in the above example.
 
-### Plain Text Input
-Plain Text input is specified by adding "type" data with a value of "text".  A rollover description can be added to an HTML text input by adding "description" data.  See the "Body_Text" parameter in the above example.
+The "encoding" value of "html" assumes valid HTML in the input and no additional processing is done, so HTML-reserved characters "<", ">", "&" and double-quotes should be explicitly encoded with eqivalent HTML entities "&lt;", "&gt;", "&amp;" and "&quot;" when used as HTML text.  A value of "text" will cause the characters "<", ">", "&" and double-quotes to be automatically encoded with eqivalent HTML entities "&lt;", "%gt;", "&amp;" and "&quot;", but HTML formatting cannot be used.  
 
 ### Selection Input
 A selection input is specified by adding "type" data with a value of "selection".  The options for the selection list are specified using the "options" data. A rollover description can be added to a selection input by adding "description" data. See the "Text_Color" parameter in the above example.
