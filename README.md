@@ -43,7 +43,7 @@ Examples are included in the "examples" folder for a mobile-swappable image, tex
 Advanced features like rollover descriptions and different input types are achieved by adding data within comments after the AMPscript "SET" statements.  For example:
 
     %%[ /* PARAMETERS START */
-    SET @Body_Text = "Here is some text" /* {"type":"html",encoding:"html","description":"type your body text here"} */
+    SET @Body_Text = "Here is some text" /* {"type":"html",encoding:"none","description":"type your body text here"} */
     SET @Text_Color = "#ff0000" /* {"type":"selection","options":["#ff0000","#00ff00","#0000ff"],"description":"select a text color"} */
     SET @Text_Size = "16" /* {"type":"slider","min":1,"max":50,"description":"text size"} */
     /* PARAMETERS END */ ]%%
@@ -57,9 +57,9 @@ Advanced features like rollover descriptions and different input types are achie
     </table>
 
 ### Text Input
-Text input is the default type so no "type" data is required (it defaults to "input"). The optional "encoding" value can be set to "text" (it defaults to "html") to specify additional encoding should be done to the text.  A rollover description can be added to a text input by adding "description" data. See the "Body_Text" parameter in the above example.
+Text input is the default type so no "type" data is required (it defaults to "input"). The optional "encoding" value can be set to "html" (it defaults to "none") to specify additional encoding should be done to the text.  A rollover description can be added to a text input by adding "description" data. See the "Body_Text" parameter in the above example.
 
-The "encoding" value of "html" assumes valid HTML in the input and no additional processing is done, so HTML-reserved characters "&lt;", "&gt;", "&amp;" and double-quotes should be explicitly encoded with eqivalent HTML entities "&amp;lt;", "&amp;gt;", "&amp;amp;" and "&amp;quot;" when used as HTML text.  A value of "text" will cause the characters "&lt;", "&gt;", "&amp;" and double-quotes to be automatically encoded with eqivalent HTML entities "&amp;lt;", "&amp;gt;", "&amp;amp;" and "&amp;quot;", but HTML formatting cannot be used.  
+The "encoding" value of "none" does not do any additional processing on the text when it gets inserted into the code.  If the text is going to be inserted into HTML (as it usually is) the input must constain valid HTML, with HTML-reserved characters "&lt;", "&gt;", "&amp;" and double-quotes explicitly encoded with eqivalent HTML entities "&amp;lt;", "&amp;gt;", "&amp;amp;" and "&amp;quot;"  A value of "html" will cause the characters "&lt;", "&gt;", "&amp;" and double-quotes to be automatically encoded with eqivalent HTML entities "&amp;lt;", "&amp;gt;", "&amp;amp;" and "&amp;quot;", but HTML formatting cannot be used.  
 
 ### Selection Input
 A selection input is specified by adding "type" data with a value of "selection".  The options for the selection list are specified using the "options" data. A rollover description can be added to a selection input by adding "description" data. See the "Text_Color" parameter in the above example.
