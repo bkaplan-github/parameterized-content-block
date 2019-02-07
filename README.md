@@ -16,7 +16,6 @@ Parameterized Content Block is useful for easily adding an interface to nearly a
 Create your parameterized HTML and add your block of SET statements with default values to the top like this:
 
     %%[ /* PARAMETERS START */
-    SET @Subject_Line = "This is the subject line"
     SET @Body_Text = "Here is some text"
     SET @Text_Color = "#ff0000"
     SET @Text_Size = "16"
