@@ -82,4 +82,4 @@ A slider input is specified by adding "type" data with a value of "slider".  The
 
 ## Future Enhancements
 Add support for other types of inputs (color pickers, etc).
-Allow the use of single quotes in the "SET" statement.
+Allow the use of single quotes in the "SET" statements.
