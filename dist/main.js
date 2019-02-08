@@ -96,6 +96,7 @@ function updateContent() {
   sdk.setData({'params': params, 'ampscript': ampscript, 'html': html, 'preview_html': preview_html});
   sdk.setSuperContent(fakehtml);
   sdk.setContent(ampscript+"\r\n"+html);
+console.log(ampscript);
 }
 
 function addWidget(id, name, value, type, options) {
