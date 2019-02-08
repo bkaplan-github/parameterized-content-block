@@ -66,7 +66,7 @@ Advanced features like rollover descriptions and different input types are achie
     </table>
 
 ### Text Input
-A text input is the default type so no "type" data is required (it defaults to "input"). The optional "encoding" value can be set to "html" (it defaults to "none") to specify additional encoding should be done to the text.  A rollover description can be added to a text input by adding "description" data. See the "Body_Text" parameter in the above example.
+A text input is the default type so no "type" data is required (it defaults to "text"). The optional "encoding" value can be set to "html" (it defaults to "none") to specify additional encoding should be done to the text.  A rollover description can be added to a text input by adding "description" data. See the "Body_Text" parameter in the above example.
 
 The "encoding" value of "none" does not do any additional processing on the text when it gets inserted into the code.  If the text is going to be inserted into HTML (as it usually is) the input must constain valid HTML, with HTML-reserved characters "&lt;", "&gt;", "&amp;" and double-quotes explicitly encoded with eqivalent HTML entities "&amp;lt;", "&amp;gt;", "&amp;amp;" and "&amp;quot;"  A value of "html" will cause the characters "&lt;", "&gt;", "&amp;" and double-quotes to be automatically encoded with eqivalent HTML entities "&amp;lt;", "&amp;gt;", "&amp;amp;" and "&amp;quot;", but HTML formatting cannot be used.  
 
