@@ -52,7 +52,7 @@ Examples are included in the "examples" folder for a mobile-swappable image, tex
 Advanced features like rollover descriptions and different input types are achieved by adding data within comments after the AMPscript "SET" statements.  For example:
 
     %%[ /* PARAMETERS START */
-    SET @Body_Text = "Here is some text" /* {"type":"html",encoding:"none","description":"type your body text here"} */
+    SET @Body_Text = "Here is some text" /* {"description":"type your body text here"} */
     SET @Text_Color = "#ff0000" /* {"type":"selection","options":["#ff0000","#00ff00","#0000ff"],"description":"select a text color"} */
     SET @Text_Size = "16" /* {"type":"slider","min":1,"max":50,"description":"text size"} */
     /* PARAMETERS END */ ]%%
