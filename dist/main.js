@@ -162,7 +162,7 @@ function addWidget(id, name, value, type, options) {
 
       break;
 
-    default: // input
+    default: // text
       widget = '\r\n<div id="widget-' + id + '" class="slds-form-element" style="margin-bottom:10px;" title="' + description + '">\r\n<label class="slds-form-element__label" for="input-id-' + id + '">' + title + '</label>\r\n<div class="slds-form-element__control slds-input-has-fixed-addon">\r\n<input class="slds-input" type="text" id="input-id-' + id + '" placeholder="" />\r\n</div>\r\n</div>';
 
       $('#workspace-container').append(widget);
@@ -240,7 +240,7 @@ sdk.getData(function (data) {
         var value = ampUnescape(vStart.substring(0, vEnd));
 
         // parse type and options
-        var paramType = 'input';
+        var paramType = 'text';
         var comment = "";
         var options = {};
         var extra = vStart.substring(vEnd);
