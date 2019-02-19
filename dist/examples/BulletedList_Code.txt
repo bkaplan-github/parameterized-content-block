@@ -1,34 +1,34 @@
 %%[ /* PARAMETERS START */
-    SET @Bullet_1 = "Item 1" /* {"description":"bulleted list item.  put links in square brackets []"} */
-    SET @Bullet_2 = "This has [a link] in it." /* {"description":"bulleted list item.  put links in square brackets []"} */
-    SET @Bullet_3 = "Item 3" /* {"description":"bulleted list item.  put links in square brackets []"} */
-    SET @Bullet_4 = "Item 4" /* {"description":"bulleted list item.  put links in square brackets []"} */
-    SET @Bullet_5 = "Item 5" /* {"description":"bulleted list item.  put links in square brackets []"} */
+    SET @Bullet_1_Text = "Item 1" /* {"description":"list item text.  put links in square brackets []"} */
+    SET @Bullet_2_Text = "This has [a link] in it." /* {"description":"list item text.  put links in square brackets []"} */
+    SET @Bullet_3_Text = "Item 3" /* {"description":"list item text.  put links in square brackets []"} */
+    SET @Bullet_4_Text = "Item 4" /* {"description":"list item text.  put links in square brackets []"} */
+    SET @Bullet_5_Text = "Item 5" /* {"description":"list item text.  put links in square brackets []"} */
     SET @Link_URL_1 = "http://www.salesforce.com" /* {"description":"first link URL"} */
     SET @Link_Alias_1 = "Link 1 Alias" /* {"description":"first link alias"} */
     SET @Link_URL_2 = "" /* {"description":"second link URL"} */
     SET @Link_Alias_2 = "" /* {"description":"second link alias"} */
     SET @Link_URL_3 = "" /* {"description":"third link URL"} */
     SET @Link_Alias_3 = "" /* {"description":"third link alias"} */
+    SET @Padding = "20px 100px" /* {"description":"padding around the content block"} */
+    SET @Spacing = "10"  /* {"description":"the spacing between list items"} */
+    SET @Line_Height = "20" /* {"description":"the line height of each list item.  this affects both the spacing between lines of a list item when it wraps and also affects the spacing between list items."} */
+    SET @Bullet_Spacing = "20" /* {"description":"the spacing between bullets and items"} */
+    SET @Alignment = "left" /* {"type":"selection","options":["left","center","right"],"description":"the horizontal alignment of the list if none of the list items wrap"} */
+    SET @Font_Family = "Arial, Helvetica, sans-serif" /* {"description":"the font family used for the text"} */
+    SET @Bullet_Size = "30" /* {"description":"the size of the bullets"} */
+    SET @Text_Size = "16" /* {"description":"the size of the text for list items"} */
+    SET @Bullet_Color = "#000001" /* {"description":"the color of the bullets"} */
+    SET @Text_Color = "#000001" /* {"description":"the color of the text for list items"} */
     SET @Link_Color = "#0000ff" /* {"description":"the color of links in list items"} */
     SET @Link_Decoration = "underline" /* {"type":"selection","options":["underline","none"],"description":"the decoration type of links in list items"} */
-    SET @Padding = "20px 100px" /* {"description":"padding around the content block"} */
-    SET @Alignment = "left" /* {"type":"selection","options":["left","center","right"],"description":"the horizontal alignment of the list if none of the list items wrap"} */
-    SET @Spacing = "10"  /* {"description":"the spacing between list items"} */
-    SET @Bullet_Spacing = "20" /* {"description":"the spacing between bullets and items"} */
-    SET @Line_Height = "20" /* {"description":"the line height of each list item.  this affects both the spacing between lines of a list item when it wraps and also affects the spacing between list items."} */
-    SET @Font_Family = "Arial, Helvetica, sans-serif" /* {"description":"the font family used for the text"} */
-    SET @Text_Size = "16" /* {"description":"the size of the text for list items"} */
-    SET @Bullet_Size = "30" /* {"description":"the size of the bullets"} */
-    SET @Text_Color = "#000001" /* {"description":"the color of the text for list items"} */
-    SET @Bullet_Color = "#000001" /* {"description":"the color of the bullets"} */
     SET @Mobile_Class = "center-table pad-20L pad-20R" /* {"description":"the class(es) applied to the bulleted list on mobile displays"} */
     SET @Mobile_Bullet_Class = "" /* {"description":"the class(es) applied to the bullets on mobile displays"} */
     SET @Mobile_Item_Class = "" /* {"description":"the class(es) applied to the list items on mobile displays"} */
 /* PARAMETERS END */ ]%%
 
 %%[
-    SET @Bullets = Concat(@Bullet_1, "|", @Bullet_2, "|", @Bullet_3, "|", @Bullet_4, "|", @Bullet_5)
+    SET @Bullets = Concat(@Bullet_1_Text, "|", @Bullet_2_Text, "|", @Bullet_3_Text, "|", @Bullet_4_Text, "|", @Bullet_5_Text)
     SET @Bullets_URL = Concat(@Link_URL_1, "|", @Link_URL_2, "|", @Link_URL_3)
     SET @Bullets_Alias = Concat(@Link_Alias_1, "|", @Link_Alias_2, "|", @Link_Alias_3)
 
@@ -36,7 +36,7 @@
     SET @Bullets_URL_Rowset = BuildRowsetFromString(@Bullets_URL, "|")
     SET @Bullets_Alias_Rowset = BuildRowsetFromString(@Bullets_Alias, "|")
     SET @numRows = RowCount(@Bullets_Rowset)
-    IF @numRows != 0 THEN
+    IF @numRows > 0 THEN
 ]%%
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr>
