@@ -1,9 +1,9 @@
 %%[ /* PARAMETERS START */
-    SET @Bullet_1_Text = "Item 1" /* {"description":"list item text.  put links in square brackets []"} */
-    SET @Bullet_2_Text = "This has [a link] in it." /* {"description":"list item text.  put links in square brackets []"} */
-    SET @Bullet_3_Text = "Item 3" /* {"description":"list item text.  put links in square brackets []"} */
-    SET @Bullet_4_Text = "Item 4" /* {"description":"list item text.  put links in square brackets []"} */
-    SET @Bullet_5_Text = "Item 5" /* {"description":"list item text.  put links in square brackets []"} */
+    SET @Item_1_Text = "Item 1" /* {"description":"list item text.  put links in square brackets []"} */
+    SET @Item_2_Text = "This has [a link] in it." /* {"description":"list item text.  put links in square brackets []"} */
+    SET @Item_3_Text = "Item 3" /* {"description":"list item text.  put links in square brackets []"} */
+    SET @Item_4_Text = "Item 4" /* {"description":"list item text.  put links in square brackets []"} */
+    SET @Item_5_Text = "Item 5" /* {"description":"list item text.  put links in square brackets []"} */
     SET @Link_URL_1 = "http://www.salesforce.com" /* {"description":"first link URL"} */
     SET @Link_Alias_1 = "Link 1 Alias" /* {"description":"first link alias"} */
     SET @Link_URL_2 = "" /* {"description":"second link URL"} */
