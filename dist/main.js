@@ -180,7 +180,7 @@ function addWidget(id, name, value, type, options) {
 
 sdk.getContent(function (data) {
   console.log("getContent called");
-}
+});
 
 sdk.getData(function (data) {
   console.log("getData called");
