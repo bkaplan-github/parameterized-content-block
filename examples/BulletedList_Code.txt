@@ -28,7 +28,7 @@
 /* PARAMETERS END */ ]%%
 
 %%[
-    SET @Bullets = Concat(@Bullet_1_Text, "|", @Bullet_2_Text, "|", @Bullet_3_Text, "|", @Bullet_4_Text, "|", @Bullet_5_Text)
+    SET @Bullets = Concat(@Item_1_Text, "|", @Item_2_Text, "|", @Item_3_Text, "|", @Item_4_Text, "|", @Item_5_Text)
     SET @Bullets_URL = Concat(@Link_URL_1, "|", @Link_URL_2, "|", @Link_URL_3)
     SET @Bullets_Alias = Concat(@Link_Alias_1, "|", @Link_Alias_2, "|", @Link_Alias_3)
 
