@@ -125,7 +125,7 @@ function addWidget(id, name, value, type, options) {
           oValue = opt;
           oText = opt;
         }
-        widget += '\r\n<option' + (value == oValue ? ' selected="selected"' : '') + ' value="' + oValue + '">' + oText + '</option>';
+        widget += '\r\n<option' + (value == oValue ? ' selected="selected"' : '') + ' value="' + oValue + '" style="padding-bottom: 5px;">' + oText + '</option>';
       }
       widget += '\r\n</select>\r\n</div>\r\n</div>\r\n</div>';
 
