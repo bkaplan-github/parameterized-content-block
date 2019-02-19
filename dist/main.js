@@ -111,7 +111,7 @@ function addWidget(id, name, value, type, options) {
 
   switch(type) {
     case 'selection':
-      widget = '\r\n<div id="widget-' + id + '" class="slds-form-element" title="' + description + '">\r\n<label class="slds-form-element__label" for="selection-id-' + id + '">' + title + '</label>\r\n<div class="slds-form-element__control">\r\n<div class="slds-select_container">\r\n<select class="slds-select" id="input-id-' + id + '">';
+      widget = '\r\n<div id="widget-' + id + '" class="slds-form-element" style="padding-bottom: 10px;" title="' + description + '">\r\n<label class="slds-form-element__label" for="selection-id-' + id + '">' + title + '</label>\r\n<div class="slds-form-element__control">\r\n<div class="slds-select_container">\r\n<select class="slds-select" id="input-id-' + id + '">';
       var olist = options['options'];
 
       for (var i = 0; i < olist.length; i++) {
@@ -125,7 +125,7 @@ function addWidget(id, name, value, type, options) {
           oValue = opt;
           oText = opt;
         }
-        widget += '\r\n<option' + (value == oValue ? ' selected="selected"' : '') + ' value="' + oValue + '" style="padding-bottom: 5px;">' + oText + '</option>';
+        widget += '\r\n<option' + (value == oValue ? ' selected="selected"' : '') + ' value="' + oValue + '">' + oText + '</option>';
       }
       widget += '\r\n</select>\r\n</div>\r\n</div>\r\n</div>';
 
@@ -179,11 +179,11 @@ function addWidget(id, name, value, type, options) {
 }
 
 sdk.getContent(function (data) {
-  console.log("getContent called");
+  // console.log("getContent called");
 });
 
 sdk.getData(function (data) {
-  console.log("getData called");
+  // console.log("getData called");
 
   // get state data
   params = data['params'];
