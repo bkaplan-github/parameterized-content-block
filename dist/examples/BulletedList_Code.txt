@@ -1,0 +1,84 @@
+%%[ /* PARAMETERS START */
+    SET @Bullet_1 = "Item 1"
+    SET @Bullet_2 = "This has [a link] in it."
+    SET @Bullet_3 = "Item 3"
+    SET @Bullet_4 = "Item 4"
+    SET @Bullet_5 = "Item 5"
+    SET @Link_URL_1 = "http://www.salesforce.com"
+    SET @Link_Alias_1 = "Link 1 Alias"
+    SET @Link_URL_2 = ""
+    SET @Link_Alias_2 = ""
+    SET @Link_URL_3 = ""
+    SET @Link_Alias_3 = ""
+    SET @Link_Color = "#0000ff"
+    SET @Link_Decoration = "underline" /* {"type":"selection","options":["underline","none"]} */
+    SET @Padding = "20px 100px"
+    SET @Alignment = "left" /* {"type":"selection","options":["left","center","right"]} */
+    SET @Spacing = "10"
+    SET @Bullet_Spacing = "20"
+    SET @Line_Height = "20"
+    SET @Font_Family = "Arial, Helvetica, sans-serif"
+    SET @Text_Size = "16"
+    SET @Bullet_Size = "30"
+    SET @Text_Color = "#000001"
+    SET @Bullet_Color = "#000001"
+    SET @Mobile_Class = "center-table pad-20L pad-20R"
+    SET @Mobile_Bullet_Class = ""
+    SET @Mobile_Item_Class = ""
+/* PARAMETERS END */ ]%%
+
+%%[
+    SET @Bullets = Concat(@Bullet_1, "|", @Bullet_2, "|", @Bullet_3, "|", @Bullet_4, "|", @Bullet_5)
+    SET @Bullets_URL = Concat(@Link_URL_1, "|", @Link_URL_2, "|", @Link_URL_3)
+    SET @Bullets_Alias = Concat(@Link_Alias_1, "|", @Link_Alias_2, "|", @Link_Alias_3)
+
+    SET @Bullets_Rowset = BuildRowsetFromString(@Bullets, "|")
+    SET @Bullets_URL_Rowset = BuildRowsetFromString(@Bullets_URL, "|")
+    SET @Bullets_Alias_Rowset = BuildRowsetFromString(@Bullets_Alias, "|")
+    SET @numRows = RowCount(@Bullets_Rowset)
+    IF @numRows != 0 THEN
+]%%
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td class="%%=v(@Mobile_Class)=%%" align="%%=v(@Alignment)=%%" valign="top" style="padding: %%=v(@Padding)=%%;">
+      <table cellpadding="0" cellspacing="0" border="0">
+%%[
+      SET @linkNum = 0
+      FOR @i = 1 to @numRows DO
+        SET @listItem = Field(Row(@Bullets_Rowset, @i), 1)
+        IF NOT Empty(@listItem) THEN
+          SET @padTop = IIF(@i == 0, "0", Concat(@Spacing, "px"))
+]%%
+        <tr>
+          <td class="%%=v(@Mobile_Bullet_Class)=%%" align="left" width="%%=v(@Bullet_Spacing)=%%" valign="top" style="padding-top: %%=v(@padTop)=%%; font-family: %%=v(@Font_Family)=%%; font-weight: normal; font-size: %%=v(@Bullet_Size)=%%px; line-height: %%=v(@Line_Height)=%%px; color: %%=v(@Bullet_Color)=%%; mso-line-height-rule: exactly;">&bull;</td>
+          <td class="%%=v(@Mobile_Item_Class)=%%" align="left" valign="top" style="padding-top: %%=v(@padTop)=%%; font-family: %%=v(@Font_Family)=%%; font-weight: normal; font-size: %%=v(@Text_Size)=%%px; line-height: %%=v(@Line_Height)=%%px; color: %%=v(@Text_Color)=%%; mso-line-height-rule: exactly;">
+%%[
+          SET @linkRows = BuildRowsetFromString(@listItem, "[")
+          SET @rowCount = RowCount(@linkRows)
+
+          SET @BeforeText = Field(Row(@linkRows, 1), 1)
+]%%
+            %%=v(@BeforeText)=%%
+%%[
+          FOR @j = 2 TO @rowCount DO
+            SET @linkNum = Add(@linkNum, 1)
+            SET @Link_URL = Field(Row(@Bullets_URL_Rowset, @linkNum), 1)
+            SET @Link_Alias = Field(Row(@Bullets_Alias_Rowset, @linkNum), 1)
+
+            SET @text = Field(Row(@linkRows, @j), 1)
+            SET @close = IndexOf(@text, "]")
+
+            SET @LinkText = Substring(@text, 1, Subtract(@close, 1))
+            SET @AfterText = Substring(@text, Add(@close, 1), Length(@text))
+]%%
+            <a href="%%=RedirectTo(@Link_URL)=%%" alias="%%=v(@Link_Alias)=%%" target="_blank" style="color: %%=v(@Link_Color)=%%; text-decoration: %%=v(@Link_Decoration)=%%;">%%=v(@LinkText)=%%</a>%%=v(@AfterText)=%%
+%%[       NEXT @j ]%%
+          </td>
+        </tr>
+%%[     ENDIF ]%%
+%%[   NEXT @i ]%%
+%%[ ENDIF ]%%
+      </table>
+    </td>
+  </tr>
+</table>

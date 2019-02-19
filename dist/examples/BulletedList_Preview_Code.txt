@@ -1,0 +1,44 @@
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td class="%%=v(@Mobile_Class)=%%" align="%%=v(@Alignment)=%%" valign="top" style="padding: %%=v(@Padding)=%%;">
+      <table cellpadding="0" cellspacing="0" border="0">
+
+        <tr>
+          <td class="%%=v(@Mobile_Bullet_Class)=%%" align="left" width="%%=v(@Bullet_Spacing)=%%" valign="top" style="padding-top: 0; font-family: %%=v(@Font_Family)=%%; font-weight: normal; font-size: %%=v(@Bullet_Size)=%%px; line-height: %%=v(@Line_Height)=%%px; color: %%=v(@Bullet_Color)=%%; mso-line-height-rule: exactly;">&bull;</td>
+          <td class="%%=v(@Mobile_Item_Class)=%%" align="left" valign="top" style="padding-top: 0; font-family: %%=v(@Font_Family)=%%; font-weight: normal; font-size: %%=v(@Text_Size)=%%px; line-height: %%=v(@Line_Height)=%%px; color: %%=v(@Text_Color)=%%; mso-line-height-rule: exactly;">
+            %%=v(@Bullet_1)=%%
+           </td>
+        </tr>
+
+        <tr>
+          <td class="%%=v(@Mobile_Bullet_Class)=%%" align="left" width="%%=v(@Bullet_Spacing)=%%" valign="top" style="padding-top: %%=v(@Spacing)=%%px; font-family: %%=v(@Font_Family)=%%; font-weight: normal; font-size: %%=v(@Bullet_Size)=%%px; line-height: %%=v(@Line_Height)=%%px; color: %%=v(@Bullet_Color)=%%; mso-line-height-rule: exactly;">&bull;</td>
+          <td class="%%=v(@Mobile_Item_Class)=%%" align="left" valign="top" style="padding-top: %%=v(@Spacing)=%%px; font-family: %%=v(@Font_Family)=%%; font-weight: normal; font-size: %%=v(@Text_Size)=%%px; line-height: %%=v(@Line_Height)=%%px; color: %%=v(@Text_Color)=%%; mso-line-height-rule: exactly;">
+            %%=v(@Bullet_2)=%%
+           </td>
+        </tr>
+
+        <tr>
+          <td class="%%=v(@Mobile_Bullet_Class)=%%" align="left" width="%%=v(@Bullet_Spacing)=%%" valign="top" style="padding-top: %%=v(@Spacing)=%%px; font-family: %%=v(@Font_Family)=%%; font-weight: normal; font-size: %%=v(@Bullet_Size)=%%px; line-height: %%=v(@Line_Height)=%%px; color: %%=v(@Bullet_Color)=%%; mso-line-height-rule: exactly;">&bull;</td>
+          <td class="%%=v(@Mobile_Item_Class)=%%" align="left" valign="top" style="padding-top: %%=v(@Spacing)=%%px; font-family: %%=v(@Font_Family)=%%; font-weight: normal; font-size: %%=v(@Text_Size)=%%px; line-height: %%=v(@Line_Height)=%%px; color: %%=v(@Text_Color)=%%; mso-line-height-rule: exactly;">
+            %%=v(@Bullet_3)=%%
+           </td>
+        </tr>
+
+        <tr>
+           <td class="%%=v(@Mobile_Bullet_Class)=%%" align="left" width="%%=v(@Bullet_Spacing)=%%" valign="top" style="padding-top: %%=v(@Spacing)=%%px; font-family: %%=v(@Font_Family)=%%; font-weight: normal; font-size: %%=v(@Bullet_Size)=%%px; line-height: %%=v(@Line_Height)=%%px; color: %%=v(@Bullet_Color)=%%; mso-line-height-rule: exactly;">&bull;</td>
+          <td class="%%=v(@Mobile_Item_Class)=%%" align="left" valign="top" style="padding-top: %%=v(@Spacing)=%%px; font-family: %%=v(@Font_Family)=%%; font-weight: normal; font-size: %%=v(@Text_Size)=%%px; line-height: %%=v(@Line_Height)=%%px; color: %%=v(@Text_Color)=%%; mso-line-height-rule: exactly;">
+            %%=v(@Bullet_4)=%%
+           </td>
+        </tr>
+
+        <tr>
+          <td class="%%=v(@Mobile_Bullet_Class)=%%" align="left" width="%%=v(@Bullet_Spacing)=%%" valign="top" style="padding-top: %%=v(@Spacing)=%%px; font-family: %%=v(@Font_Family)=%%; font-weight: normal; font-size: %%=v(@Bullet_Size)=%%px; line-height: %%=v(@Line_Height)=%%px; color: %%=v(@Bullet_Color)=%%; mso-line-height-rule: exactly;">&bull;</td>
+          <td class="%%=v(@Mobile_Item_Class)=%%" align="left" valign="top" style="padding-top: %%=v(@Spacing)=%%px; font-family: %%=v(@Font_Family)=%%; font-weight: normal; font-size: %%=v(@Text_Size)=%%px; line-height: %%=v(@Line_Height)=%%px; color: %%=v(@Text_Color)=%%; mso-line-height-rule: exactly;">
+            %%=v(@Bullet_5)=%%
+           </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
