@@ -84,4 +84,7 @@ A slider input is specified by adding "type" data with a value of "slider".  The
 * Add support for other types of inputs (color pickers, etc).
 * Allow parsing of single quotes in the "SET" statements.
 * Add option to override the name that appears above an input.
+* Add option to set the title of the content block.
 * Allow parsing of "IIF" statements in the preview.
+* Allow editing the block in the "HTML" tab.
+
