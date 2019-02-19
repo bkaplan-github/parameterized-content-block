@@ -87,15 +87,15 @@ function updateContent() {
       regex = new RegExp(escapeRegExp("%%=v(@"+name+")=%%"), "gi");
       fakehtml = fakehtml.replace(regex, value);
     }
-    ampscript += "\r\n/* PARAMETERS END */ ]%%\r\n";
+    ampscript += "\r\n/* PARAMETERS END */ ]%%";
   }
 
   if (ampscript == "" && html == "") $("#editor").val("");
-  else $("#editor").val(ampscript+"\r\n"+html);
+  else $("#editor").val(ampscript+html);
 
   sdk.setData({'params': params, 'ampscript': ampscript, 'html': html, 'preview_html': preview_html});
   sdk.setSuperContent(fakehtml);
-  sdk.setContent(ampscript+"\r\n"+html);
+  sdk.setContent(ampscript+html);
 }
 
 function addWidget(id, name, value, type, options) {
@@ -204,7 +204,7 @@ sdk.getData(function (data) {
   }
 
   // add the html and ampscript to the editor
-  $("#editor").val(ampscript+"\r\n"+html);
+  $("#editor").val(ampscript+html);
 
   // add the html to the preview
   $('#preview').val(preview_html);
