@@ -270,7 +270,7 @@ sdk.getData(function (data) {
         addWidget(id, name, value, paramType, options);
       }
 
-      html = data.substring(paramTextEnd + 26);
+      html = data.substring(paramTextEnd + 24);
     }
 
     updateContent();
