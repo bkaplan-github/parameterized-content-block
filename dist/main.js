@@ -178,7 +178,13 @@ function addWidget(id, name, value, type, options) {
   }
 }
 
+sdk.getContent(function (data) {
+  console.log("getContent called");
+}
+
 sdk.getData(function (data) {
+  console.log("getData called");
+
   // get state data
   params = data['params'];
   ampscript = data['ampscript'];
@@ -204,7 +210,7 @@ sdk.getData(function (data) {
   $('#preview').val(preview_html);
 
   // update the editor
-  $("#editor").change(function() { // keyup()
+  $("#editor").change(function() {
     var data = $(this).val();
 
     params = {};
