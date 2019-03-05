@@ -42,7 +42,7 @@ This is especially important if your code contains HTML which requires double qu
     SET @Body_Text = "Here is <span style=""color:#0000ff;"">some</span> text"
     SET @Body_Text = "Here is <span style='color:#0000ff;'>some</span> text"
 
-Paste your code into the "Code" input. The parameter inputs will automatically be created so that a user can enter or edit the values in the inputs (in the above example, for body text and text color) without knowing AMPscript.  The input names are built from the variable names, replacing underscores with spaces.
+Paste your parameterized code into the "Code" input. The parameter inputs will automatically be created so that a user can enter or edit the values in the inputs (in the above example, for body text and text color) without knowing AMPscript.  The input names are built from the variable names, replacing underscores with spaces.
 
 The code will be rendered in the editor with the variables replaced with parameter values. You can add alternate HTML code to the "Preview" input that will be rendered only in the editor (useful if your code won't render properly in the editor due to AMPscript in the code).
 
