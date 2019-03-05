@@ -71,7 +71,7 @@ function updateContent() {
     ampscript = "%%[ /* PARAMETERS START */";
     for (const param in params) {
       var name = params[param]['name'];
-      var type = params[param]['type'];
+      // var type = params[param]['type'];
       var value = params[param]['value'];
       var options = params[param]['options'];
 
@@ -98,10 +98,7 @@ function updateContent() {
   sdk.setContent(ampscript+html);
 }
 
-function addWidget(id, name, value, type, options) {
-  var regex = new RegExp(escapeRegExp("_"), "gi");
-  var title = name.replace(regex, " ");
-
+function addWidget(id, label, value, type, options) {
   // set the description
   var description = "";
   var desc = options["description"];
@@ -111,7 +108,7 @@ function addWidget(id, name, value, type, options) {
 
   switch(type) {
     case 'selection':
-      widget = '\r\n<div id="widget-' + id + '" class="slds-form-element" style="padding-bottom: 10px;" title="' + description + '">\r\n<label class="slds-form-element__label" for="selection-id-' + id + '">' + title + '</label>\r\n<div class="slds-form-element__control">\r\n<div class="slds-select_container">\r\n<select class="slds-select" id="input-id-' + id + '">';
+      widget = '\r\n<div id="widget-' + id + '" class="slds-form-element" style="padding-bottom: 10px;" title="' + description + '">\r\n<label class="slds-form-element__label" for="selection-id-' + id + '">' + label + '</label>\r\n<div class="slds-form-element__control">\r\n<div class="slds-select_container">\r\n<select class="slds-select" id="input-id-' + id + '">';
       var olist = options['options'];
 
       for (var i = 0; i < olist.length; i++) {
@@ -144,7 +141,7 @@ function addWidget(id, name, value, type, options) {
       var min = options["min"];
       var max = options["max"];
 
-      widget = '\r\n<div id="widget-' + id + '" class="slds-form-element" title="' + description + '">\r\n<label class="slds-form-element__label" for="slider-id-' + id + '">\r\n<span class="slds-slider-label">\r\n<span class="slds-slider-label__label">' + title + '</span>\r\n</span>\r\n</label>\r\n<div class="slds-form-element__control">\r\n<div class="slds-slider">\r\n<input type="range" id="slider-id-' + id + '" class="slds-slider__range" value="' + value + '" min="' + min + '" max="' + max + '" />\r\n<span class="slds-slider__value" id="slider-num-id-' + id + '" aria-hidden="true">' + value + '</span>\r\n</div>\r\n</div>\r\n</div>';
+      widget = '\r\n<div id="widget-' + id + '" class="slds-form-element" title="' + description + '">\r\n<label class="slds-form-element__label" for="slider-id-' + id + '">\r\n<span class="slds-slider-label">\r\n<span class="slds-slider-label__label">' + label + '</span>\r\n</span>\r\n</label>\r\n<div class="slds-form-element__control">\r\n<div class="slds-slider">\r\n<input type="range" id="slider-id-' + id + '" class="slds-slider__range" value="' + value + '" min="' + min + '" max="' + max + '" />\r\n<span class="slds-slider__value" id="slider-num-id-' + id + '" aria-hidden="true">' + value + '</span>\r\n</div>\r\n</div>\r\n</div>';
 
       $('#workspace-container').append(widget);
 
@@ -163,7 +160,7 @@ function addWidget(id, name, value, type, options) {
       break;
 
     default: // text
-      widget = '\r\n<div id="widget-' + id + '" class="slds-form-element" style="margin-bottom:10px;" title="' + description + '">\r\n<label class="slds-form-element__label" for="input-id-' + id + '">' + title + '</label>\r\n<div class="slds-form-element__control slds-input-has-fixed-addon">\r\n<input class="slds-input" type="text" id="input-id-' + id + '" placeholder="" />\r\n</div>\r\n</div>';
+      widget = '\r\n<div id="widget-' + id + '" class="slds-form-element" style="margin-bottom:10px;" title="' + description + '">\r\n<label class="slds-form-element__label" for="input-id-' + id + '">' + label + '</label>\r\n<div class="slds-form-element__control slds-input-has-fixed-addon">\r\n<input class="slds-input" type="text" id="input-id-' + id + '" placeholder="" />\r\n</div>\r\n</div>';
 
       $('#workspace-container').append(widget);
 
@@ -200,7 +197,7 @@ sdk.getData(function (data) {
   // add the widgets to the page
   $('#workspace-container').html('');
   for (const param in params) {
-    addWidget(params[param]['id'], params[param]['name'], params[param]['value'], params[param]['type'], params[param]['options']);
+    addWidget(params[param]['id'], params[param]['label'], params[param]['value'], params[param]['type'], params[param]['options']);
   }
 
   // add the html and ampscript to the editor
@@ -228,7 +225,7 @@ sdk.getData(function (data) {
       for (var i = 1; i < ampArray.length; i++) {
         var a = ampArray[i];
 
-        // parse name
+        // parse variable name
         var name = a.substring(0, a.indexOf(" "));
 
         // parse id
@@ -245,6 +242,10 @@ sdk.getData(function (data) {
         }
         var value = ampUnescape(vStart.substring(0, vEnd));
 
+        // define label from name
+        var regex = new RegExp(escapeRegExp("_"), "gi");
+        label = name.replace(regex, " ");
+
         // parse type and options
         var paramType = 'text';
         var comment = "";
@@ -257,6 +258,8 @@ sdk.getData(function (data) {
           var options = JSON.parse(comment);
           var pType = options['type'];
           if (typeof pType != 'undefined') paramType = pType.toLowerCase();
+          var pLabel = options['label'];
+          if (typeof pLabel != 'undefined') label = pLabel;
         }
 
         // unencode the value if needed
@@ -266,8 +269,8 @@ sdk.getData(function (data) {
         if (encoding == "html") value = htmlUnescape(value);
 
         // store off the params into the object and add the widget
-        params[id] = {'id': id, 'name': name, 'value': value, 'type': paramType, 'options': options};
-        addWidget(id, name, value, paramType, options);
+        params[id] = {'id': id, 'name': name, 'label': label, 'value': value, 'type': paramType, 'options': options};
+        addWidget(id, label, value, paramType, options);
       }
 
       html = data.substring(paramTextEnd + 24);
