@@ -81,9 +81,9 @@ The options of a selection parameter can define a value that is different than t
 A slider input is specified by adding "type" data with a value of "slider". The optional "label" value can be used to override the label that appears above the input.  The minimum and maximum slider values are specified using the "min" and "max" data. A rollover description can be added to a selection input by adding "description" data. See the "Text_Size" parameter in the above example.
 
 ## Future Enhancements
+* Add option to set the title of the content block.
 * Add support for other types of inputs (color pickers, etc).
 * Allow parsing of single quotes in the "SET" statements.
-* Add option to set the title of the content block.
 * Allow parsing of "IIF" statements in the preview.
 * Allow editing the block in the "HTML" tab.
 
