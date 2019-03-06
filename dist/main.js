@@ -82,6 +82,7 @@ function updateContent() {
       var enc = options["encoding"];
       if (typeof enc != 'undefined') encoding = enc;
       if (encoding == "html") value = htmlEscape(value);
+      else if (encoding == "uri") value = encodeURI(value);
 
       ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + ampEscape(value) + '")'
       if (!$.isEmptyObject(options)) ampscript += ' /* ' + JSON.stringify(options) + ' */';
@@ -299,6 +300,7 @@ sdk.getData(function (data) {
         var enc = options["encoding"];
         if (typeof enc != 'undefined') encoding = enc;
         if (encoding == "html") value = htmlUnescape(value);
+        else if (encoding == "uri") value = decodeURI(value);
 
         // store off the params into the object and add the widget
         params[id] = {'id': id, 'name': name, 'label': label, 'value': value, 'type': paramType, 'options': options};
