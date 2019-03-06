@@ -175,8 +175,10 @@ function updateContent() {
       var encoding = "none";
       var enc = options["encoding"];
       if (typeof enc != 'undefined') encoding = enc;
+console.log(value);
       if (encoding == "html") value = encodeHTML(value);
       else if (encoding == "url") value = encodeURL(value);
+console.log(value);
 
       ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + ampEscape(value) + '")'
       if (!$.isEmptyObject(options)) ampscript += ' /* ' + JSON.stringify(options) + ' */';
