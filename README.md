@@ -48,7 +48,7 @@ The code will be rendered in the editor with the variables replaced with paramet
 Examples are included in the "examples" folder for a mobile-swappable image, text on a background image, table-based bulleted list, and embedding a video in an email (all things that cannot be done with standard freeform content blocks).  Many different types of custom content can be implemented using Parameterized Content Block without having to create a new custom content block and without having to know how to use the Block SDK, Javascript, Github, or Heroku.
 
 ## Global Options
-Global options like setting the content block's title or rollover descriptions are achieved by adding data within a comment before the AMPscript "SET" statements.  For Example:
+Global options like setting the content block's title or rollover descriptions are achieved by adding data within a comment before the AMPscript "SET" statements.  For example:
 
     %%[ /* PARAMETERS START */
     /* {"title":"Text Input Example","description":"this an example content block"} */
