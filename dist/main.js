@@ -104,10 +104,10 @@ function updateTitle() {
   var title = global_options['title'];
   var description = global_options['description'];
 
-  if (typeof title != 'undefined') $('#title').html = title;
+  if (typeof title != 'undefined') $('#title').html(title);
   if (typeof description != 'undefined') {
-    $('#title').attr('title') = description;
-    $('#icon').attr('title') = description;
+    $('#title').prop('title', description);
+    $('#icon').prop('title', description);
   }
 }
 
