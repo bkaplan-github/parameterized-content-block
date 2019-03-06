@@ -94,6 +94,7 @@ A slider input is specified by adding "type" data with a value of "slider". The 
 
 ## Future Enhancements
 * Add support for other types of inputs (color pickers, etc).
+* Allow escaped inputs to contain AMPscript between "%%=" and "=%%".
 * Allow parsing of single quotes in the "SET" statements.
 * Allow parsing of "IIF" statements in the preview.
 * Allow editing the block in the "HTML" tab.
