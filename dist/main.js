@@ -248,6 +248,7 @@ sdk.getData(function (data) {
       if (gStart >= 0) {
         var gEnd = gParams.indexOf("*/");
         var gComment = gParams.substring(gStart + 3, gEnd).trim();
+console.log(gComment);
         global_options = JSON.parse(gComment);
       }
       updateTitle();
