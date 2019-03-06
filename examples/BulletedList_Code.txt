@@ -5,12 +5,12 @@ SET @Item_2_Text = "This has [a link] in it." /* {"description":"list item text.
 SET @Item_3_Text = "Item 3" /* {"description":"list item text.  put links in square brackets []"} */
 SET @Item_4_Text = "Item 4" /* {"description":"list item text.  put links in square brackets []"} */
 SET @Item_5_Text = "Item 5" /* {"description":"list item text.  put links in square brackets []"} */
-SET @Link_URL_1 = "http://www.salesforce.com" /* {"description":"first link URL"} */
-SET @Link_Alias_1 = "Link 1 Alias" /* {"description":"first link alias"} */
-SET @Link_URL_2 = "" /* {"description":"second link URL"} */
-SET @Link_Alias_2 = "" /* {"description":"second link alias"} */
-SET @Link_URL_3 = "" /* {"description":"third link URL"} */
-SET @Link_Alias_3 = "" /* {"description":"third link alias"} */
+SET @Link_1_URL = "http://www.salesforce.com" /* {"description":"first link URL"} */
+SET @Link_1_Alias = "Link 1 Alias" /* {"description":"first link alias"} */
+SET @Link_2_URL = "" /* {"description":"second link URL"} */
+SET @Link_2_Alias = "" /* {"description":"second link alias"} */
+SET @Link_3_URL = "" /* {"description":"third link URL"} */
+SET @Link_3_Alias = "" /* {"description":"third link alias"} */
 SET @Padding = "20px 100px" /* {"description":"padding around the content block"} */
 SET @Spacing = "10"  /* {"description":"the spacing between list items"} */
 SET @Line_Height = "20" /* {"description":"the line height of each list item.  this affects both the spacing between lines of a list item when it wraps and also affects the spacing between list items."} */
@@ -30,8 +30,8 @@ SET @Mobile_Item_Class = "" /* {"description":"the class(es) applied to the list
 
 %%[
     SET @Bullets = Concat(@Item_1_Text, "|", @Item_2_Text, "|", @Item_3_Text, "|", @Item_4_Text, "|", @Item_5_Text)
-    SET @Bullets_URL = Concat(@Link_URL_1, "|", @Link_URL_2, "|", @Link_URL_3)
-    SET @Bullets_Alias = Concat(@Link_Alias_1, "|", @Link_Alias_2, "|", @Link_Alias_3)
+    SET @Bullets_URL = Concat(@Link_1_URL, "|", @Link_2_URL, "|", @Link_3_URL)
+    SET @Bullets_Alias = Concat(@Link_1_Alias, "|", @Link_2_Alias, "|", @Link_3_Alias)
 
     SET @Bullets_Rowset = BuildRowsetFromString(@Bullets, "|")
     SET @Bullets_URL_Rowset = BuildRowsetFromString(@Bullets_URL, "|")
