@@ -43,7 +43,7 @@ This is especially important if your code contains HTML which requires double qu
 
 Paste your parameterized code into the "Code" input. The parameter inputs will automatically be created so that a user can enter or edit the values in the inputs (in the above example, for body text, text color, and text size) without knowing HTML or AMPscript.  The input labels are built from the variable names, replacing underscores with spaces.
 
-The code will be rendered in the editor with the variables replaced with parameter values. You can add alternate HTML code to the "Preview" input that will be rendered only in the editor (useful if your code won't render properly in the editor due to AMPscript in the code).
+The code will be rendered in the editor with the variables replaced with parameter values. You can add alternate HTML code to the "Preview" input that will be rendered only in the editor (useful if your code won't render properly in the editor due to more complex AMPscript in the code).
 
 Examples are included in the "examples" folder for a mobile-swappable image, text on a background image, table-based bulleted list, and embedding a video in an email (all things that cannot be done with standard freeform content blocks).  Many different types of custom content can be implemented using Parameterized Content Block without having to create a new custom content block and without having to know how to use the Block SDK, Javascript, Github, or Heroku.
 
