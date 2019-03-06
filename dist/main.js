@@ -238,7 +238,7 @@ sdk.getData(function (data) {
     }
     else {
       var paramTextEnd = data.indexOf("/* PARAMETERS END */ ]%%");
-      var amp = data.substring(paramTextStart, paramTextEnd);
+      var amp = data.substring(paramTextStart + 24, paramTextEnd);
       var ampArray = amp.split("SET @");
 
       // parse global options */
@@ -247,8 +247,8 @@ sdk.getData(function (data) {
       var gStart = gParams.indexOf("/* {");
       if (gStart >= 0) {
         var gEnd = gParams.indexOf("*/");
-        var comment = gParams.substring(gStart + 3, gEnd).trim();
-        global_options = JSON.parse(comment);
+        var gComment = gParams.substring(gStart + 3, gEnd).trim();
+        global_options = JSON.parse(gComment);
       }
       updateTitle();
 
