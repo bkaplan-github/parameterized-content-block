@@ -1,12 +1,11 @@
 # parameterized content block
 Parameterized Content Block is a custom Salesforce Marketing Cloud Content Builder block using the [blocksdk](https://github.com/salesforce-marketingcloud/blocksdk).
 
-Parameterized Content Block allows you to create custom content blocks without having to know how to use the Block SDK, Javascript, Github, or Heroku.  It automatically adds an interface to parameterized HTML code that you paste in and automatically generates inputs for each parameter. Parameterized HTML is HTML that contains AMPscript variables of the form "%%=v(@Variable)=%%" and has a block of AMPscript "SET" statements at the top to define those variables.
+Parameterized Content Block allows you to create custom content blocks without having to know how to use the Block SDK, Javascript, Github, or Heroku.  It automatically adds an interface to parameterized HTML code that you paste in by generating inputs for each parameter. Parameterized HTML is HTML that contains AMPscript variables of the form "%%=v(@Variable)=%%" and has a block of AMPscript "SET" statements at the top to define those variables.
 
 Github repository:  https://github.com/bkaplan-github/parameterized-content-block
 
 Heroku app: https://parameterized-content-block.herokuapp.com/
-
 
 [![Parameterized Content Block](https://github.com/bkaplan-github/parameterized-content-block/blob/master/ParameterizedCB.jpg)](https://github.com/bkaplan-github/parameterized-content-block)
 
