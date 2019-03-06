@@ -49,7 +49,6 @@ function htmlUnescape(str) {
 function preserveAMP(str, func) {
   var out = "";
   var i = str.indexOf("%%=");
-  if (i < 0) out = str;
   while (i >= 0) {
     out += func(str.substring(0, i));
     var s = str.substring(i);
@@ -58,6 +57,7 @@ function preserveAMP(str, func) {
     str = s.substring(j);
     i = str.indexOf("%%=");
   }
+  out += str;
   return out;
 }
 
