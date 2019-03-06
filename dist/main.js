@@ -247,7 +247,7 @@ sdk.getData(function (data) {
       var gStart = gParams.indexOf("/* {");
       if (gStart >= 0) {
         var cEnd = gParams.indexOf("*/");
-        var comment = extra.substring(gStart + 3, gEnd).trim();
+        var comment = gParams.substring(gStart + 3, gEnd).trim();
         global_options = JSON.parse(comment);
       }
       updateTitle();
