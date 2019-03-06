@@ -3,6 +3,7 @@
 // var sdk = new BlockSDK();
 var sdk = new window.sfdc.BlockSDK();
 
+var global_options = {}; // global options for the content block
 var params = {}; // parameter metadata
 var ampscript = ''; // ampscript variables
 var html = '' // html code without ampscript variables
@@ -69,6 +70,7 @@ function updateContent() {
   ampscript = "";
   if (Object.keys(params).length) {
     ampscript = "%%[ /* PARAMETERS START */";
+    if (!$.isEmptyObject(global_options)) ampscript += '\r\n/* ' + JSON.stringify(global_options) + ' */';
     for (const param in params) {
       var name = params[param]['name'];
       // var type = params[param]['type'];
@@ -93,9 +95,20 @@ function updateContent() {
   if (ampscript == "" && html == "") $("#editor").val("");
   else $("#editor").val(ampscript+html);
 
-  sdk.setData({'params': params, 'ampscript': ampscript, 'html': html, 'preview_html': preview_html});
+  sdk.setData({'global_options': global_options, 'params': params, 'ampscript': ampscript, 'html': html, 'preview_html': preview_html});
   sdk.setSuperContent(fakehtml);
   sdk.setContent(ampscript+html);
+}
+
+function updateTitle() {
+  var title = global_options['title'];
+  var description = global_options['description'];
+
+  if (typeof title != 'undefined') $('#title').html = title;
+  if (typeof description != 'undefined') {
+    $('#title').attr('title') = description;
+    $('#icon').attr('title') = description;
+  }
 }
 
 function addWidget(id, label, value, type, options) {
@@ -183,16 +196,21 @@ sdk.getData(function (data) {
   // console.log("getData called");
 
   // get state data
+  global_options = data['global_options'];
   params = data['params'];
   ampscript = data['ampscript'];
   html = data['html'];
   preview_html = data['preview_html'];
 
   // default state data
+  if (typeof global_options == 'undefined') global_options = {};
   if (typeof params == 'undefined') params = {};
   if (typeof ampscript == 'undefined') ampscript = "";
   if (typeof html == 'undefined') html = "";
   if (typeof preview_html == 'undefined') preview_html = "";
+
+  // update the title
+  updateTitle();
 
   // add the widgets to the page
   $('#workspace-container').html('');
@@ -222,6 +240,19 @@ sdk.getData(function (data) {
       var paramTextEnd = data.indexOf("/* PARAMETERS END */ ]%%");
       var amp = data.substring(paramTextStart, paramTextEnd);
       var ampArray = amp.split("SET @");
+
+      // parse global options */
+      global_options = {};
+      var gParams = ampArray[0];
+      var gStart = gParams.indexOf("/* {");
+      if (gStart >= 0) {
+        var cEnd = gParams.indexOf("*/");
+        var comment = extra.substring(gStart + 3, gEnd).trim();
+        global_options = JSON.parse(comment);
+      }
+      updateTitle();
+
+      // parse parameters
       for (var i = 1; i < ampArray.length; i++) {
         var a = ampArray[i];
 
