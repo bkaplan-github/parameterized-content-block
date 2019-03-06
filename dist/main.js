@@ -52,7 +52,7 @@ function preserveAMP(str, func) {
   if (i < 0) out = str;
   while (i >= 0) {
     out += func(str.substring(0, i));
-    var s = str.substring(i+3);
+    var s = str.substring(i);
     var j = s.indexOf("=%%") + 3;
     out += s.substring(0, j);
     str = s.substring(j);
