@@ -36,7 +36,7 @@ function htmlEscape(str) {
     .replace(/"/g, '&quot;');
 }
 
-function htmlUnescape(str){
+function htmlUnescape(str) {
   return str
     .replace(/&quot;/g, '"')
     // .replace(/&#39;/g, "'")
@@ -44,6 +44,16 @@ function htmlUnescape(str){
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
     .replace(/&amp;/g, '&');
+}
+
+function encodeURL(str) {
+  var s = encodeURI(str);
+  return s.replace(/%25%25=/g, '%%=').replace(/=%25%25/g, '=%%');
+}
+
+function decodeURL(str) {
+  var s = str.replace(/%%=/g, '%25%25=').replace(/=%%/g, '=%25%25');
+  return decodeURI(s);
 }
 
 function ampEscape(str){
@@ -82,7 +92,7 @@ function updateContent() {
       var enc = options["encoding"];
       if (typeof enc != 'undefined') encoding = enc;
       if (encoding == "html") value = htmlEscape(value);
-      else if (encoding == "url") value = encodeURI(value);
+      else if (encoding == "url") value = encodeURL(value);
 
       ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + ampEscape(value) + '")'
       if (!$.isEmptyObject(options)) ampscript += ' /* ' + JSON.stringify(options) + ' */';
@@ -300,7 +310,7 @@ sdk.getData(function (data) {
         var enc = options["encoding"];
         if (typeof enc != 'undefined') encoding = enc;
         if (encoding == "html") value = htmlUnescape(value);
-        else if (encoding == "url") value = decodeURI(value);
+        else if (encoding == "url") value = decodeURL(value);
 
         // store off the params into the object and add the widget
         params[id] = {'id': id, 'name': name, 'label': label, 'value': value, 'type': paramType, 'options': options};
