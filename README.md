@@ -47,10 +47,22 @@ The code will be rendered in the editor with the variables replaced with paramet
 
 Examples are included in the "examples" folder for a mobile-swappable image, text on a background image, table-based bulleted list, and embedding a video in an email (all things that cannot be done with standard freeform content blocks).  Many different types of custom content can be implemented using Parameterized Content Block without having to create a new custom content block and without having to know how to use the Block SDK, Javascript, Github, or Heroku.
 
+## Global Options
+Global options like setting the content block's title or rollover descriptions are achieved by adding data within a comment before the AMPscript "SET" statements.  For Example:
+
+    %%[ /* PARAMETERS START */
+    /* {"title":"Text Input Example","description":"this an example content block"} */
+    SET @Body_Text = "Here is some text"
+    SET @Text_Color = "#ff0000"
+    SET @Text_Size = "16"
+
+The "title" value will allow overriding the default content block title that appears at the top.  The "description" value will override the content block description that appears when the mouse hovers over the title or icon.
+
 ## Advanced Features
 Advanced features like rollover descriptions and different input types are achieved by adding data within comments after the AMPscript "SET" statements.  For example:
 
     %%[ /* PARAMETERS START */
+    /* {"title":"Text Input Example","description":"this an example content block"} */
     SET @Body_Text = "Here is some text" /* {"label":"Enter Text Here","encoding":"html","description":"type your body text here"} */
     SET @Text_Color = "#ff0000" /* {"type":"selection","options":["#ff0000","#00ff00","#0000ff"],"description":"select a text color"} */
     SET @Text_Size = "16" /* {"type":"slider","min":1,"max":50,"description":"text size"} */
@@ -80,7 +92,7 @@ The options of a selection parameter can define a value that is different than t
 A slider input is specified by adding "type" data with a value of "slider". The optional "label" value can be used to override the label that appears above the input.  The minimum and maximum slider values are specified using the "min" and "max" data. A rollover description can be added to a selection input by adding "description" data. See the "Text_Size" parameter in the above example.
 
 ## Future Enhancements
-* Add option to set the title of the content block.
+* Add URL encode option to text input.
 * Add support for other types of inputs (color pickers, etc).
 * Allow parsing of single quotes in the "SET" statements.
 * Allow parsing of "IIF" statements in the preview.
