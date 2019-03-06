@@ -47,6 +47,7 @@ function htmlUnescape(str) {
 }
 
 function preserveAMP(str, func) {
+console.log(str);
   var out = "";
   var i = str.indexOf("%%=");
   while (i >= 0) {
@@ -57,6 +58,7 @@ function preserveAMP(str, func) {
     str = s.substring(j);
     i = str.indexOf("%%=");
   }
+console.log(out);
   return out;
 }
 
@@ -175,10 +177,8 @@ function updateContent() {
       var encoding = "none";
       var enc = options["encoding"];
       if (typeof enc != 'undefined') encoding = enc;
-console.log(value);
       if (encoding == "html") value = encodeHTML(value);
       else if (encoding == "url") value = encodeURL(value);
-console.log(value);
 
       ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + ampEscape(value) + '")'
       if (!$.isEmptyObject(options)) ampscript += ' /* ' + JSON.stringify(options) + ' */';
