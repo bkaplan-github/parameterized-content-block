@@ -1,4 +1,5 @@
 %%[ /* PARAMETERS START */
+/* {"title":"PCB Mobile Swap Image","description":"swap an image on mobile displays"} */
 SET @Desktop_Image = TreatAsContent("https://via.placeholder.com/650x300")
 SET @Mobile_Image = TreatAsContent("https://via.placeholder.com/480x500")
 SET @Image_Alt = TreatAsContent("")

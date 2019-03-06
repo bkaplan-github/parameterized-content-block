@@ -1,4 +1,5 @@
 %%[ /* PARAMETERS START */
+/* {"title":"PCB HTML4 Video","description":"add video to your email"} */
 SET @Video_URL = "https://www.w3schools.com/html/mov_bbb.mp4"
 SET @Video_Poster_Image = "http://image.exct.net/lib/fe611570736303787417/m/1/7a2b36cf-40e4-49a3-afae-4ca3ba7f63e9.jpg"
 SET @Video_Fallback_URL = "https://www.salesforce.com"
