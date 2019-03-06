@@ -55,6 +55,7 @@ Global options like setting the content block's title or rollover descriptions a
     SET @Body_Text = "Here is some text"
     SET @Text_Color = "#ff0000"
     SET @Text_Size = "16"
+    /* PARAMETERS END */ ]%%
 
 The "title" value will allow overriding the default content block title that appears at the top.  The "description" value will override the content block description that appears when the mouse hovers over the title or icon.
 
