@@ -238,7 +238,7 @@ sdk.getData(function (data) {
     }
     else {
       var paramTextEnd = data.indexOf("/* PARAMETERS END */ ]%%");
-      var amp = data.substring(paramTextStart + 24, paramTextEnd);
+      var amp = data.substring(paramTextStart + 26, paramTextEnd);
       var ampArray = amp.split("SET @");
 
       // parse global options */
@@ -248,8 +248,6 @@ sdk.getData(function (data) {
       if (gStart >= 0) {
         var gEnd = gParams.indexOf("*/");
         var gComment = gParams.substring(gStart + 3, gEnd).trim();
-console.log(gParams);
-console.log(gComment);
         global_options = JSON.parse(gComment);
       }
       updateTitle();
