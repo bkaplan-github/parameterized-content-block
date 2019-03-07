@@ -57,7 +57,7 @@ function preserveAMP(str, func) {
     str = s.substring(j);
     i = str.indexOf("%%=");
   }
-  out += str;
+  out += func(str);
   return out;
 }
 
