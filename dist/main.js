@@ -77,70 +77,6 @@ function decodeURL(str) {
   return preserveAMP(str, decodeURI);
 }
 
-/*
-function encodeHTML(str) {
-  var out = "";
-  var i = str.indexOf("%%=");
-  while (i >= 0) {
-    out += htmlEscape(str.substring(0, i));
-    var s = str.substring(i+3);
-    var j = s.indexOf("=%%") + 3;
-    out += s.substring(i, j);
-    str = s.substring(j);
-    i = str.indexOf("%%=");
-  }
-  return out;
-}
-
-function decodeHTML(str) {
-  var out = "";
-  var i = str.indexOf("%%=");
-  while (i >= 0) {
-    out += htmlUnescape(str.substring(0, i));
-    var s = str.substring(i+3);
-    var j = s.indexOf("=%%") + 3;
-    out += s.substring(i, j);
-    str = s.substring(j);
-    i = str.indexOf("%%=");
-  }
-  return out;
-}
-
-function encodeURL(str) {
-  var out = "";
-  var i = str.indexOf("%%=");
-  while (i >= 0) {
-    out += encodeURI(str.substring(0, i));
-    var s = str.substring(i+3);
-    var j = s.indexOf("=%%") + 3;
-    out += s.substring(i, j);
-    str = s.substring(j);
-    i = str.indexOf("%%=");
-  }
-  return out;
-
-  // var s = encodeURI(str);
-  // return s.replace(/%25%25=/g, '%%=').replace(/=%25%25/g, '=%%');
-}
-
-function decodeURL(str) {
-  var out = "";
-  var i = str.indexOf("%%=");
-  while (i >= 0) {
-    out += decodeURI(str.substring(0, i));
-    var s = str.substring(i+3);
-    var j = s.indexOf("=%%") + 3;
-    out += s.substring(i, j);
-    str = s.substring(j);
-    i = str.indexOf("%%=");
-  }
-  return out;
-
-  // var s = str.replace(/%%=/g, '%25%25=').replace(/=%%/g, '=%25%25');
-  // return decodeURI(s);
-}
-*/
-
 function ampEscape(str){
   return str
     .replace(/"/g, '""');
@@ -219,7 +155,7 @@ function addWidget(id, label, value, type, options) {
   switch(type) {
     case 'selection':
       widget = '\r\n<div id="widget-' + id + '" class="slds-form-element" style="padding-bottom: 10px;" title="' + description + '">\r\n<label class="slds-form-element__label" for="selection-id-' + id + '">' + label + '</label>\r\n<div class="slds-form-element__control">\r\n<div class="slds-select_container">\r\n<select class="slds-select" id="input-id-' + id + '">';
-      var olist = options['options'];
+      var olist = options['choices'];
 
       for (var i = 0; i < olist.length; i++) {
         var opt = olist[i];
