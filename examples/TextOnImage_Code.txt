@@ -4,12 +4,12 @@ SET @BG_Image = "https://image.exct.net/lib/fe611570736303787417/m/1/8fa553dd-67
 SET @BG_Fallback_Color = "#4193cf" /* {"description":"fallback background color will display on clients that don't display background images"} */
 SET @BG_Width = "650" /* {"description":"desktop width - should be the same as image width"} */
 SET @BG_Height = "400" /* {"description":"desktop and mobile height - can be a set height or &quot;auto&quot; to fit to contents"} */
-SET @Mobile_BG_Horizontal_Position = "center" /* {"type":"selection","options":["left","center","right"],"description":"mobile background horizontal position when clipped"} */
+SET @Mobile_BG_Horizontal_Position = "center" /* {"type":"selection","choices":["left","center","right"],"description":"mobile background horizontal position when clipped"} */
 SET @Mobile_BG_Vertical_Position = "top" /* {"type":"selection","options":["top",{"value":"center","text":"middle"},"bottom"],"description":"mobile background vertical position when clipped"} */
-SET @Mobile_BG_Size = "cover" /* {"type":"selection","options":["cover","auto"],"description":"cover - if you want background to shrink/clip when cell height is shorter than image height and clip/enlarge if taller&#10;auto - if you want background to stay the original size but clip or tile in each direction"} */
+SET @Mobile_BG_Size = "cover" /* {"type":"selection","choices":["cover","auto"],"description":"cover - if you want background to shrink/clip when cell height is shorter than image height and clip/enlarge if taller&#10;auto - if you want background to stay the original size but clip or tile in each direction"} */
 SET @Text = "This <span style=""color:blue"">is</span><br>some text." /* {"description":"text to display over background image"} */
-SET @Text_Horizontal_Align = "center" /* {"type":"selection","options":["left","center","right"],"description":"content horizontal align"} */
-SET @Text_Vertical_Align = "middle" /* {"type":"selection","options":["top","middle","bottom"],"description":"content vertical align"} */
+SET @Text_Horizontal_Align = "center" /* {"type":"selection","choices":["left","center","right"],"description":"content horizontal align"} */
+SET @Text_Vertical_Align = "middle" /* {"type":"selection","choices":["top","middle","bottom"],"description":"content vertical align"} */
 SET @Text_Font_Family = "Arial, Helvetica, sans-serif" /* {"description":"font family for text"} */
 SET @Text_Font_Weight = "normal" /* {"description":"font weight"} */
 SET @Text_Font_Size = "56" /* {"type":"slider","min":1,"max":100,"description":"font size"} */
