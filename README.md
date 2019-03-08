@@ -69,14 +69,6 @@ Advanced features like rollover descriptions and different input types are achie
     SET @Text_Size = "16" /* {"type":"slider","min":1,"max":50,"description":"text size"} */
     /* PARAMETERS END */ ]%%
 
-    <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-            <td align="left" valign="top" style="font-family: Helvetica, Arial, sans-serif; 
-            font-weight: normal; font-size: %%=v(@Text_Size)=%%px; line-height: 20px; color: %%=v(@Text_Color)=%%; 
-            mso-line-height-rule: exactly;">%%=v(@Body_Text)=%%</td>
-        </tr>
-    </table>
-
 ### Text Input
 A text input is the default type so no "type" data is required (it defaults to "text"). The optional "label" value can be used to override the label that appears above the input.  The optional "encoding" value can be set to specify additional encoding should be done to the text (see below).  A rollover description can be added to a text input by adding "description" data. See the "Body_Text" parameter in the above example.
 
