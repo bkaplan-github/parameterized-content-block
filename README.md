@@ -64,24 +64,24 @@ Advanced options for inputs like rollover descriptions and different input types
 
     %%[ /* PARAMETERS START */
     SET @Body_Text = "Here is some text" /* {"label":"Enter Text Here","encoding":"html","description":"type your body text here"} */
-    SET @Text_Color = "#ff0000" /* {"type":"selection","options":["#ff0000","#00ff00","#0000ff"],"description":"select a text color"} */
+    SET @Text_Color = "#ff0000" /* {"type":"selection","choices":["#ff0000","#00ff00","#0000ff"],"description":"select a text color"} */
     SET @Text_Size = "16" /* {"type":"slider","min":1,"max":50,"description":"text size"} */
     /* PARAMETERS END */ ]%%
 
 ### Text Input
-A text input is the default type so no "type" data is required (it defaults to "text"). The optional "label" value can be used to override the label that appears above the input.  The optional "encoding" value can be set to specify additional encoding should be done to the text (see below).  A rollover description can be added to a text input by adding "description" data. See the "Body_Text" parameter in the above example.
+A text input is the default type so no "type" option is required (it defaults to "text"). The "label" option can be used to override the label that appears above the input.  The "encoding" option can be set to specify additional encoding should be done to the text (see below).  A rollover description can be added to a text input by adding the "description" option. See the "Body_Text" parameter in the above example.
 
-The default "encoding" value of "none" does not do any additional processing on the text when it gets inserted into the code.  If the text is going to be inserted into HTML (as it usually is) the input must contain valid HTML, with HTML-reserved characters "&lt;", "&gt;", "&amp;" and double-quotes explicitly encoded with eqivalent HTML entities "&amp;lt;", "&amp;gt;", "&amp;amp;" and "&amp;quot;" unless used within HTML tags.  An "encoding" value of "html" will cause the characters "&lt;", "&gt;", "&amp;" and double-quotes to be automatically encoded with eqivalent HTML entities "&amp;lt;", "&amp;gt;", "&amp;amp;" and "&amp;quot;", but HTML formatting cannot be used.  An "encoding" value of "url" will URL-encode the value typed into the text input, but URL-encoded entities (such as "%20") should not be entered (or they will themselves be encoded).  Special characters "/", "?", ":", ",", "@", "&", "=", "+", "$", and "#" will not be encoded.  AMPscript between "%%=" and "=%%" will not be encoded.
+Setting the "encoding" option to "none" (the default) does not do any additional processing on the text when it gets inserted into the code.  If the text is going to be inserted into HTML (as it usually is) the input must contain valid HTML, with HTML-reserved characters "&lt;", "&gt;", "&amp;" and double-quotes explicitly encoded with eqivalent HTML entities "&amp;lt;", "&amp;gt;", "&amp;amp;" and "&amp;quot;" unless used within HTML tags.  An "encoding" value of "html" will cause the characters "&lt;", "&gt;", "&amp;" and double-quotes to be automatically encoded with eqivalent HTML entities "&amp;lt;", "&amp;gt;", "&amp;amp;" and "&amp;quot;", but HTML formatting cannot be used.  An "encoding" value of "url" will URL-encode the value typed into the text input, but URL-encoded entities (such as "%20") should not be entered (or they will themselves be encoded).  Special characters "/", "?", ":", ",", "@", "&", "=", "+", "$", and "#" will not be encoded.  AMPscript between "%%=" and "=%%" will not be encoded.
 
 ### Selection Input
-A selection input is specified by adding "type" data with a value of "selection". The optional "label" value can be used to override the label that appears above the input.  The options for the selection list are specified using the "options" data. A rollover description can be added to a selection input by adding "description" data. See the "Text_Color" parameter in the above example.
+A selection input is specified by adding the "type" option with a value of "selection". The "label" option can be used to override the label that appears above the input.  The choices for the selection list are specified using the "choices" option. A rollover description can be added to a selection input by adding the "description" option. See the "Text_Color" parameter in the above example.
 
-The options of a selection parameter can define a value that is different than the option text displayed in the list using the following syntax:
+The choices of a selection parameter can define a value that is different than the choice text displayed in the list using the following syntax:
 
-    SET @Text_Color = "#ff0000" /* {"type":"selection","options":[{"value":"#ff0000","text":"Red"},{"value":"#00ff00","text":"Green"},{"value":"#0000ff","text":"Blue"},"description":"select a text color"]} */ 
+    SET @Text_Color = "#ff0000" /* {"type":"selection","choices":[{"value":"#ff0000","text":"Red"},{"value":"#00ff00","text":"Green"},{"value":"#0000ff","text":"Blue"},"description":"select a text color"]} */ 
 
 ### Slider Input
-A slider input is specified by adding "type" data with a value of "slider". The optional "label" value can be used to override the label that appears above the input.  The minimum and maximum slider values are specified using the "min" and "max" data. A rollover description can be added to a selection input by adding "description" data. See the "Text_Size" parameter in the above example.
+A slider input is specified by adding the "type" option with a value of "slider". The "label" option can be used to override the label that appears above the input.  The minimum and maximum slider values are specified using the "min" and "max" data. A rollover description can be added to a selection input by adding the "description" option. See the "Text_Size" parameter in the above example.
 
 ## Future Enhancements
 * Add support for other types of inputs (color pickers, etc).
