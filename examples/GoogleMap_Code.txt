@@ -11,8 +11,8 @@ SET @Map_API_Key = "" /* {"description":"you must create an api key before you c
 SET @Map_API_Signature = "" /* {"description":"an additional signature to increase level of security"} */
 SET @Padding = "20px" /* {"description":"padding around the content block"} */
 SET @Alignment = "center" /* {"type":"selection","choices":["left","center","right"],"description":"the horizontal alignment of the map image"} */
-SET @Mobile_Class = "width-full-img height-auto" /* {"description":"the class(es) applied to the module on mobile displays"} */
-SET @Mobile_Img_Class = "" /* {"description":"the class(es) applied to the img tag on mobile displays"} */
+SET @Mobile_Class = "" /* {"description":"the class(es) applied to the module on mobile displays"} */
+SET @Mobile_Img_Class = "width-full height-auto" /* {"description":"the class(es) applied to the img tag on mobile displays"} */
 /* PARAMETERS END */ ]%%
 
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -20,7 +20,7 @@ SET @Mobile_Img_Class = "" /* {"description":"the class(es) applied to the img t
     <td class="%%=v(@Mobile_Class)=%%" align="%%=v(@Alignment)=%%" valign="top" style="padding: %%=v(@Padding)=%%;">
       <table cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td>
+          <td align="center" valign="top">
             <img class="%%=v(@Mobile_Img_Class)=%%" src="http://maps.googleapis.com/maps/api/staticmap?center=%%=v(@Map_Center)=%%&size=%%=v(@Map_Width)=%%x%%=v(@Map_Height)=%%&maptype=%%=v(@Map_Type)=%%&scale=%%=v(@Map_Scale)=%%&format=%%=v(@Map_Format)=%%&zoom=%%=v(@Map_Zoom)=%%&key=%%=v(@Map_API_Key)=%%&signature=%%=v(@Map_API_Signature)=%%" width="%%=v(@Map_Width)=%%" height="%%=v(@Map_Height)=%%"/>
           </td>
         </tr>
