@@ -1,4 +1,5 @@
 %%[ /* PARAMETERS START */
+/* {"title":"PCB Google Map","description":"add a Google map to your email"} */
 SET @Map_Width = "610"
 SET @Map_Height = "400"
 SET @Map_Type = "hybrid" /* {"type":"selection","choices":["roadmap","satellite","hybrid","terrain"],"description":"the map type"} */
