@@ -1,7 +1,7 @@
 # parameterized content block
 Parameterized Content Block is a custom Salesforce Marketing Cloud Content Builder block using the [blocksdk](https://github.com/salesforce-marketingcloud/blocksdk).
 
-Parameterized Content Block allows you to create custom content blocks without having to know how to use the Block SDK, Javascript, Github, or Heroku.  It automatically adds an interface to parameterized HTML code by generating inputs for each parameter. Parameterized HTML is HTML that contains AMPscript variables of the form "%%=v(@Variable)=%%" and has a block of AMPscript "SET" statements at the top to define those variables.
+Parameterized Content Block automatically adds an interface to nearly any parameterized email code without having to create your own custom content block. No knowledge of the Block SDK, Javascript, Github, or Heroku are required. Once the interface has been created, no AMPscript or HTML knowledge is needed to edit the parameters.
 
 Github repository:  https://github.com/bkaplan-github/parameterized-content-block
 
@@ -10,7 +10,7 @@ Heroku app: https://parameterized-content-block.herokuapp.com/
 [![Parameterized Content Block](https://github.com/bkaplan-github/parameterized-content-block/blob/master/ParameterizedCB.jpg)](https://github.com/bkaplan-github/parameterized-content-block)
 
 ## How to Use
-Parameterized Content Block is useful for easily adding an interface to nearly any parameterized code without having to create your own custom content block. No knowledge of the Block SDK, Javascript, Github, or Heroku are required.  Once the interface has been created, no AMPscript or HTML knowledge is needed to edit the parameters.
+Parameterized Content Block allows you to create custom content blocks without having to know how to use the Block SDK, Javascript, Github, or Heroku.  You paste in parameterized HTML code and it automatically generates inputs for each parameter. Parameterized HTML is HTML that contains AMPscript variables of the form "%%=v(@Variable)=%%" and has a block of AMPscript "SET" statements at the top to define those variables.
 
 Create your parameterized HTML and add your block of SET statements with default values to the top like this:
 
