@@ -15,7 +15,7 @@ Parameterized Content Block is useful for easily adding an interface to nearly a
 Create your parameterized HTML and add your block of SET statements with default values to the top like this:
 
     %%[ /* PARAMETERS START */
-    SET @Body_Text = "Here is some text"
+    SET @Body_Text = "Hello World!"
     SET @Text_Color = "#ff0000"
     SET @Text_Size = "16"
     /* PARAMETERS END */ ]%%
@@ -46,7 +46,6 @@ Paste your parameterized code into the "Code" input. The parameter inputs will a
 The code will be rendered in the editor with the variables replaced with parameter values. You can add alternate HTML code to the "Preview" input that will be rendered only in the editor (useful if your code won't render properly in the editor due to more complex AMPscript in the code).
 
 ## Examples
-
 Examples are included in the "examples" folder for:
 
 * a mobile-swappable image
