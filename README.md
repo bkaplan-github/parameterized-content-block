@@ -1,7 +1,7 @@
 # parameterized content block
 Parameterized Content Block is a custom Salesforce Marketing Cloud Content Builder block using the [blocksdk](https://github.com/salesforce-marketingcloud/blocksdk).
 
-Parameterized Content Block automatically adds an interface to nearly any parameterized email code without having to create your own custom content block. No knowledge of the Block SDK, Javascript, Github, or Heroku is required. Once the interface has been created, no AMPscript or HTML knowledge is needed to edit the parameters.
+Parameterized Content Block automatically adds an interface to nearly any parameterized email code without having to create your own custom content block. No knowledge of the Block SDK, Javascript, Github, or Heroku is required. Once the interface has been created, no AMPscript or HTML knowledge is needed to edit the content block.
 
 Github repository:  https://github.com/bkaplan-github/parameterized-content-block
 
