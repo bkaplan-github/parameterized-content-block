@@ -30,7 +30,7 @@ Create your parameterized HTML and add your block of SET statements with default
 
 The above is only an example and isn't particularly useful since a simple text block can be edited using the freeform editor.  The Parameterized Content Block is intended for more complex code that cannot be edited in the freeform editor (code that typically would require a custom content block).
 
-Note that the AMPscript block containing the SET statement must be at the top, and the lines above and below the SET statements must be in the exact format shown above in order for the SET statements to be properly parsed. You can add additional AMPscript blocks below.
+Note that the AMPscript block containing the SET statement must be at the top, and the lines above and below the SET statements must be in the exact format shown above in order for the SET statements to be properly parsed. If your code requires additional AMPscript, you may add additonal AMPscript blocks below.
 
 The value for "SET" statements must contains strings within double quotes (&quot;) characters.  Double quotes within that value string can be specified with two double quote characters (&quot;&quot;).  For example, the following will add double quotes around the word "text":
 
