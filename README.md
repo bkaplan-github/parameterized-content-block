@@ -45,7 +45,17 @@ Paste your parameterized code into the "Code" input. The parameter inputs will a
 
 The code will be rendered in the editor with the variables replaced with parameter values. You can add alternate HTML code to the "Preview" input that will be rendered only in the editor (useful if your code won't render properly in the editor due to more complex AMPscript in the code).
 
-Examples are included in the "examples" folder for a mobile-swappable image, text on a background image, table-based bulleted list, embedding a video in an email, and adding a Google map to an email (all things that cannot be done with standard freeform content blocks).  Many different types of custom content can be implemented using Parameterized Content Block without having to create a new custom content block and without having to know how to use the Block SDK, Javascript, Github, or Heroku.
+## Examples
+
+Examples are included in the "examples" folder for:
+
+* a mobile-swappable image
+* text on a background image
+* table-based bulleted list
+* embedding a video in an email
+* adding a Google map to an email
+
+Many different types of custom content can be implemented using Parameterized Content Block without having to create a new custom content block and without having to know how to use the Block SDK, Javascript, Github, or Heroku.
 
 ## Global Options
 Global options like setting the content block's title or rollover description are achieved by adding data within a comment before the AMPscript "SET" statements.  For example:
