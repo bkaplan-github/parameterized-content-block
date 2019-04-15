@@ -1,7 +1,7 @@
 # parameterized content block
 Parameterized Content Block is a custom Salesforce Marketing Cloud Content Builder block using the [blocksdk](https://github.com/salesforce-marketingcloud/blocksdk).
 
-Parameterized Content Block automatically adds an interface to nearly any parameterized email code without having to create your own custom content block. No knowledge of the Block SDK, Javascript, Github, or Heroku are required. Once the interface has been created, no AMPscript or HTML knowledge is needed to edit the parameters.
+Parameterized Content Block automatically adds an interface to nearly any parameterized email code without having to create your own custom content block. No knowledge of the Block SDK, Javascript, Github, or Heroku is required. Once the interface has been created, no AMPscript or HTML knowledge is needed to edit the parameters.
 
 Github repository:  https://github.com/bkaplan-github/parameterized-content-block
 
@@ -9,8 +9,21 @@ Heroku app: https://parameterized-content-block.herokuapp.com/
 
 [![Parameterized Content Block](https://github.com/bkaplan-github/parameterized-content-block/blob/master/ParameterizedCB.jpg)](https://github.com/bkaplan-github/parameterized-content-block)
 
+## Examples
+Examples are included in the "examples" folder for:
+
+* a mobile-swappable image
+* text on a background image
+* table-based bulleted list
+* embedding a video in an email
+* adding a Google map to an email
+
+Many different types of custom content can be implemented using Parameterized Content Block without having to create a new custom content block and without having to know how to use the Block SDK, Javascript, Github, or Heroku.
+
 ## How to Use
-Parameterized Content Block allows you to create custom content blocks without having to know how to use the Block SDK, Javascript, Github, or Heroku.  You paste in parameterized HTML code and it automatically generates inputs for each parameter. Parameterized HTML is HTML that contains AMPscript variables of the form "%%=v(@Variable)=%%" and has a block of AMPscript "SET" statements at the top to define those variables.
+Parameterized Content Block allows you to create custom content blocks without having to know how to use the Block SDK, Javascript, Github, or Heroku.
+
+You paste in parameterized HTML code and it automatically generates inputs for each parameter. Parameterized HTML is HTML that contains AMPscript variables of the form "%%=v(@Variable)=%%" and has a block of AMPscript "SET" statements at the top to define those variables.
 
 Create your parameterized HTML and add your block of SET statements with default values to the top like this:
 
@@ -44,17 +57,6 @@ This is especially important if your code contains HTML which requires double qu
 Paste your parameterized code into the "Code" input. The parameter inputs will automatically be created so that a user can enter or edit the values in the inputs (in the above example, for body text, text color, and text size) without knowing HTML or AMPscript.  The input labels are built from the variable names, replacing underscores with spaces.  TreatAsContent() is added around parameter values so that parameters may contain dynamic AMPscript code.
 
 The code will be rendered in the editor with the variables replaced with parameter values. You can add alternate HTML code to the "Preview" input that will be rendered only in the editor (useful if your code won't render properly in the editor due to more complex AMPscript in the code).
-
-## Examples
-Examples are included in the "examples" folder for:
-
-* a mobile-swappable image
-* text on a background image
-* table-based bulleted list
-* embedding a video in an email
-* adding a Google map to an email
-
-Many different types of custom content can be implemented using Parameterized Content Block without having to create a new custom content block and without having to know how to use the Block SDK, Javascript, Github, or Heroku.
 
 ## Global Options
 Global options like setting the content block's title or rollover description are achieved by adding data within a comment before the AMPscript "SET" statements.  For example:
