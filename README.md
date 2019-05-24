@@ -17,6 +17,9 @@ Examples are included in the "examples" folder for:
 * table-based bulleted list
 * embedding a video in an email
 * adding a Google map to an email
+* bulletproof button
+* add Gmail promo tab annotations to email
+* spacer
 
 Many different types of custom content can be implemented using Parameterized Content Block without having to create a new custom content block and without having to know how to use the Block SDK, Javascript, Github, or Heroku.
 
