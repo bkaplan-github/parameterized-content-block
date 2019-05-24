@@ -1,0 +1,38 @@
+%%[ /* PARAMETERS START */
+/* {"title":"PCB CTA Button","description":"call to action button"} */
+SET @Horizontal_Align = "center" /* {"type":"selection","choices":["left","center","right"],"description":"button horizontal align"} */
+SET @CTA_URL = "http://www.marketingcloud.com" /* {"description":"button link URL"} */
+SET @CTA_Alias = "Button Alias" /* {"description":"button link alias"} */
+SET @Button_Text = "Click Here" /* {"description":"The text that appears on the button"} */
+SET @Button_Height_Padding = "10" /* {"type":"slider","min":0,"max":100,"description":"padding above and below text"} */
+SET @Button_Width_Padding = "30" /* {"type":"slider","min":0,"max":100,"description":"padding left and right of button text"} */
+SET @Button_Width_Padding_Outlook = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" /* {"description":"force space left and right of button text for Outlook"} */
+SET @Text_Font_Family = "Arial, Helvetica, sans-serif" /* {"description":"font family for text"} */
+SET @Text_Font_Weight = "700" /* {"description":"font weight"} */
+SET @Text_Font_Size = "16" /* {"type":"slider","min":1,"max":100,"description":"font size"} */
+SET @Text_Line_Height = "20" /* {"type":"slider","min":1,"max":100,"description":"text line height"} */
+SET @Text_Color = "#0000ff" /* {"description":"text color"} */
+SET @Button_Color = "#aaaaff" /* {"description":"button color"} */
+SET @Border_Color = "#0000ff" /* {"description":"border color"} */
+SET @Border_Thickness = "3" /* {"type":"slider","min":1,"max":10,"description":"button border thickness"} */
+SET @Border_Radius = "10" /* {"type":"slider","min":0,"max":100,"description":"button border roundness (always square on Outlook)"} */
+SET @Padding = "15px 30px" /* {"description":"padding around button"} */
+SET @Mobile_Class = "pad-20LR" /* {"description":"mobile class for outer <td>"} */
+SET @Mobile_Button_Class = "width-full" /* {"description":"mobile class for button <table>"} */
+/* PARAMETERS END */ ]%%
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td class="%%=v(@Mobile_Class)=%%" style="padding: %%=v(@Padding)=%%;" align="%%=v(@Horizontal_Align)=%%" valign="top">
+      <table class="%%=v(@Mobile_Button_Class)=%%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td style="-webkit-border-radius: %%=v(@Border_Radius)=%%px; -moz-border-radius: %%=v(@Border_Radius)=%%px; border-radius: %%=v(@Border_Radius)=%%px;" bgcolor="%%=v(@Button_Color)=%%" align="center">
+            <a href="%%=RedirectTo(@CTA_URL)=%%" alias="%%=v(@CTA_Alias)=%%" target="_blank" style="font-family: %%=v(@Text_Font_Family)=%%; font-weight: %%=v(@Text_Font_Weight)=%%; font-size: %%=v(@Text_Font_Size)=%%px; line-height: %%=v(@Text_Line_Height)=%%px; color: %%=v(@Text_Color)=%%; text-transform: none; text-decoration: none; padding: %%=v(@Button_Height_Padding)=%%px %%=v(@Button_Width_Padding)=%%px; border: %%=v(@Border_Thickness)=%%px solid %%=v(@Border_Color)=%%; -webkit-border-radius: %%=v(@Border_Radius)=%%px; -moz-border-radius: %%=v(@Border_Radius)=%%px; border-radius: %%=v(@Border_Radius)=%%px; display: block;">
+              <!--[if mso]>%%=v(@Padding_Outlook)=%%<![endif]-->%%=v(@Button_Text)=%%<!--[if mso]>%%=v(@Button_Width_Padding_Outlook)=%%<![endif]-->
+            </a>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

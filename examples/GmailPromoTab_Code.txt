@@ -1,0 +1,29 @@
+%%[ /* PARAMETERS START */
+/* {"title":"PCB Gmail Promo Tab Annotation","description":"add annotations for Gmail Promo Tab"} */
+SET @Logo_Image = "" /* {"description":"URL of the image used for the company logo (must use https)"} */
+SET @Banner_Image = "" /* {"description":"URL of the image used for the preview banner (538 x 138 - 3.9 aspect ratio)"} */
+SET @Promo_Tab_Subject_Line = "" /* {"description":"alternate subject line used if email is promoted"} */
+SET @Offer_Description = "" /* {"description":"the text on the offer badge"} */
+SET @Offer_Code = "" /* {"description":"the discount code for the offer"} */
+SET @Offer_Start_Date = "2018-12-18T00:00:00-0500" /* {"description":"offer start date of form yyyy-mm-ddThh:mm:ss-zzzz"} */
+SET @Offer_End_Date = "2018-12-24T00:00:00-0500" /* {"description":"offer end date of form yyyy-mm-ddThh:mm:ss-zzzz"} */
+/* PARAMETERS END */ ]%%
+
+<!-- Start Gmail Promo Tab annotations code -- place in body -->
+<div itemscope itemtype="http://schema.org/Organization">
+  <meta itemprop="name" content="Gmail" />
+  <meta itemprop="logo" content="%%= v(@Logo_Image) =%%" />
+</div>
+<div itemscope itemtype="http://schema.org/EmailMessage">
+  <meta itemprop="subjectLine" content="%%=v(@Promo_Tab_Subject_Line)=%%" />
+</div>
+<div itemscope itemtype="http://schema.org/DiscountOffer">
+  <meta itemprop="description" content="%%= v(@Offer_Description) =%%" />
+  <meta itemprop="discountCode" content="%%= v(@Offer_Code) =%%" />
+  <meta itemprop="availabilityStarts" content="%%= v(@Offer_Start_Date) =%%" />
+  <meta itemprop="availabilityEnds" content="%%= v(@Offer_End_Date) =%%" />
+</div>
+<div itemscope itemtype="http://schema.org/PromotionCard">
+  <meta itemprop="image" content="%%= v(@Banner_Image) =%%" />
+</div>
+<!-- End Gmail Promo Tab annotations code -->
