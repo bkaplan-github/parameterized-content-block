@@ -297,7 +297,7 @@ sdk.getData(function (data) {
         var name = a.substring(0, a.indexOf(" "));
 
         // see if there's a TreatAsContent()
-        var tac = a.substring(a.indexOf("=")+1).search(/\s+TreatAsContent/i);
+        var tac = a.substring(a.indexOf("=")+1).search(/\s+TreatAsContent/i) == 0;
 console.log("tac = "+tac);
 
         // parse id
@@ -333,7 +333,7 @@ console.log("tac = "+tac);
           var pLabel = options['label'];
           if (typeof pLabel != 'undefined') label = pLabel;
           var pTac = options['tac'];
-          if (typeof pTac != 'undefined') options['tac'] = tac;
+          if (typeof pTac == 'undefined') options['tac'] = tac;
 console.log("options = "+options['tac']);
         }
 
