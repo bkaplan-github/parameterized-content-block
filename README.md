@@ -57,7 +57,9 @@ This is especially important if your code contains HTML which requires double qu
     SET @Body_Text = "Here is <span style=""color:#0000ff;"">some</span> text"
     SET @Body_Text = "Here is <span style='color:#0000ff;'>some</span> text"
 
-Paste your parameterized code into the "Code" input. The parameter inputs will automatically be created so that a user can enter or edit the values in the inputs (in the above example, for body text, text color, and text size) without knowing HTML or AMPscript.  The input labels are built from the variable names, replacing underscores with spaces.  TreatAsContent() is added around parameter values so that parameters may contain dynamic AMPscript code.
+Paste your parameterized code into the "Code" input. The parameter inputs will automatically be created so that a user can enter or edit the values in the inputs (in the above example, for body text, text color, and text size) without knowing HTML or AMPscript.  The input labels are built from the variable names, replacing underscores with spaces.
+
+TreatAsContent() may be added around parameter values so that parameters may contain dynamic AMPscript code.
 
 The code will be rendered in the editor with the variables replaced with parameter values. You can add alternate HTML code to the "Preview" input that will be rendered only in the editor (useful if your code won't render properly in the editor due to more complex AMPscript in the code).
 
@@ -98,7 +100,6 @@ The choices of a selection parameter can define a value that is different than t
 A slider input is specified by adding the "type" option with a value of "slider". The "label" option can be used to override the label that appears above the input.  The minimum and maximum slider values are specified using the required "min" and "max" data. A rollover description can be added to a selection input by adding the "description" option. See the "Text_Size" parameter in the above example.
 
 ## Future Enhancements
-* Make TreatAsContent() wrapping optional
 * Add support for other types of inputs (color pickers, etc).
 * Allow parsing of single quotes in the "SET" statements.
 * Allow parsing of "IIF" statements in the preview.
