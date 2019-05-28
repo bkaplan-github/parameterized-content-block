@@ -116,7 +116,7 @@ function updateContent() {
       else if (encoding == "url") value = encodeURL(value);
 
       // wrap in TreatAsContent()
-      var tac = true; // options["tac"];
+      var tac = options["tac"];
       if (tac) ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + ampEscape(value) + '")';
       else ampscript += '\r\nSET @' + name + ' = "' + ampEscape(value) + '"';
 
