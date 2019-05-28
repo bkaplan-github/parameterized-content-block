@@ -116,7 +116,7 @@ function updateContent() {
       else if (encoding == "url") value = encodeURL(value);
 
       // wrap in TreatAsContent()
-      var tac = options["tac"];
+      var tac = true; // options["tac"];
       if (tac) ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + ampEscape(value) + '")';
       else ampscript += '\r\nSET @' + name + ' = "' + ampEscape(value) + '"';
 
@@ -297,7 +297,8 @@ sdk.getData(function (data) {
         var name = a.substring(0, a.indexOf(" "));
 
         // see if there's a TreatAsContent()
-        var tac = a.substring(a.indexOf("=")+1).search(/\s+TreatAsContent/i) == 0;
+        var tac = a.substring(a.indexOf("=")+1).search(/\s+TreatAsContent/i);
+console.log("tac = "+tac);
 
         // parse id
         var id = name.toLowerCase();
@@ -333,6 +334,7 @@ sdk.getData(function (data) {
           if (typeof pLabel != 'undefined') label = pLabel;
           var pTac = options['tac'];
           if (typeof pTac != 'undefined') options['tac'] = tac;
+console.log("options = "+options['tac']);
         }
 
         // unencode the value if needed
