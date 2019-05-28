@@ -293,7 +293,7 @@ sdk.getData(function (data) {
         var name = a.substring(0, a.indexOf(" "));
 
         // see if there's a TreatAsContent()
-        var tac = a.substring(a.indexOf("=")).search(/\s+TreatAsContent/i) > -1;
+        var tac = a.substring(a.indexOf("=")).search(/\s+TreatAsContent/i);
 console.log("tac = "+tac);
 
         // parse id
