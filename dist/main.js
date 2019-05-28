@@ -332,7 +332,7 @@ sdk.getData(function (data) {
           var pLabel = options['label'];
           if (typeof pLabel != 'undefined') label = pLabel;
           var pTac = options['tac'];
-          if (typeof pTac == 'undefined') options['tac'] = tac;
+          if (typeof pTac == 'undefined' && tac) options['tac'] = tac;
         }
 
         // unencode the value if needed
