@@ -298,7 +298,6 @@ sdk.getData(function (data) {
 
         // see if there's a TreatAsContent()
         var tac = a.substring(a.indexOf("=")+1).search(/\s+TreatAsContent/i) == 0;
-console.log("tac = "+tac);
 
         // parse id
         var id = name.toLowerCase();
@@ -334,7 +333,6 @@ console.log("tac = "+tac);
           if (typeof pLabel != 'undefined') label = pLabel;
           var pTac = options['tac'];
           if (typeof pTac == 'undefined') options['tac'] = tac;
-console.log("options = "+options['tac']);
         }
 
         // unencode the value if needed
