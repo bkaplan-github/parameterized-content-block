@@ -57,7 +57,9 @@ This is especially important if your code contains HTML which requires double qu
     SET @Body_Text = "Here is <span style=""color:#0000ff;"">some</span> text"
     SET @Body_Text = "Here is <span style='color:#0000ff;'>some</span> text"
 
-TreatAsContent() may be added around parameter values so that parameters may contain dynamic AMPscript code.
+TreatAsContent() may be added around parameter values so that parameters may contain dynamic AMPscript code, for example:
+
+    SET @Body_Text = TreatAsContent("Hello %%FirstName%%!")
 
 Paste your parameterized code into the "Code" input. The parameter inputs will automatically be created so that a user can enter or edit the values in the inputs (in the above example, for body text, text color, and text size) without knowing HTML or AMPscript.  The input labels are built from the variable names, replacing underscores with spaces.
 
