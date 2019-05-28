@@ -106,6 +106,7 @@ function updateContent() {
       var name = params[param]['name'];
       // var type = params[param]['type'];
       var value = params[param]['value'];
+      var tac = params[param]['tac'];
       var options = params[param]['options'];
 
       // encode the value if needed
@@ -116,7 +117,6 @@ function updateContent() {
       else if (encoding == "url") value = encodeURL(value);
 
       // wrap in TreatAsContent()
-      var tac = options["tac"];
       if (tac) ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + ampEscape(value) + '")';
       else ampscript += '\r\nSET @' + name + ' = "' + ampEscape(value) + '"';
 
@@ -332,7 +332,7 @@ sdk.getData(function (data) {
           var pLabel = options['label'];
           if (typeof pLabel != 'undefined') label = pLabel;
           var pTac = options['tac'];
-          if (typeof pTac == 'undefined' && tac) options['tac'] = tac;
+          if (typeof pTac != 'undefined') tac = pTac;
         }
 
         // unencode the value if needed
@@ -343,7 +343,7 @@ sdk.getData(function (data) {
         else if (encoding == "url") value = decodeURL(value);
 
         // store off the params into the object and add the widget
-        params[id] = {'id': id, 'name': name, 'label': label, 'value': value, 'type': paramType, 'options': options};
+        params[id] = {'id': id, 'name': name, 'label': label, 'value': value, 'type': paramType, 'tac': tac, 'options': options};
         addWidget(id, label, value, paramType, options);
       }
 
