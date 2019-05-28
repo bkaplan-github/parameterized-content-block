@@ -292,6 +292,10 @@ sdk.getData(function (data) {
         // parse variable name
         var name = a.substring(0, a.indexOf(" "));
 
+        // see if there's a TreatAsContent()
+        var tac = a.substring(a.indexOf("=")).search(/\s+TreatAsContent/i) > -1;
+console.log("tac = "+tac);
+
         // parse id
         var id = name.toLowerCase();
 
