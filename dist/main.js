@@ -115,7 +115,11 @@ function updateContent() {
       if (encoding == "html") value = encodeHTML(value);
       else if (encoding == "url") value = encodeURL(value);
 
-      ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + ampEscape(value) + '")'
+      // wrap in TreatAsContent()
+      var tac = options["tac"];
+      if (tac) ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + ampEscape(value) + '")';
+      else ampscript += '\r\nSET @' + name + ' = "' + ampEscape(value) + '"';
+
       if (!$.isEmptyObject(options)) ampscript += ' /* ' + JSON.stringify(options) + ' */';
 
       // replace the ampscript variables with their html equivalent
@@ -293,8 +297,7 @@ sdk.getData(function (data) {
         var name = a.substring(0, a.indexOf(" "));
 
         // see if there's a TreatAsContent()
-        var tac = a.substring(a.indexOf("=")).search(/\s+TreatAsContent/i);
-console.log("tac = "+tac);
+        var tac = a.substring(a.indexOf("=")+1).search(/\s+TreatAsContent/i) == 0;
 
         // parse id
         var id = name.toLowerCase();
@@ -328,6 +331,8 @@ console.log("tac = "+tac);
           if (typeof pType != 'undefined') paramType = pType.toLowerCase();
           var pLabel = options['label'];
           if (typeof pLabel != 'undefined') label = pLabel;
+          var pTac = options['tac'];
+          if (typeof pTac != 'undefined') options['tac'] = tac;
         }
 
         // unencode the value if needed
