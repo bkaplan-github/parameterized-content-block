@@ -87,8 +87,8 @@ Advanced options for inputs like rollover descriptions and different input types
 
     %%[ /* PARAMETERS START */
     SET @Body_Text = "Here is some text" /* {"label":"Enter Text Here","encoding":"html","description":"type your body text here"} */
-    SET @Text_Color = "#ff0000" /* {"type":"selection","choices":["#ff0000","#00ff00","#0000ff"],"description":"select a text color"} */
-    SET @Text_Size = "16" /* {"locked":true,"type":"slider","min":1,"max":50,"description":"text size"} */
+    SET @Text_Color = "#ff0000" /* {"locked":true,"type":"selection","choices":["#ff0000","#00ff00","#0000ff"],"description":"select a text color"} */
+    SET @Text_Size = "16" /* {"type":"slider","min":1,"max":50,"description":"text size"} */
     /* PARAMETERS END */ ]%%
 
 ### Text Input
