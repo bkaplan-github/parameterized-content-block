@@ -1,5 +1,5 @@
 # parameterized content block
-Parameterized Content Block allows you to create custom content blocks easily.  No knowledge of the Block SDK, Javascript, Github, or Heroku needed!  Examples of custom content blocks you can create include mobile swappable image, text on background image, embedded video, Google maps, Gmail promo tab annotations, and more! Once created, your content block can be edited interactively without any coding using text inputs, selection menus, and sliders.
+Parameterized Content Block allows you to create your own custom content blocks easily.  No knowledge of the Block SDK, Javascript, Github, or Heroku needed!  Examples of custom content blocks you can create include mobile swappable image, text on background image, embedded video, Google maps, Gmail promo tab annotations, and more! Once created, your content block can be edited interactively without any coding using text inputs, selection menus, and sliders.
 
 Parameterized Content Block is also useful when you want to restrict how the end-user can modify a content block.
 
