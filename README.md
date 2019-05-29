@@ -80,41 +80,31 @@ Global options like setting the content block's title or rollover description ar
 The "title" value will allow overriding the default content block title that appears at the top.  The "description" value will override the content block description that appears when the mouse hovers over the title or icon.
 
 ## Restricting Parameters
-Parameterized Content Block can be used to create content blocks that "lock down" certain parameters so that they cannot be edited by the user.  To do this, you could simply add the hardcoded values to the HTML so that they cannot be edited by the user.  But that wouldn't allow them to be easily edited via the HTML either.  You can also use the "locked" option for any parameter and set the value to true, like this:
-
-For example:
-
-    %%[ /* PARAMETERS START */
-    SET @Body_Text = "Hello World!"
-    SET @Text_Size = "16" /* {"locked":true} */
-    SET @Text_Color = "#ff0000" /* {"locked":true} */
-    /* PARAMETERS END */ ]%%
-    
-In the above example, only the text can be edited by the user -- the text color and size cannot be edited by the user because they are locked and won't have inputs created for them.
+Parameterized Content Block can be used to create content blocks that "lock down" certain parameters so that they cannot be edited by the user.  To do this, you could simply add the hardcoded values to the HTML so that they cannot be edited by the user.  But that wouldn't allow them to be easily edited via the HTML either.  You can also use the "locked" option for any parameter (see below).
 
 ## Advanced Input Options
 Advanced options for inputs like rollover descriptions and different input types are achieved by adding data within comments after the AMPscript "SET" statements.  For example:
 
     %%[ /* PARAMETERS START */
-    SET @Body_Text = "Here is some text" /* {"label":"Enter Text Here","encoding":"html","description":"type your body text here"} */
-    SET @Text_Color = "#ff0000" /* {"type":"selection","choices":["#ff0000","#00ff00","#0000ff"],"description":"select a text color"} */
-    SET @Text_Size = "16" /* {"type":"slider","min":1,"max":50,"description":"text size"} */
+    SET @Body_Text = "Here is some text" /* {"locked":false,"label":"Enter Text Here","encoding":"html","description":"type your body text here"} */
+    SET @Text_Color = "#ff0000" /* {"locked":false,"type":"selection","choices":["#ff0000","#00ff00","#0000ff"],"description":"select a text color"} */
+    SET @Text_Size = "16" /* {"locked":true,"type":"slider","min":1,"max":50,"description":"text size"} */
     /* PARAMETERS END */ ]%%
 
 ### Text Input
-A text input is the default type so no "type" option is required (it defaults to "text"). The "label" option can be used to override the label that appears above the input.  The "encoding" option can be set to specify additional encoding should be done to the text (see below).  A rollover description can be added to a text input by adding the "description" option. See the "Body_Text" parameter in the above example.
+A text input is the default type so no "type" option is required (it defaults to "text"). The "locked" option is used to keep the user from modifying this parameter (if set to true).  The "label" option can be used to override the label that appears above the input.  The "encoding" option can be set to specify additional encoding should be done to the text (see below).  A rollover description can be added to a text input by adding the "description" option. See the "Body_Text" parameter in the above example.
 
 Setting the "encoding" option to "none" (the default) does not do any additional processing on the text when it gets inserted into the code.  If the text is going to be inserted into HTML (as it usually is) the input must contain valid HTML, with HTML-reserved characters "&lt;", "&gt;", "&amp;" and double-quotes explicitly encoded with eqivalent HTML entities "&amp;lt;", "&amp;gt;", "&amp;amp;" and "&amp;quot;" unless used within HTML tags.  An "encoding" value of "html" will cause the characters "&lt;", "&gt;", "&amp;" and double-quotes to be automatically encoded with eqivalent HTML entities "&amp;lt;", "&amp;gt;", "&amp;amp;" and "&amp;quot;", but HTML formatting cannot be used.  An "encoding" value of "url" will URL-encode the value typed into the text input, but URL-encoded entities (such as "%20") should not be entered (or they will themselves be encoded).  Special characters "/", "?", ":", ",", "@", "&", "=", "+", "$", and "#" will not be encoded.  AMPscript between "%%=" and "=%%" will not be encoded.
 
 ### Selection Input
-A selection input is specified by adding the "type" option with a value of "selection". The "label" option can be used to override the label that appears above the input.  The choices for the selection list are specified using the required "choices" data. A rollover description can be added to a selection input by adding the "description" option. See the "Text_Color" parameter in the above example.
+A selection input is specified by adding the "type" option with a value of "selection". The "locked" option is used to keep the user from modifying this parameter (if set to true). The "label" option can be used to override the label that appears above the input.  The choices for the selection list are specified using the required "choices" data. A rollover description can be added to a selection input by adding the "description" option. See the "Text_Color" parameter in the above example.
 
 The choices of a selection parameter can define a value that is different than the choice text displayed in the list using the following syntax:
 
     SET @Text_Color = "#ff0000" /* {"type":"selection","choices":[{"value":"#ff0000","text":"Red"},{"value":"#00ff00","text":"Green"},{"value":"#0000ff","text":"Blue"}],"description":"select a text color"]} */ 
 
 ### Slider Input
-A slider input is specified by adding the "type" option with a value of "slider". The "label" option can be used to override the label that appears above the input.  The minimum and maximum slider values are specified using the required "min" and "max" data. A rollover description can be added to a selection input by adding the "description" option. See the "Text_Size" parameter in the above example.
+A slider input is specified by adding the "type" option with a value of "slider". The "locked" option is used to keep the user from modifying this parameter (if set to true). The "label" option can be used to override the label that appears above the input.  The minimum and maximum slider values are specified using the required "min" and "max" data. A rollover description can be added to a selection input by adding the "description" option. See the "Text_Size" parameter in the above example.
 
 ## Future Enhancements
 * Add support for other types of inputs (color pickers, etc).
@@ -122,4 +112,3 @@ A slider input is specified by adding the "type" option with a value of "slider"
 * Allow parsing of "IIF" statements in the preview.
 * Allow editing the block in the "HTML" tab.
 * Add an interface for interactively building the parameters.
-
