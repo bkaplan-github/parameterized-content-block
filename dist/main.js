@@ -150,6 +150,11 @@ function updateTitle() {
 
 function addWidget(id, label, value, locked, type, tac, options) {
   // if (locked) return;
+  var labelStyle = '';
+  if (locked) {
+    label += " [locked]";
+    labelStyle += ' style="color: #cccccc;"';
+  }
 
   // set the description
   var description = "";
@@ -160,7 +165,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
   switch(type) {
     case 'selection':
-      widget = '\r\n<div id="widget-' + id + '" class="slds-form-element" style="padding-bottom: 10px;" title="' + description + '">\r\n<label class="slds-form-element__label" for="selection-id-' + id + '">' + label + '</label>\r\n<div class="slds-form-element__control">\r\n<div class="slds-select_container">\r\n<select class="slds-select" id="input-id-' + id + '">';
+      widget = '\r\n<div id="widget-' + id + '" class="slds-form-element" style="padding-bottom: 10px;" title="' + description + '">\r\n<label class="slds-form-element__label" for="selection-id-' + id + '"' + labelStyle + '>' + label + '</label>\r\n<div class="slds-form-element__control">\r\n<div class="slds-select_container">\r\n<select class="slds-select" id="input-id-' + id + '">';
       var olist = options['choices'];
 
       for (var i = 0; i < olist.length; i++) {
@@ -193,7 +198,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
       var min = options["min"];
       var max = options["max"];
 
-      widget = '\r\n<div id="widget-' + id + '" class="slds-form-element" title="' + description + '">\r\n<label class="slds-form-element__label" for="slider-id-' + id + '">\r\n<span class="slds-slider-label">\r\n<span class="slds-slider-label__label">' + label + '</span>\r\n</span>\r\n</label>\r\n<div class="slds-form-element__control">\r\n<div class="slds-slider">\r\n<input type="range" id="slider-id-' + id + '" class="slds-slider__range" value="' + value + '" min="' + min + '" max="' + max + '" />\r\n<span class="slds-slider__value" id="slider-num-id-' + id + '" aria-hidden="true">' + value + '</span>\r\n</div>\r\n</div>\r\n</div>';
+      widget = '\r\n<div id="widget-' + id + '" class="slds-form-element" title="' + description + '">\r\n<label class="slds-form-element__label" for="slider-id-' + id + '">\r\n<span class="slds-slider-label">\r\n<span class="slds-slider-label__label"' + labelStyle + '>' + label + '</span>\r\n</span>\r\n</label>\r\n<div class="slds-form-element__control">\r\n<div class="slds-slider">\r\n<input type="range" id="slider-id-' + id + '" class="slds-slider__range" value="' + value + '" min="' + min + '" max="' + max + '" />\r\n<span class="slds-slider__value" id="slider-num-id-' + id + '" aria-hidden="true">' + value + '</span>\r\n</div>\r\n</div>\r\n</div>';
 
       $('#workspace-container').append(widget);
 
@@ -212,7 +217,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
       break;
 
     default: // text
-      widget = '\r\n<div id="widget-' + id + '" class="slds-form-element" style="margin-bottom:10px;" title="' + description + '">\r\n<label class="slds-form-element__label" for="input-id-' + id + '">' + label + '</label>\r\n<div class="slds-form-element__control slds-input-has-fixed-addon">\r\n<input class="slds-input" type="text" id="input-id-' + id + '" placeholder="" />\r\n</div>\r\n</div>';
+      widget = '\r\n<div id="widget-' + id + '" class="slds-form-element" style="margin-bottom:10px;" title="' + description + '">\r\n<label class="slds-form-element__label" for="input-id-' + id + '"' + labelStyle + '>' + label + '</label>\r\n<div class="slds-form-element__control slds-input-has-fixed-addon">\r\n<input class="slds-input" type="text" id="input-id-' + id + '" placeholder="" />\r\n</div>\r\n</div>';
 
       $('#workspace-container').append(widget);
 
