@@ -149,7 +149,7 @@ function updateTitle() {
 }
 
 function addWidget(id, label, value, locked, type, tac, options) {
-  if (locked && !global_options['show_locked']) return;
+  if (locked && global_options['hide_locked']) return;
 
   var labelStyle = '';
   if (locked) {
