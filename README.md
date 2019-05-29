@@ -67,6 +67,31 @@ Paste your parameterized code into the "Code" input. The parameter inputs will a
 
 The code will be rendered in the editor with the variables replaced with parameter values. You can add alternate HTML code to the "Preview" input that will be rendered only in the editor (useful if your code won't render properly in the editor due to more complex AMPscript in the code).
 
+## Restricting Parameters
+Parameterized Content Block can be used to create content blocks that "lock down" certain parameters so that they cannot be edited by the user.  To do this, you would add a content block beneath the parameters section with hardcoded values, or simply add the hardcoded values to the HTML so that they cannot be edited by the user.
+
+For example:
+
+    %%[ /* PARAMETERS START */
+    SET @Body_Text = "Hello World!"
+    /* PARAMETERS END */ ]%%
+
+    %%[
+        /* these cannot be edited by the user */
+        SET @Text_Size = "16"
+        SET @Text_Color = "#ff0000"
+    ]%%
+    
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td align="left" valign="top" style="font-family: Helvetica, Arial, sans-serif; 
+            font-weight: normal; font-size: %%=v(@Text_Size)=%%px; line-height: 20px; color: %%=v(@Text_Color)=%%; 
+            mso-line-height-rule: exactly;">%%=v(@Body_Text)=%%</td>
+        </tr>
+    </table>
+    
+In the above example, only the text can be edited by the user -- the text color and size cannot be edited by the user because they are not included in the top AMPscript block and won't have inputs created for them.
+
 ## Global Options
 Global options like setting the content block's title or rollover description are achieved by adding data within a comment before the AMPscript "SET" statements.  For example:
 
