@@ -148,7 +148,7 @@ function updateTitle() {
   }
 }
 
-function addWidget(id, label, value, type, options) {
+function addWidget(id, label, value, type, tac, options) {
   // set the description
   var description = "";
   var desc = options["description"];
@@ -252,7 +252,7 @@ sdk.getData(function (data) {
   // add the widgets to the page
   $('#workspace-container').html('');
   for (const param in params) {
-    addWidget(params[param]['id'], params[param]['label'], params[param]['value'], params[param]['type'], params[param]['options']);
+    addWidget(params[param]['id'], params[param]['label'], params[param]['value'], params[param]['type'], params[param]['tac'], params[param]['options']);
   }
 
   // add the html and ampscript to the editor
@@ -296,11 +296,11 @@ sdk.getData(function (data) {
         // parse variable name
         var name = a.substring(0, a.indexOf(" "));
 
+        // create id
+        var id = name.toLowerCase();
+
         // see if there's a TreatAsContent()
         var tac = a.substring(a.indexOf("=")+1).search(/\s+TreatAsContent/i) == 0;
-
-        // parse id
-        var id = name.toLowerCase();
 
         // parse value
         var vStart = a.substring(a.indexOf('"') + 1);
@@ -344,7 +344,7 @@ sdk.getData(function (data) {
 
         // store off the params into the object and add the widget
         params[id] = {'id': id, 'name': name, 'label': label, 'value': value, 'type': paramType, 'tac': tac, 'options': options};
-        addWidget(id, label, value, paramType, options);
+        addWidget(id, label, value, paramType, tac, options);
       }
 
       html = data.substring(paramTextEnd + 24);
