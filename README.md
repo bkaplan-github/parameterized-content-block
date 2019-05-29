@@ -71,13 +71,13 @@ The code will be rendered in the editor with the variables replaced with paramet
 Global options like setting the content block's title or rollover description are achieved by adding data within a comment before the AMPscript "SET" statements.  For example:
 
     %%[ /* PARAMETERS START */
-    /* {"title":"Text Input Example","description":"this an example content block"} */
+    /* {"title":"Text Input Example","description":"this an example content block","show_locked":true} */
     SET @Body_Text = "Here is some text"
     SET @Text_Color = "#ff0000"
     SET @Text_Size = "16"
     /* PARAMETERS END */ ]%%
 
-The "title" value will allow overriding the default content block title that appears at the top.  The "description" value will override the content block description that appears when the mouse hovers over the title or icon.
+The "title" value will allow overriding the default content block title that appears at the top.  The "description" value will override the content block description that appears when the mouse hovers over the title or icon.  The "show_locked" value, if true, will show locked parameters.
 
 ## Restricting Parameters
 Parameterized Content Block can be used to create content blocks that "lock down" certain parameters so that they cannot be edited by the user.  To do this, you could simply add the hardcoded values to the HTML so that they cannot be edited by the user.  But that wouldn't allow them to be easily edited via the HTML either.  You can also use the "locked" option for any parameter (see below).
