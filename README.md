@@ -1,7 +1,9 @@
 # parameterized content block
-Parameterized Content Block is a custom Salesforce Marketing Cloud Content Builder block using the [blocksdk](https://github.com/salesforce-marketingcloud/blocksdk).
+Parameterized Content Block allows you to create custom content blocks easily.  No knowledge of the Block SDK, Javascript, Github, or Heroku needed!  Examples of custom content blocks you can create include mobile swappable image, text on background image, embedded video, Google maps, Gmail promo tab annotations, and more! Once created, your content block can be edited interactively without any coding using text inputs, selection menus, and sliders.
 
-Parameterized Content Block automatically adds a user interface to nearly any parameterized email code without having to create your own custom content block. No knowledge of the Block SDK, Javascript, Github, or Heroku is required. Once the interface has been created, no AMPscript or HTML knowledge is needed to edit the content block.
+Parameterized Content Block is also useful when you want to restrict how the end-user can modify a content block.
+
+Parameterized Content Block is a custom Salesforce Marketing Cloud Content Builder block built using the [blocksdk](https://github.com/salesforce-marketingcloud/blocksdk).  Parameterized Content Block automatically adds a user interface to nearly any parameterized HTML email code.
 
 Github repository:  https://github.com/bkaplan-github/parameterized-content-block
 
@@ -21,10 +23,10 @@ Examples are included in the "examples" folder for:
 * add Gmail promo tab annotations to email
 * spacer
 
-Many different types of custom content can be implemented using Parameterized Content Block without having to create a new custom content block and without having to know how to use the Block SDK, Javascript, Github, or Heroku.
+Many different types of custom content can be implemented using Parameterized Content Block without having to know how to use the Block SDK, Javascript, Github, or Heroku.
 
 ## How to Use
-Parameterized Content Block allows you to create custom content blocks without having to know how to use the Block SDK, Javascript, Github, or Heroku.
+Parameterized Content Block allows you to create your own custom content blocks with only HTML and simple AMPscript.  Once created, no AMPscript or HTML knowledge is needed to edit your custom content block.
 
 You paste in parameterized HTML code and it automatically generates inputs for each parameter. Parameterized HTML is HTML that contains AMPscript variables of the form "%%=v(@Variable)=%%" and has a block of AMPscript "SET" statements at the top to define those variables.
 
@@ -44,7 +46,7 @@ Create your parameterized HTML and add your block of SET statements with default
         </tr>
     </table>
 
-The above is only an example and isn't particularly useful since a simple text block can be edited using the freeform editor.  The Parameterized Content Block is intended for more complex code that cannot be edited in the freeform editor (code that typically would require a custom content block).
+The above is only an example and isn't particularly useful since a simple text block can be edited using the freeform editor.  The Parameterized Content Block is useful for content blocks that typically cannot be edited in the freeform editor (code that would otherwise require a custom content block) or where you want to restrict how the end-user can modify the content block.
 
 Note that the AMPscript block containing the SET statement must be at the top, and the lines above and below the SET statements must be in the exact format shown above in order for the SET statements to be properly parsed. If your code requires additional AMPscript, you may add additonal AMPscript blocks below.
 
