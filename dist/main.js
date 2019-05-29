@@ -149,7 +149,7 @@ function updateTitle() {
 }
 
 function addWidget(id, label, value, locked, type, tac, options) {
-  if (locked) return;
+  // if (locked) return;
 
   // set the description
   var description = "";
@@ -180,7 +180,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
       $('#workspace-container').append(widget);
 
-      $('#input-id-'+id).data({'id': id}).val(value).change(function() {
+      $('#input-id-'+id).data({'id': id}).val(value).prop('disabled',locked).change(function() {
         var id = $(this).data('id');
         var value = $(this).val();
         params[id]['value'] = value;
@@ -197,7 +197,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
       $('#workspace-container').append(widget);
 
-      $('#slider-id-'+id).data({'id': id, 'prev_val': value}).val(value).mousemove(function() {
+      $('#slider-id-'+id).data({'id': id, 'prev_val': value}).val(value).prop('disabled',locked).mousemove(function() {
         var id = $(this).data('id');
         var value = $(this).val();
         var prev_value = $(this).data('prev_val');
@@ -216,7 +216,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
       $('#workspace-container').append(widget);
 
-      $('#input-id-'+id).data({'id': id}).val(value).change(function() {
+      $('#input-id-'+id).data({'id': id}).val(value).prop('disabled',locked).change(function() {
         var id = $(this).data('id');
         var value = $(this).val();
         params[id]['value'] = value;
