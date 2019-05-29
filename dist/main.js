@@ -148,7 +148,9 @@ function updateTitle() {
   }
 }
 
-function addWidget(id, label, value, type, tac, options) {
+function addWidget(id, label, value, locked, type, tac, options) {
+  if (locked) return;
+
   // set the description
   var description = "";
   var desc = options["description"];
@@ -252,7 +254,7 @@ sdk.getData(function (data) {
   // add the widgets to the page
   $('#workspace-container').html('');
   for (const param in params) {
-    addWidget(params[param]['id'], params[param]['label'], params[param]['value'], params[param]['type'], params[param]['tac'], params[param]['options']);
+    addWidget(params[param]['id'], params[param]['label'], params[param]['value'], params[param]['locked'], params[param]['type'], params[param]['tac'], params[param]['options']);
   }
 
   // add the html and ampscript to the editor
@@ -318,6 +320,7 @@ sdk.getData(function (data) {
         label = name.replace(regex, " ");
 
         // parse type and options
+        var locked = false;
         var paramType = 'text';
         var comment = "";
         var options = {};
@@ -327,6 +330,8 @@ sdk.getData(function (data) {
           var cEnd = extra.indexOf("*/");
           var comment = extra.substring(cStart + 3, cEnd).trim();
           var options = JSON.parse(comment);
+          var pLocked = options['locked'];
+          if (typeof pLocked != 'undefined') locked = pLocked;
           var pType = options['type'];
           if (typeof pType != 'undefined') paramType = pType.toLowerCase();
           var pLabel = options['label'];
@@ -343,8 +348,8 @@ sdk.getData(function (data) {
         else if (encoding == "url") value = decodeURL(value);
 
         // store off the params into the object and add the widget
-        params[id] = {'id': id, 'name': name, 'label': label, 'value': value, 'type': paramType, 'tac': tac, 'options': options};
-        addWidget(id, label, value, paramType, tac, options);
+        params[id] = {'id': id, 'name': name, 'label': label, 'value': value, 'type': paramType, 'locked': locked, 'tac': tac, 'options': options};
+        addWidget(id, label, value, locked, paramType, tac, options);
       }
 
       html = data.substring(paramTextEnd + 24);
