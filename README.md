@@ -68,7 +68,7 @@ Paste your parameterized code into the "Code" input. The parameter inputs will a
 The code will be rendered in the editor with the variables replaced with parameter values. You can add alternate HTML code to the "Preview" input that will be rendered only in the editor (useful if your code won't render properly in the editor due to more complex AMPscript in the code).
 
 ## Restricting Parameters
-Parameterized Content Block can be used to create content blocks that "lock down" certain parameters so that they cannot be edited by the user.  To do this, you could simply add the hardcoded values to the HTML so that they cannot be edited by the user.  But that wouldn't allow them to be easily edited via the HTML either.  You can also use the "locked" option for any parameter (see below).  The "show_locked" global option will control whether locked parameters will be displayed in the interface or not (they will not be editable regardless).
+Parameterized Content Block can be used to create content blocks that "lock down" certain parameters so that they cannot be edited by the user.  To do this, you could simply add the hardcoded values to the HTML instead of making them parameters so that they cannot be edited by the user.  You can also use the "locked" option for any parameter (see below).  The "hide_locked" global option will control whether locked parameters will be displayed in the interface or not (they will not be editable regardless).
 
 ## Global Options
 Global options like setting the content block's title or rollover description are achieved by adding data within a comment before the AMPscript "SET" statements.  For example:
@@ -80,7 +80,7 @@ Global options like setting the content block's title or rollover description ar
     SET @Text_Size = "16"
     /* PARAMETERS END */ ]%%
 
-The "title" value will allow overriding the default content block title that appears at the top.  The "description" value will override the content block description that appears when the mouse hovers over the title or icon.  The "show_locked" value, if true, will display locked parameters in the interface (but they won't be editable).
+The "title" value will allow overriding the default content block title that appears at the top.  The "description" value will override the content block description that appears when the mouse hovers over the title or icon.  The "hide_locked" value, if true, will hide locked parameters in the interface.
 
 ## Advanced Input Options
 Advanced options for inputs like rollover descriptions and different input types are achieved by adding data within comments after the AMPscript "SET" statements.  For example:
