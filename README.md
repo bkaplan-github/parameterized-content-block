@@ -86,8 +86,8 @@ The "title" value will allow overriding the default content block title that app
 Advanced options for inputs like rollover descriptions and different input types are achieved by adding data within comments after the AMPscript "SET" statements.  For example:
 
     %%[ /* PARAMETERS START */
-    SET @Body_Text = "Here is some text" /* {"locked":false,"label":"Enter Text Here","encoding":"html","description":"type your body text here"} */
-    SET @Text_Color = "#ff0000" /* {"locked":false,"type":"selection","choices":["#ff0000","#00ff00","#0000ff"],"description":"select a text color"} */
+    SET @Body_Text = "Here is some text" /* {"label":"Enter Text Here","encoding":"html","description":"type your body text here"} */
+    SET @Text_Color = "#ff0000" /* {"type":"selection","choices":["#ff0000","#00ff00","#0000ff"],"description":"select a text color"} */
     SET @Text_Size = "16" /* {"locked":true,"type":"slider","min":1,"max":50,"description":"text size"} */
     /* PARAMETERS END */ ]%%
 
