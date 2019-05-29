@@ -106,4 +106,5 @@ A slider input is specified by adding the "type" option with a value of "slider"
 * Allow parsing of single quotes in the "SET" statements.
 * Allow parsing of "IIF" statements in the preview.
 * Allow editing the block in the "HTML" tab.
+* Add an interface for interactively building the parameters.
 
