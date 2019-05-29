@@ -1,9 +1,9 @@
 %%[ /* PARAMETERS START */
 /* {"title":"PCB CTA Button","description":"call to action button"} */
-SET @Horizontal_Align = "center" /* {"type":"selection","choices":["left","center","right"],"description":"button horizontal align"} */
+SET @Button_Text = "Click Here" /* {"description":"The text that appears on the button"} */
 SET @CTA_URL = "http://www.marketingcloud.com" /* {"description":"button link URL"} */
 SET @CTA_Alias = "Button Alias" /* {"description":"button link alias"} */
-SET @Button_Text = "Click Here" /* {"description":"The text that appears on the button"} */
+SET @Horizontal_Align = "center" /* {"type":"selection","choices":["left","center","right"],"description":"button horizontal align"} */
 SET @Button_Height_Padding = "10" /* {"type":"slider","min":0,"max":100,"description":"padding above and below text"} */
 SET @Button_Width_Padding = "30" /* {"type":"slider","min":0,"max":100,"description":"padding left and right of button text"} */
 SET @Button_Width_Padding_Outlook = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" /* {"description":"force space left and right of button text for Outlook"} */
