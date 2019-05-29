@@ -154,7 +154,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
   var labelStyle = '';
   if (locked) {
     label += " [locked]";
-    labelStyle += ' style="color: #cccccc;"';
+    labelStyle = ' style="color: #cccccc;"';
   }
 
   // set the description
