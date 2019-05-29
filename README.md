@@ -107,7 +107,6 @@ The choices of a selection parameter can define a value that is different than t
 A slider input is specified by adding the "type" option with a value of "slider". The "locked" option is used to keep the user from modifying this parameter (if set to true). The "label" option can be used to override the label that appears above the input.  The minimum and maximum slider values are specified using the required "min" and "max" data. A rollover description can be added to a selection input by adding the "description" option. See the "Text_Size" parameter in the above example.
 
 ## Future Enhancements
-* Make locked parameters display but have a lock icon and be uneditable.
 * Add support for other types of inputs (color pickers, etc).
 * Allow parsing of single quotes in the "SET" statements.
 * Allow parsing of "IIF" statements in the preview.
