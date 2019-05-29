@@ -149,7 +149,8 @@ function updateTitle() {
 }
 
 function addWidget(id, label, value, locked, type, tac, options) {
-  // if (locked) return;
+  if (locked && !global_options['show_locked']) return;
+
   var labelStyle = '';
   if (locked) {
     label += " [locked]";
