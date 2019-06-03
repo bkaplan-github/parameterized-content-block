@@ -5,11 +5,11 @@
       <div>
         <table width="100%" height="%%=v(@BG_Height)=%%" border="0" cellpadding="0" cellspacing="0">
           <tr>
-            <td height="%%=v(@BG_Height)=%%" align="%%=v(@Text_Horizontal_Align)=%%" valign="%%=v(@Text_Vertical_Align)=%%">
+            <td height="%%=v(@BG_Height)=%%" align="center" valign="%%=v(@Text_Vertical_Align)=%%">
 
-              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <table class="%%=v(@Mobile_Table_Class)=%%" width="%%=v(@Text_Width)=%%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td class="%%=v(@Mobile_Text_Class)=%%" align="%%=v(@Text_Horizontal_Align)=%%" valign="%%=v(@Text_Vertical_Align)=%%" style="padding: %%=v(@Text_Padding)=%%; font-family: %%=v(@Text_Font_Family)=%%; font-weight: %%=v(@Text_Font_Weight)=%%; font-size: %%=v(@Text_Font_Size)=%%px; line-height: %%=v(@Text_Line_Height)=%%px; color: %%=v(@Text_Color)=%%; mso-line-height-rule: exactly;">%%=v(@Text)=%%</td>
+                  <td class="%%=v(@Mobile_Text_Class)=%%" align="%%=v(@Text_Horizontal_Align)=%%" valign="%%=v(@Text_Vertical_Align)=%%" style="padding-top: %%=v(@Text_Padding_Top)=%%; padding-bottom: %%=v(@Text_Padding_Bottom)=%%; font-family: %%=v(@Text_Font_Family)=%%; font-weight: %%=v(@Text_Font_Weight)=%%; font-size: %%=v(@Text_Font_Size)=%%px; line-height: %%=v(@Text_Line_Height)=%%px; color: %%=v(@Text_Color)=%%; mso-line-height-rule: exactly;">%%=v(@Text)=%%</td>
                 </tr>
               </table>
 
