@@ -6,7 +6,7 @@ SET @BG_Width = "650" /* {"description":"desktop width - should be the same as i
 SET @BG_Height = "400" /* {"description":"desktop and mobile height - can be a set height or &quot;auto&quot; to fit to contents"} */
 SET @Mobile_BG_Horizontal_Position = "center" /* {"type":"selection","choices":["left","center","right"],"description":"mobile background horizontal position when clipped"} */
 SET @Mobile_BG_Vertical_Position = "top" /* {"type":"selection","choices":["top",{"value":"center","text":"middle"},"bottom"],"description":"mobile background vertical position when clipped"} */
-SET @Mobile_BG_Size = "cover" /* {"type":"selection","choices":["cover","auto"],"description":"cover - if you want background to shrink/clip when cell height is shorter than image height and clip/enlarge if taller&#10;auto - if you want background to stay the original size but clip or tile in each direction"} */
+SET @Mobile_BG_Size = "cover" /* {"type":"selection","choices":["cover","auto"],"description":"cover - if you want background to shrink horizontally & clip vertically when cell height is shorter than image height and clip horizontally & enlarge vertically if taller&#10;auto - if you want background to stay the original size but clip or tile in each direction"} */
 SET @Text = "This <span style=""color:blue"">is</span><br>some text." /* {"description":"text to display over background image"} */
 SET @Text_Horizontal_Align = "center" /* {"type":"selection","choices":["left","center","right"],"description":"content horizontal align"} */
 SET @Text_Vertical_Align = "middle" /* {"type":"selection","choices":["top","middle","bottom"],"description":"content vertical align"} */
