@@ -28,7 +28,7 @@ SET @Mobile_Button_Class = "width-full" /* {"description":"mobile class for butt
         <tr>
           <td style="-webkit-border-radius: %%=v(@Border_Radius)=%%px; -moz-border-radius: %%=v(@Border_Radius)=%%px; border-radius: %%=v(@Border_Radius)=%%px;" bgcolor="%%=v(@Button_Color)=%%" align="center">
             <a href="%%=RedirectTo(@CTA_URL)=%%" alias="%%=v(@CTA_Alias)=%%" target="_blank" style="font-family: %%=v(@Text_Font_Family)=%%; font-weight: %%=v(@Text_Font_Weight)=%%; font-size: %%=v(@Text_Font_Size)=%%px; line-height: %%=v(@Text_Line_Height)=%%px; color: %%=v(@Text_Color)=%%; text-transform: none; text-decoration: none; padding: %%=v(@Button_Height_Padding)=%%px %%=v(@Button_Width_Padding)=%%px; border: %%=v(@Border_Thickness)=%%px solid %%=v(@Border_Color)=%%; -webkit-border-radius: %%=v(@Border_Radius)=%%px; -moz-border-radius: %%=v(@Border_Radius)=%%px; border-radius: %%=v(@Border_Radius)=%%px; display: block;">
-              <!--[if mso]>%%=v(@Padding_Outlook)=%%<![endif]-->%%=v(@Button_Text)=%%<!--[if mso]>%%=v(@Button_Width_Padding_Outlook)=%%<![endif]-->
+              <!--[if mso]>%%=v(@Button_Width_Padding_Outlook)=%%<![endif]-->%%=v(@Button_Text)=%%<!--[if mso]>%%=v(@Button_Width_Padding_Outlook)=%%<![endif]-->
             </a>
           </td>
         </tr>
