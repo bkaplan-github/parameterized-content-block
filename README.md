@@ -74,7 +74,7 @@ Parameterized Content Block can be used to create content blocks that "lock down
 Global options like setting the content block's title or rollover description are achieved by adding data within a comment before the AMPscript "SET" statements.  For example:
 
     %%[ /* PARAMETERS START */
-    /* {"title":"Text Input Example","description":"this an example content block","show_locked":true} */
+    /* {"title":"Text Input Example","description":"this an example content block","hide_locked":true} */
     SET @Body_Text = "Here is some text"
     SET @Text_Color = "#ff0000"
     SET @Text_Size = "16"
