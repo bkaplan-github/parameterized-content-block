@@ -3,7 +3,7 @@ Parameterized Content Block allows you to create your own custom content blocks 
 
 Parameterized Content Block is also useful when you want to restrict how the end-user can modify a content block.  It can also be used to display placeholder HTML code in the editor if you have a content block with a lot of AMPscipt or dynamic content that otherwise wouldn't render properly in the editor, or if you have code that normally wouldn't render at all in the editor and you want it to display placeholder HTML.
 
-Parameterized Content Block is a custom Salesforce Marketing Cloud Content Builder block built using the [blocksdk](https://github.com/salesforce-marketingcloud/blocksdk).  Parameterized Content Block automatically adds a user interface to nearly any parameterized HTML email code.
+Parameterized Content Block is a custom Salesforce Marketing Cloud Content Builder block built using the [blocksdk](https://github.com/salesforce-marketingcloud/blocksdk).
 
 Github repository:  https://github.com/bkaplan-github/parameterized-content-block
 
@@ -28,7 +28,7 @@ Many different types of custom content can be implemented using Parameterized Co
 ## How to Use
 Parameterized Content Block allows you to create your own custom content blocks with only HTML and simple AMPscript.  Once created, no AMPscript or HTML knowledge is needed to edit your custom content block.
 
-You paste in parameterized HTML code and it automatically generates inputs for each parameter. Parameterized HTML is HTML that contains AMPscript variables of the form "%%=v(@Variable)=%%" and has a block of AMPscript "SET" statements at the top to define those variables.
+Parameterized Content Block automatically adds a user interface to nearly any parameterized HTML email code by automatically generating inputs for each parameter. Parameterized HTML is HTML that contains AMPscript variables of the form "%%=v(@Variable)=%%" and has a block of AMPscript "SET" statements at the top to define those variables.
 
 Create your parameterized HTML and add your block of SET statements with default values to the top like this:
 
