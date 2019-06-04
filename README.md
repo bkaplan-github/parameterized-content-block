@@ -1,7 +1,7 @@
 # parameterized content block
 Parameterized Content Block allows you to create your own custom content blocks easily.  No knowledge of the Block SDK, Javascript, Github, or Heroku needed!  Examples of custom content blocks you can create include mobile swappable image, text on background image, embedded video, Google maps, Gmail promo tab annotations, and more! Once created, your content block can be edited interactively without any coding using text inputs, selection menus, and sliders.
 
-Parameterized Content Block is also useful when you want to restrict how the end-user can modify a content block.
+Parameterized Content Block is also useful when you want to restrict how the end-user can modify a content block.  It can also be used to display placeholder HTML code in the editor if you have a content block with a lot of AMPscipt or dynamic content that otherwise wouldn't render properly in the editor, or if you have code that normally wouldn't render at all in the editor and you want it to display placeholder HTML.
 
 Parameterized Content Block is a custom Salesforce Marketing Cloud Content Builder block built using the [blocksdk](https://github.com/salesforce-marketingcloud/blocksdk).  Parameterized Content Block automatically adds a user interface to nearly any parameterized HTML email code.
 
