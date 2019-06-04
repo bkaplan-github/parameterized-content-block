@@ -1,7 +1,7 @@
 <!-- background image -->
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
-    <td class="%%=v(@Mobile_Class)=%%" align="%%=v(@Text_Horizontal_Align)=%%" valign="%%=v(@Text_Vertical_Align)=%%" width="%%=v(@BG_Width)=%%" height="%%=v(@BG_Height)=%%" bgcolor="%%=v(@BG_Fallback_Color)=%%" background="%%=v(@BG_Image)=%%" style="background-size: %%=v(@Mobile_BG_Size)=%%; background-position: %%=v(@Mobile_BG_Horizontal_Position)=%% %%=v(@Mobile_BG_Vertical_Position)=%%; background-repeat: repeat;">
+    <td class="%%=v(@Mobile_Class)=%%" align="%%=v(@Text_Horizontal_Align)=%%" valign="%%=v(@Text_Vertical_Align)=%%" width="%%=v(@BG_Width)=%%" height="%%=v(@BG_Height)=%%" bgcolor="%%=v(@BG_Fallback_Color)=%%" background="%%=v(@BG_Image)=%%" style="background-size: %%=v(@BG_Scaling)=%%; background-position: %%=v(@BG_Horizontal_Position)=%% %%=v(@BG_Vertical_Position)=%%; background-repeat: repeat;">
       <div>
         <table width="100%" height="%%=v(@BG_Height)=%%" border="0" cellpadding="0" cellspacing="0">
           <tr>
