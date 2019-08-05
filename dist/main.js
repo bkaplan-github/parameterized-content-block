@@ -240,9 +240,20 @@ function addWidget(id, label, value, locked, type, tac, options) {
       $('#color-input-'+id).data({'id': id}).val(value).prop('disabled',locked).change(function() {
         var id = $(this).data('id');
         var value = $(this).val();
-        params[id]['value'] = value;
-        $('#color-button-swatch-id-'+id).css('background-color', value);
-        updateContent();
+
+        // validate the color
+        var isOk  = /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test('#ac3');
+        if (isOk) {
+          // set the current color swatch
+          $('#color-button-swatch-id-'+id).css('background-color', value);
+
+          // store the value
+          params[id]['value'] = value;
+          updateContent();
+        } else {
+          // reset to previous value
+          $(this).val(params[id]['value']);
+        }
       });
 
     default: // text
