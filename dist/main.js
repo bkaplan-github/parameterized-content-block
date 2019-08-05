@@ -100,7 +100,7 @@ function updateContent() {
 
   ampscript = "";
   if (Object.keys(params).length) {
-    ampscript = "%%[ /* PARAMETERS START */";
+    ampscript = "%%[";
     if (!$.isEmptyObject(global_options)) ampscript += '\r\n/* ' + JSON.stringify(global_options) + ' */';
     for (const param in params) {
       var name = params[param]['name'];
@@ -117,8 +117,8 @@ function updateContent() {
       else if (encoding == "url") value = encodeURL(value);
 
       // wrap in TreatAsContent()
-      if (tac) ampscript += '\r\nSET @' + name + ' = TreatAsContent("' + ampEscape(value) + '")';
-      else ampscript += '\r\nSET @' + name + ' = "' + ampEscape(value) + '"';
+      if (tac) ampscript += '\r\n     SET @' + name + ' = TreatAsContent("' + ampEscape(value) + '")';
+      else ampscript += '\r\n     SET @' + name + ' = "' + ampEscape(value) + '"';
 
       if (!$.isEmptyObject(options)) ampscript += ' /* ' + JSON.stringify(options) + ' */';
 
@@ -126,7 +126,7 @@ function updateContent() {
       regex = new RegExp(escapeRegExp("%%=v(@"+name+")=%%"), "gi");
       fakehtml = fakehtml.replace(regex, value);
     }
-    ampscript += "\r\n/* PARAMETERS END */ ]%%";
+    ampscript += "\r\n]%%";
   }
 
   if (ampscript == "" && html == "") $("#editor").val("");
@@ -277,12 +277,12 @@ sdk.getData(function (data) {
     $('#workspace-container').html('');
 
     // parse out the parameters
-    var paramTextStart = data.indexOf("%%[ /* PARAMETERS START */");
+    var paramTextStart = data.indexOf("%%[");
     if (paramTextStart < 0) {
       html = data;
     }
     else {
-      var paramTextEnd = data.indexOf("/* PARAMETERS END */ ]%%");
+      var paramTextEnd = data.indexOf("]%%");
       var amp = data.substring(paramTextStart + 26, paramTextEnd);
       var ampArray = amp.split("SET @");
 
