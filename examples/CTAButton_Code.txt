@@ -1,25 +1,25 @@
-%%[ /* PARAMETERS START */
-/* {"title":"PCB CTA Button","description":"call to action button"} */
-SET @Button_Text = "Click Here" /* {"description":"The text that appears on the button"} */
-SET @CTA_URL = "http://www.marketingcloud.com" /* {"description":"button link URL"} */
-SET @CTA_Alias = "Button Alias" /* {"description":"button link alias"} */
-SET @Horizontal_Align = "center" /* {"type":"selection","choices":["left","center","right"],"description":"button horizontal align"} */
-SET @Button_Height_Padding = "10" /* {"type":"slider","min":0,"max":100,"description":"padding above and below text"} */
-SET @Button_Width_Padding = "30" /* {"type":"slider","min":0,"max":100,"description":"padding left and right of button text"} */
-SET @Button_Width_Padding_Outlook = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" /* {"description":"force space left and right of button text for Outlook"} */
-SET @Text_Font_Family = "Arial, Helvetica, sans-serif" /* {"description":"font family for text"} */
-SET @Text_Font_Weight = "700" /* {"description":"font weight"} */
-SET @Text_Font_Size = "16" /* {"type":"slider","min":1,"max":100,"description":"font size"} */
-SET @Text_Line_Height = "20" /* {"type":"slider","min":1,"max":100,"description":"text line height"} */
-SET @Text_Color = "#0000ff" /* {"description":"text color"} */
-SET @Button_Color = "#aaaaff" /* {"description":"button color"} */
-SET @Border_Color = "#0000ff" /* {"description":"border color"} */
-SET @Border_Thickness = "3" /* {"type":"slider","min":1,"max":10,"description":"button border thickness"} */
-SET @Border_Radius = "10" /* {"type":"slider","min":0,"max":100,"description":"button border roundness (always square on Outlook)"} */
-SET @Padding = "15px 30px" /* {"description":"padding around button"} */
-SET @Mobile_Class = "pad-20LR" /* {"description":"mobile class for outer <td>"} */
-SET @Mobile_Button_Class = "width-full" /* {"description":"mobile class for button <table>"} */
-/* PARAMETERS END */ ]%%
+%%[
+    /* {"title":"PCB CTA Button","description":"call to action button"} */
+    SET @Button_Text = "Click Here" /* {"description":"The text that appears on the button"} */
+    SET @CTA_URL = "http://www.marketingcloud.com" /* {"description":"button link URL"} */
+    SET @CTA_Alias = "Button Alias" /* {"description":"button link alias"} */
+    SET @Horizontal_Align = "center" /* {"type":"selection","choices":["left","center","right"],"description":"button horizontal align"} */
+    SET @Button_Height_Padding = "10" /* {"type":"slider","min":0,"max":100,"description":"padding above and below text"} */
+    SET @Button_Width_Padding = "30" /* {"type":"slider","min":0,"max":100,"description":"padding left and right of button text"} */
+    SET @Button_Width_Padding_Outlook = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" /* {"description":"force space left and right of button text for Outlook"} */
+    SET @Text_Font_Family = "Arial, Helvetica, sans-serif" /* {"description":"font family for text"} */
+    SET @Text_Font_Weight = "700" /* {"description":"font weight"} */
+    SET @Text_Font_Size = "16" /* {"type":"slider","min":1,"max":100,"description":"font size"} */
+    SET @Text_Line_Height = "20" /* {"type":"slider","min":1,"max":100,"description":"text line height"} */
+    SET @Text_Color = "#0000ff" /* {"description":"text color"} */
+    SET @Button_Color = "#aaaaff" /* {"description":"button color"} */
+    SET @Border_Color = "#0000ff" /* {"description":"border color"} */
+    SET @Border_Thickness = "3" /* {"type":"slider","min":1,"max":10,"description":"button border thickness"} */
+    SET @Border_Radius = "10" /* {"type":"slider","min":0,"max":100,"description":"button border roundness (always square on Outlook)"} */
+    SET @Padding = "15px 30px" /* {"description":"padding around button"} */
+    SET @Mobile_Class = "pad-20LR" /* {"description":"mobile class for outer <td>"} */
+    SET @Mobile_Button_Class = "width-full" /* {"description":"mobile class for button <table>"} */
+]%%
 
 <table width="100%" cellspacing="0" cellpadding="0" border="0">
   <tr>

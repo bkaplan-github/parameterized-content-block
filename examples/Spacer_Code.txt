@@ -1,7 +1,7 @@
-%%[ /* PARAMETERS START */
-/* {"title":"PCB Spacer","description":"add a vertical spacer to your email"} */
-SET @Spacer_Size = "20" /* {"type":"slider","min":0,"max":200,"description":"vertical height of the spacer"} */
-/* PARAMETERS END */ ]%%
+%%[
+		/* {"title":"PCB Spacer","description":"add a vertical spacer to your email"} */
+		SET @Spacer_Size = "20" /* {"type":"slider","min":0,"max":200,"description":"vertical height of the spacer"} */
+]%%
 
 %%[ IF @Spacer_Size > 0 THEN ]%%
 <table width="100%" border="0" cellpadding="0" cellspacing="0">

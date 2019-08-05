@@ -1,15 +1,15 @@
-%%[ /* PARAMETERS START */
-/* {"title":"PCB Mobile Swap Image","description":"swap an image on mobile displays"} */
-SET @Desktop_Image = "https://via.placeholder.com/650x300"
-SET @Mobile_Image = "https://via.placeholder.com/480x500"
-SET @Image_Alt = ""
-SET @Image_URL = ""
-SET @Image_Alias = ""
-SET @Desktop_Image_Width = "650"
-SET @Mobile_Hide_Class = "hide"
-SET @Mobile_Show_Class = "show"
-SET @Mobile_Image_Class = "width-full"
-/* PARAMETERS END */ ]%%
+%%[
+    /* {"title":"PCB Mobile Swap Image","description":"swap an image on mobile displays"} */
+    SET @Desktop_Image = "https://via.placeholder.com/650x300"
+    SET @Mobile_Image = "https://via.placeholder.com/480x500"
+    SET @Image_Alt = ""
+    SET @Image_URL = ""
+    SET @Image_Alias = ""
+    SET @Desktop_Image_Width = "650"
+    SET @Mobile_Hide_Class = "hide"
+    SET @Mobile_Show_Class = "show"
+    SET @Mobile_Image_Class = "width-full"
+]%%
 
 <!-- show on desktop only -->
 <table class="%%=v(@Mobile_Hide_Class)=%%" width="100%" cellspacing="0" cellpadding="0" border="0">

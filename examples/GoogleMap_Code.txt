@@ -1,19 +1,19 @@
-%%[ /* PARAMETERS START */
-/* {"title":"PCB Google Map","description":"add a Google map to your email"} */
-SET @Map_Width = "610"
-SET @Map_Height = "400"
-SET @Map_Type = "hybrid" /* {"type":"selection","choices":["roadmap","satellite","hybrid","terrain"],"description":"the map type"} */
-SET @Map_Scale = "2" /* {"type":"selection","choices":[{"value":1,"text":"Normal"},{"value":2,"text":"Retina"}],"description":"switch between normal and retina scale"} */
-SET @Map_Zoom = "16" /* {"type":"slider","min":1,"max":20,"description":"map zoom level"} */
-SET @Map_Format = "png8" /* {"type":"selection","choices":[{"value":"png8","text":"PNG 8-Bit"},{"value":"png32","text":"PNG 32-Bit"},{"value":"gif","text":"GIF"},{"value":"jpg","text":"JPG"},{"value":"jpg-baseline","text":"JPG Non-progressive"}],"description":"the format of the map image"} */
-SET @Map_Center = "39.7696795,-86.1570409" /* {"encoding":"url","description":"latitude and logitude separated by comma or address"} */
-SET @Map_API_Key = "" /* {"description":"you must create an api key before you can use Google map api "} */
-SET @Map_API_Signature = "" /* {"description":"an additional signature to increase level of security"} */
-SET @Padding = "20px" /* {"description":"padding around the content block"} */
-SET @Alignment = "center" /* {"type":"selection","choices":["left","center","right"],"description":"the horizontal alignment of the map image"} */
-SET @Mobile_Class = "" /* {"description":"the class(es) applied to the module on mobile displays"} */
-SET @Mobile_Img_Class = "width-full height-auto" /* {"description":"the class(es) applied to the img tag on mobile displays"} */
-/* PARAMETERS END */ ]%%
+%%[
+    /* {"title":"PCB Google Map","description":"add a Google map to your email"} */
+    SET @Map_Width = "610"
+    SET @Map_Height = "400"
+    SET @Map_Type = "hybrid" /* {"type":"selection","choices":["roadmap","satellite","hybrid","terrain"],"description":"the map type"} */
+    SET @Map_Scale = "2" /* {"type":"selection","choices":[{"value":1,"text":"Normal"},{"value":2,"text":"Retina"}],"description":"switch between normal and retina scale"} */
+    SET @Map_Zoom = "16" /* {"type":"slider","min":1,"max":20,"description":"map zoom level"} */
+    SET @Map_Format = "png8" /* {"type":"selection","choices":[{"value":"png8","text":"PNG 8-Bit"},{"value":"png32","text":"PNG 32-Bit"},{"value":"gif","text":"GIF"},{"value":"jpg","text":"JPG"},{"value":"jpg-baseline","text":"JPG Non-progressive"}],"description":"the format of the map image"} */
+    SET @Map_Center = "39.7696795,-86.1570409" /* {"encoding":"url","description":"latitude and logitude separated by comma or address"} */
+    SET @Map_API_Key = "" /* {"description":"you must create an api key before you can use Google map api "} */
+    SET @Map_API_Signature = "" /* {"description":"an additional signature to increase level of security"} */
+    SET @Padding = "20px" /* {"description":"padding around the content block"} */
+    SET @Alignment = "center" /* {"type":"selection","choices":["left","center","right"],"description":"the horizontal alignment of the map image"} */
+    SET @Mobile_Class = "" /* {"description":"the class(es) applied to the module on mobile displays"} */
+    SET @Mobile_Img_Class = "width-full height-auto" /* {"description":"the class(es) applied to the img tag on mobile displays"} */
+]%%
 
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr>

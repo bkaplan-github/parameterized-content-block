@@ -1,13 +1,13 @@
-%%[ /* PARAMETERS START */
-/* {"title":"PCB Gmail Promo Tab Annotation","description":"add annotations for Gmail Promo Tab"} */
-SET @Logo_Image = "" /* {"description":"URL of the image used for the company logo (must use https)"} */
-SET @Banner_Image = "" /* {"description":"URL of the image used for the preview banner (538 x 138 - 3.9 aspect ratio)"} */
-SET @Promo_Tab_Subject_Line = "" /* {"description":"alternate subject line used if email is promoted"} */
-SET @Offer_Description = "" /* {"description":"the text on the offer badge"} */
-SET @Offer_Code = "" /* {"description":"the discount code for the offer"} */
-SET @Offer_Start_Date = "2018-12-18T00:00:00-0500" /* {"description":"offer start date of form yyyy-mm-ddThh:mm:ss-zzzz"} */
-SET @Offer_End_Date = "2018-12-24T00:00:00-0500" /* {"description":"offer end date of form yyyy-mm-ddThh:mm:ss-zzzz"} */
-/* PARAMETERS END */ ]%%
+%%[
+	/* {"title":"PCB Gmail Promo Tab Annotation","description":"add annotations for Gmail Promo Tab"} */
+	SET @Logo_Image = "" /* {"description":"URL of the image used for the company logo (must use https)"} */
+	SET @Banner_Image = "" /* {"description":"URL of the image used for the preview banner (538 x 138 - 3.9 aspect ratio)"} */
+	SET @Promo_Tab_Subject_Line = "" /* {"description":"alternate subject line used if email is promoted"} */
+	SET @Offer_Description = "" /* {"description":"the text on the offer badge"} */
+	SET @Offer_Code = "" /* {"description":"the discount code for the offer"} */
+	SET @Offer_Start_Date = "2018-12-18T00:00:00-0500" /* {"description":"offer start date of form yyyy-mm-ddThh:mm:ss-zzzz"} */
+	SET @Offer_End_Date = "2018-12-24T00:00:00-0500" /* {"description":"offer end date of form yyyy-mm-ddThh:mm:ss-zzzz"} */
+]%%
 
 <!-- Start Gmail Promo Tab annotations code -- place in body -->
 <div itemscope itemtype="http://schema.org/Organization">
