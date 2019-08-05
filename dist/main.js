@@ -283,7 +283,7 @@ sdk.getData(function (data) {
     }
     else {
       var paramTextEnd = data.indexOf("]%%");
-      var amp = data.substring(paramTextStart + 26, paramTextEnd);
+      var amp = data.substring(paramTextStart + 3, paramTextEnd);
       var ampArray = amp.split("SET @");
 
       // parse global options */
