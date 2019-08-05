@@ -32,11 +32,11 @@ Parameterized Content Block automatically adds a user interface to nearly any pa
 
 Create your parameterized HTML and add your block of SET statements with default values to the top like this:
 
-    %%[ /* PARAMETERS START */
-    SET @Body_Text = "Hello World!"
-    SET @Text_Color = "#ff0000"
-    SET @Text_Size = "16"
-    /* PARAMETERS END */ ]%%
+    %%[
+        SET @Body_Text = "Hello World!"
+        SET @Text_Color = "#ff0000"
+        SET @Text_Size = "16"
+    ]%%
 
     <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -48,7 +48,7 @@ Create your parameterized HTML and add your block of SET statements with default
 
 The above is an example and isn't particularly useful since a simple text block can be edited using the freeform editor.  The Parameterized Content Block is useful for content blocks that typically cannot be edited in the freeform editor (code that would otherwise require a custom content block), where you want to restrict how the end-user can modify the content block, or where you would want to render alternate placeholder HTML content in the interactive editor.
 
-Note that the AMPscript block containing the "SET" statement must be at the top, and the lines above and below the "SET" statements must be in the exact format shown above in order for the "SET" statements to be properly parsed. If your code requires additional AMPscript, you may add additonal AMPscript blocks below.
+Note that the AMPscript block containing the "SET" statements must be at the top. If your code requires additional AMPscript, you may add additonal AMPscript blocks below.
 
 The value for "SET" statements must contains strings within double quotes (&quot;) characters.  Double quotes within that value string can be specified with two double quote characters (&quot;&quot;).  For example, the following will add double quotes around the word "text":
 
@@ -107,7 +107,6 @@ The choices of a selection parameter can define a value that is different than t
 A slider input is specified by adding the "type" option with a value of "slider". The "locked" option is used to keep the user from modifying this parameter (if set to true). The "label" option can be used to override the label that appears above the input.  The minimum and maximum slider values are specified using the required "min" and "max" data. A rollover description can be added to a selection input by adding the "description" option. See the "Text_Size" parameter in the above example.
 
 ## Future Enhancements
-* Remove the requirement for the comments above and below the parameters.
 * Add support for other types of inputs (color pickers, checkboxes, radio buttons, etc).
 * Allow parsing of single quotes in the "SET" statements.
 * Allow parsing of "IIF" statements in the preview.
