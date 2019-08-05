@@ -101,7 +101,7 @@ function updateContent() {
   ampscript = "";
   if (Object.keys(params).length) {
     ampscript = "%%[";
-    if (!$.isEmptyObject(global_options)) ampscript += '\r\n/* ' + JSON.stringify(global_options) + ' */';
+    if (!$.isEmptyObject(global_options)) ampscript += '\r\n    /* ' + JSON.stringify(global_options) + ' */';
     for (const param in params) {
       var name = params[param]['name'];
       // var type = params[param]['type'];
@@ -117,8 +117,8 @@ function updateContent() {
       else if (encoding == "url") value = encodeURL(value);
 
       // wrap in TreatAsContent()
-      if (tac) ampscript += '\r\n     SET @' + name + ' = TreatAsContent("' + ampEscape(value) + '")';
-      else ampscript += '\r\n     SET @' + name + ' = "' + ampEscape(value) + '"';
+      if (tac) ampscript += '\r\n    SET @' + name + ' = TreatAsContent("' + ampEscape(value) + '")';
+      else ampscript += '\r\n    SET @' + name + ' = "' + ampEscape(value) + '"';
 
       if (!$.isEmptyObject(options)) ampscript += ' /* ' + JSON.stringify(options) + ' */';
 
@@ -358,7 +358,7 @@ sdk.getData(function (data) {
         addWidget(id, label, value, locked, paramType, tac, options);
       }
 
-      html = data.substring(paramTextEnd + 24);
+      html = data.substring(paramTextEnd + 3);
     }
 
     updateContent();
