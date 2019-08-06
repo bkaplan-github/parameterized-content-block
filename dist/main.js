@@ -223,7 +223,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
       $('#workspace-container').append(widget);
 
-      $('#widget-'+id).data({'opened': "false", "state", "swatches"});
+      $('#widget-'+id).data({'opened':"false", "state":"swatches"});
 
       $('#color-button-id-'+id).data({'id': id}).prop('disabled',locked).click(function() {
         var id = $(this).data('id');
