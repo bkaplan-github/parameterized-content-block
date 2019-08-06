@@ -239,7 +239,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
       $('#color-swatch-id-'+id).data({'id': id}).click(function() {
         var id = $(this).data('id');
-        var value = $(this).children("span").eq(0).attr("style").replace("background-color:", ""); // .css('background-color');
+        var value = $(this).children("span").eq(0).attr("style").replace("background:", ""); // .css('background-color');
 
         // set the current color swatch
         $('#color-button-swatch-id-'+id).css('background-color', value);
