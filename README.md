@@ -73,23 +73,23 @@ Parameterized Content Block can be used to create content blocks that "lock down
 ## Global Options
 Global options like setting the content block's title or rollover description are achieved by adding data within a comment before the AMPscript "SET" statements.  For example:
 
-    %%[ /* PARAMETERS START */
-    /* {"title":"Text Input Example","description":"this an example content block","hide_locked":true} */
-    SET @Body_Text = "Here is some text"
-    SET @Text_Color = "#ff0000"
-    SET @Text_Size = "16"
-    /* PARAMETERS END */ ]%%
+    %%[
+        /* {"title":"Text Input Example","description":"this an example content block","hide_locked":true} */
+        SET @Body_Text = "Here is some text"
+        SET @Text_Color = "#ff0000"
+        SET @Text_Size = "16"
+    ]%%
 
 The "title" value will allow overriding the default content block title that appears at the top.  The "description" value will override the content block description that appears when the mouse hovers over the title or icon.  The "hide_locked" value, if true, will hide locked parameters in the interface.
 
 ## Advanced Input Options
 Advanced options for inputs like rollover descriptions and different input types are achieved by adding data within comments after the AMPscript "SET" statements.  For example:
 
-    %%[ /* PARAMETERS START */
-    SET @Body_Text = "Here is some text" /* {"label":"Enter Text Here","encoding":"html","description":"type your body text here"} */
-    SET @Text_Color = "#ff0000" /* {"locked":true,"type":"selection","choices":["#ff0000","#00ff00","#0000ff"],"description":"select a text color"} */
-    SET @Text_Size = "16" /* {"type":"slider","min":1,"max":50,"description":"text size"} */
-    /* PARAMETERS END */ ]%%
+    %%[
+        SET @Body_Text = "Here is some text" /* {"label":"Enter Text Here","encoding":"html","description":"type your body text here"} */
+        SET @Text_Color = "#ff0000" /* {"locked":true,"type":"selection","choices":["#ff0000","#00ff00","#0000ff"],"description":"select a text color"} */
+        SET @Text_Size = "16" /* {"type":"slider","min":1,"max":50,"description":"text size"} */
+    ]%%
 
 ### Text Input
 A text input is the default type so no "type" option is required (it defaults to "text"). The "locked" option is used to keep the user from modifying this parameter (if set to true).  The "label" option can be used to override the label that appears above the input.  The "encoding" option can be set to specify additional encoding should be done to the text (see below).  A rollover description can be added to a text input by adding the "description" option. See the "Body_Text" parameter in the above example.
