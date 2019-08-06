@@ -240,7 +240,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
       $('#color-button-swatch-id-'+id).css('background-color', value);
 
-      $('a[name=color-input-id-'+id+']').data({'id': id}).click(function() {
+      $('a[name=color-swatch-id-'+id+']').data({'id': id}).click(function() {
         var id = $(this).data('id');
         var value = $(this).children("span").eq(0).attr("style").replace("background:", ""); // .children("span").eq(0).val(); // .css('background-color');
 
