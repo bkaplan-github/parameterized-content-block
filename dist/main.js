@@ -247,6 +247,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
       });
 
       $('#color-swatches-id-'+id).data({'id': id}).click(function() {
+        var id = $(this).data('id');
         var widget = $('#widget-'+id);
         if (widget.data('state') != 'swatches') {
           widget.data('state','swatches')
@@ -256,6 +257,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
       });
 
       $('#color-picker-id-'+id).data({'id': id}).click(function() {
+        var id = $(this).data('id');
         var widget = $('#widget-'+id);
         if (widget.data('state') != 'picker') {
           widget.data('state','picker')
