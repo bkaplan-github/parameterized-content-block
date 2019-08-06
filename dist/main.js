@@ -199,7 +199,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
       var min = options["min"];
       var max = options["max"];
 
-      widget = '\r\n<div id="widget-' + id + '" class="slds-form-element" title="' + description + '">\r\n<label class="slds-form-element__label" for="slider-id-' + id + '">\r\n<span class="slds-slider-label">\r\n<span class="slds-slider-label__label"' + labelStyle + '>' + label + '</span>\r\n</span>\r\n</label>\r\n<div class="slds-form-element__control">\r\n<div class="slds-slider">\r\n<input type="range" id="slider-id-' + id + '" class="slds-slider__range" value="' + value + '" min="' + min + '" max="' + max + '" />\r\n<span class="slds-slider__value" id="slider-num-id-' + id + '" aria-hidden="true">' + value + '</span>\r\n</div>\r\n</div>\r\n</div>';
+      widget = '\r\n<div id="widget-' + id + '" class="slds-form-element" style="padding-bottom: 10px;" title="' + description + '">\r\n<label class="slds-form-element__label" for="slider-id-' + id + '">\r\n<span class="slds-slider-label">\r\n<span class="slds-slider-label__label"' + labelStyle + '>' + label + '</span>\r\n</span>\r\n</label>\r\n<div class="slds-form-element__control">\r\n<div class="slds-slider">\r\n<input type="range" id="slider-id-' + id + '" class="slds-slider__range" value="' + value + '" min="' + min + '" max="' + max + '" />\r\n<span class="slds-slider__value" id="slider-num-id-' + id + '" aria-hidden="true">' + value + '</span>\r\n</div>\r\n</div>\r\n</div>';
 
       $('#workspace-container').append(widget);
 
@@ -225,9 +225,6 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
       $('#widget-'+id).data({'prev_color':value, 'id': id, 'opened':false, "state":"swatches"});
 
-      // color button swatch
-      $('#color-button-swatch-id-'+id).css('background', value);
-
       // color button
       $('#color-button-id-'+id).data({'id': id}).prop('disabled',locked).click(function() {
         var id = $(this).data('id');
@@ -248,71 +245,10 @@ function addWidget(id, label, value, locked, type, tac, options) {
         }
       });
 
-      // 
-      $('#color-swatches-id-'+id).data({'id': id}).click(function() {
-        var id = $(this).data('id');
-        var widget = $('#widget-'+id);
-        if (widget.data('state') != 'swatches') {
-          widget.data('state','swatches')
-          $('#color-picker-default-id-'+id).show();
-          $('#color-picker-custom-id-'+id).hide();
-          $('#color-swatches-menu-id-'+id).addClass('slds-is-active');
-          $('#color-picker-menu-id-'+id).removeClass('slds-is-active');
-        }
-      });
+      // color button swatch
+      $('#color-button-swatch-id-'+id).css('background', value);
 
-      $('#color-picker-id-'+id).data({'id': id}).click(function() {
-        var id = $(this).data('id');
-        var widget = $('#widget-'+id);
-        if (widget.data('state') != 'picker') {
-          widget.data('state','picker')
-          $('#color-picker-default-id-'+id).hide();
-          $('#color-picker-custom-id-'+id).show();
-          $('#color-swatches-menu-id-'+id).removeClass('slds-is-active');
-          $('#color-picker-menu-id-'+id).addClass('slds-is-active');
-        }
-      });
-
-      $('#color-cancel-id-'+id).data({'id': id}).click(function() {
-        var id = $(this).data('id');
-        var widget = $('#widget-'+id);
-        var value = widget.data('prev_color');
-
-        $('#color-button-swatch-id-'+id).css('background-color', value);
-        $('#color-input-id-'+id).val(value);
-
-        widget.data('opened',false);
-        $('#color-selector-id-'+id).hide();
-
-        // store the previous value
-        params[id]['value'] = value;
-        updateContent();
-      });
-
-      $('#color-done-id-'+id).data({'id': id}).click(function() {
-        var id = $(this).data('id');
-        var widget = $('#widget-'+id);
-        var value = params[id]['value'];
-
-        widget.data('prev_color', value);
-
-        widget.data('opened',false);
-        $('#color-selector-id-'+id).hide();
-      });
-
-      $('a[name=color-swatch-id-'+id+']').data({'id': id}).click(function() {
-        var id = $(this).data('id');
-        var value = $(this).children("span").eq(0).attr("style").replace("background:", ""); // .children("span").eq(0).val(); // .css('background-color');
-
-        // set the current color swatch
-        $('#color-button-swatch-id-'+id).css('background-color', value);
-        $('#color-input-id-'+id).val(value);
-
-        // store the value
-        params[id]['value'] = value;
-        updateContent();
-      });
-
+      // color input
       $('#color-input-id-'+id).data({'id': id}).val(value).prop('disabled',locked).change(function() {
         var id = $(this).data('id');
         var value = $(this).val();
@@ -329,6 +265,75 @@ function addWidget(id, label, value, locked, type, tac, options) {
           // reset to previous value
           $(this).val(params[id]['value']);
         }
+      });
+
+      // popup Default button
+      $('#color-swatches-id-'+id).data({'id': id}).click(function() {
+        var id = $(this).data('id');
+        var widget = $('#widget-'+id);
+        if (widget.data('state') != 'swatches') {
+          widget.data('state','swatches')
+          $('#color-picker-default-id-'+id).show();
+          $('#color-picker-custom-id-'+id).hide();
+          $('#color-swatches-menu-id-'+id).addClass('slds-is-active');
+          $('#color-picker-menu-id-'+id).removeClass('slds-is-active');
+        }
+      });
+
+      // popup Custom button
+      $('#color-picker-id-'+id).data({'id': id}).click(function() {
+        var id = $(this).data('id');
+        var widget = $('#widget-'+id);
+        if (widget.data('state') != 'picker') {
+          widget.data('state','picker')
+          $('#color-picker-default-id-'+id).hide();
+          $('#color-picker-custom-id-'+id).show();
+          $('#color-swatches-menu-id-'+id).removeClass('slds-is-active');
+          $('#color-picker-menu-id-'+id).addClass('slds-is-active');
+        }
+      });
+
+      // popup Cancel button
+      $('#color-cancel-id-'+id).data({'id': id}).click(function() {
+        var id = $(this).data('id');
+        var widget = $('#widget-'+id);
+        var value = widget.data('prev_color');
+
+        $('#color-button-swatch-id-'+id).css('background-color', value);
+        $('#color-input-id-'+id).val(value);
+
+        widget.data('opened',false);
+        $('#color-selector-id-'+id).hide();
+
+        // store the previous value
+        params[id]['value'] = value;
+        updateContent();
+      });
+
+      // popup Done button
+      $('#color-done-id-'+id).data({'id': id}).click(function() {
+        var id = $(this).data('id');
+        var widget = $('#widget-'+id);
+        var value = params[id]['value'];
+
+        widget.data('prev_color', value);
+
+        widget.data('opened',false);
+        $('#color-selector-id-'+id).hide();
+      });
+
+      // popup swatch
+      $('a[name=color-swatch-id-'+id+']').data({'id': id}).click(function() {
+        var id = $(this).data('id');
+        var value = $(this).children("span").eq(0).attr("style").replace("background:", ""); // .children("span").eq(0).val(); // .css('background-color');
+
+        // set the current color swatch
+        $('#color-button-swatch-id-'+id).css('background-color', value);
+        $('#color-input-id-'+id).val(value);
+
+        // store the value
+        params[id]['value'] = value;
+        updateContent();
       });
 
     default: // text
