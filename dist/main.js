@@ -234,6 +234,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
           $('#color-selector-id-'+id).hide();
         } else {
           widget.data('opened', true);
+          widget.data('prev_color', params[id]['value']);
           $('#color-selector-id-'+id).show();
           if (widget.data('state') == "picker") {
             $('#color-picker-default-id-'+id).hide();
