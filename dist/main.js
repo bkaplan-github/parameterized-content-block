@@ -246,7 +246,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
         }
       });
 
-      $('#color-picker-default-id-'+id).data({'id': id}).click(function() {
+      $('#color-swatches-id-'+id).data({'id': id}).click(function() {
         var widget = $('#widget-'+id);
         if (widget.data('state') != 'swatches') {
           widget.data('state','swatches')
@@ -255,7 +255,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
         }
       });
 
-      $('#color-picker-custom-id-'+id).data({'id': id}).click(function() {
+      $('#color-picker-id-'+id).data({'id': id}).click(function() {
         var widget = $('#widget-'+id);
         if (widget.data('state') != 'picker') {
           widget.data('state','picker')
