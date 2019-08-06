@@ -225,8 +225,10 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
       $('#widget-'+id).data({'prev_color':value, 'id': id, 'opened':false, "state":"swatches"});
 
+      // color button swatch
       $('#color-button-swatch-id-'+id).css('background', value);
 
+      // color button
       $('#color-button-id-'+id).data({'id': id}).prop('disabled',locked).click(function() {
         var id = $(this).data('id');
         var widget = $('#widget-'+id);
@@ -246,7 +248,9 @@ function addWidget(id, label, value, locked, type, tac, options) {
         }
       });
 
+      // 
       $('#color-swatches-id-'+id).data({'id': id}).click(function() {
+console.log("swatches");
         var id = $(this).data('id');
         var widget = $('#widget-'+id);
         if (widget.data('state') != 'swatches') {
@@ -257,6 +261,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
       });
 
       $('#color-picker-id-'+id).data({'id': id}).click(function() {
+console.log("picker");
         var id = $(this).data('id');
         var widget = $('#widget-'+id);
         if (widget.data('state') != 'picker') {
