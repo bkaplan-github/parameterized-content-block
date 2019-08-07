@@ -339,7 +339,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
           // set the color widgets to reflect the new color
           $('#color-button-swatch-id-'+id).css('background-color', value);
-          var hsl = rgbToHsl(params[id]['value'])
+          var hsl = rgbToHsl(value)
           $('#widget-'+id).data('hsl', hsl);
           $('#color-picker-hue-id-'+id).val(hsl[0]);
 
