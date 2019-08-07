@@ -97,13 +97,13 @@ function escapeRegExp(text) {
  * Assumes h, s, and l are contained in the set [0, 1] and
  * returns r, g, and b in the set [0, 255].
  *
- * @param   {number}  h         The hue (0 - 255)
- * @param   {number}  s         The saturation (0 - 100)
- * @param   {number}  l         The lightness (0 - 100)
- * @return  {string}  #rrggbb   The RGB representation
+ * @param   {Array}  hsl         The hue (0 - 360)
+  * @return  {string}  #rrggbb   The RGB representation
  */
-function hslToRgb(h, s, l){
-    h /= 255; s /= 100; l /= 100;
+function hslToRgb(hsl){
+    var h = hsl[0]/360; 
+    var s = hsl[1]/360; 
+    var l = hsl[2]/360;
 
     var r, g, b;
 
@@ -139,11 +139,10 @@ function hslToRgb(h, s, l){
  * @return  {Array}            The HSL representation (h=0-255, s=1-100, l=0-100)
  */
 function rgbToHsl(rgb){
-    var r = parseInt(rgb.substring(1,3), 16);
-    var g = parseInt(rgb.substring(3,5), 16);
-    var b = parseInt(rgb.substring(5,7), 16);
+    var r = parseInt(rgb.substring(1,3), 16) / 255;
+    var g = parseInt(rgb.substring(3,5), 16) / 255;
+    var b = parseInt(rgb.substring(5,7), 16) / 255;
 
-    r /= 255, g /= 255, b /= 255;
     var max = Math.max(r, g, b), min = Math.min(r, g, b);
     var h, s, l = (max + min) / 2;
 
@@ -160,7 +159,7 @@ function rgbToHsl(rgb){
         h /= 6;
     }
 
-    return [Math.round(h * 255), Math.round(s * 100), Math.round(l * 100)];
+    return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
 }
 
 function updateContent() {
@@ -295,7 +294,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
       $('#workspace-container').append(widget);
 
       // initialize widget state
-      $('#widget-'+id).data({'id': id, 'prev_color':value, 'prev_hsl':hslToRgb(value), 'hsl':hslToRgb(value), 'opened':false, "state":"swatches"});
+      $('#widget-'+id).data({'id': id, 'prev_color':value, 'hsl':rgbToHsl(value), 'opened':false, "state":"swatches"});
 
       // color button
       $('#color-button-id-'+id).data({'id': id}).prop('disabled',locked).click(function() {
@@ -309,6 +308,8 @@ function addWidget(id, label, value, locked, type, tac, options) {
           widget.data('prev_color', params[id]['value']);
           $('#color-selector-id-'+id).show();
           if (widget.data('state') == "picker") {
+            widget.data('hsl',rgbToHsl(params[id]['value']));
+            $('#color-picker-hue-id-'+id).val(widget.data('hsl')[0]);
             $('#color-picker-default-id-'+id).hide();
             $('#color-picker-custom-id-'+id).show();
           } else {
@@ -366,6 +367,8 @@ function addWidget(id, label, value, locked, type, tac, options) {
         var widget = $('#widget-'+id);
         if (widget.data('state') != 'picker') {
           widget.data('state','picker')
+          widget.data('hsl',rgbToHsl(params[id]['value']));
+          $('#color-picker-hue-id-'+id).val(widget.data('hsl')[0]);
           $('#color-picker-default-id-'+id).hide();
           $('#color-picker-custom-id-'+id).show();
           $('#color-swatches-menu-id-'+id).removeClass('slds-is-active');
