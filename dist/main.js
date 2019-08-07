@@ -91,6 +91,10 @@ function escapeRegExp(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 }
 
+function rgbToHex(rgb){
+    return "#" + rgb[0].toString(16) + rgb[1].toString(16) + rgb[2].toString(16);
+}
+
 /**
  * Converts an HSL color value to RGB. Conversion formula
  * adapted from http://en.wikipedia.org/wiki/HSL_color_space.
@@ -98,7 +102,7 @@ function escapeRegExp(text) {
  * returns r, g, and b in the set [0, 255].
  *
  * @param   {Array}  hsl         The hue (0 - 360)
-  * @return  {string}  #rrggbb   The RGB representation
+ * @return  {Array}  [r, g, b]   The RGB representation (0 - 255)
  */
 function hslToRgb(hsl){
     var h = hsl[0]/360; 
@@ -126,7 +130,7 @@ function hslToRgb(hsl){
         b = hue2rgb(p, q, h - 1/3);
     }
 
-    return "#" + Math.round(r * 255).toString(16) + Math.round(g * 255).toString(16) + Math.round(b * 255).toString(16);
+    return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
 }
 
 /**
@@ -442,12 +446,13 @@ function addWidget(id, label, value, locked, type, tac, options) {
           hsl[0] = hue;
           widget.data('hsl', hsl);
 
-          // var value = hslToRgb(hsl);
+          // var value = rgbToHex(hslToRgb(hsl));
 
           // update color widgets
-          $('#color-picker-r-id-'+id).val(hsl[0]);
-          $('#color-picker-g-id-'+id).val(hsl[1]);
-          $('#color-picker-b-id-'+id).val(hsl[2]);
+          var rgb = hslToRgb(hsl);
+          $('#color-picker-r-id-'+id).val(rgb[0]);
+          $('#color-picker-g-id-'+id).val(rgb[1]);
+          $('#color-picker-b-id-'+id).val(rgb[2]);
           // $('#color-button-swatch-id-'+id).css('background-color', value);
           // $('#color-input-id-'+id).val(value);
 
