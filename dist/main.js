@@ -416,13 +416,13 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
       // popup picker hue slider
       // hsl(220, 46%, 55%)
-      $('#color-picker-hue-id-'+id+']').data({'id': id, 'prev_val': -1}).mousemove(function() {
+      $('#color-picker-hue-id-'+id).data({'id': id, 'prev_val': -1}).mousemove(function() {
         var id = $(this).data('id');
         var value = $(this).val();
         var prev_value = $(this).data('prev_val');
         if (value != prev_value) {
           $(this).data('prev_val', value);
-          
+
           console.out(value);
         }
       });
