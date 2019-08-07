@@ -436,6 +436,10 @@ function addWidget(id, label, value, locked, type, tac, options) {
           widget.data('hsl', hsl);
           var color = hslToRgb(hsl);
 
+          // update widgets
+          $('#color-button-swatch-id-'+id).css('background-color', color);
+          $('#color-input-id-'+id).val(color);
+          
           params[id]['value'] = color;
           updateContent();
         }
