@@ -423,7 +423,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
         if (value != prev_value) {
           $(this).data('prev_val', value);
 
-          console.out(value);
+          console.log(value);
         }
       });
 
