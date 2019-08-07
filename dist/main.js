@@ -326,7 +326,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
       $('#color-input-id-'+id).data({'id': id}).val(value).prop('disabled',locked).change(function() {
         var id = $(this).data('id');
         var value = $(this).val();
-console.log("here");
+
         // validate the color
         if (/(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(value)) {
           if (value.length == 4) {
@@ -337,8 +337,11 @@ console.log("here");
             $(this).val(value);
           }
 
-          // set the current color swatch
+          // set the color widgets to reflect the new color
           $('#color-button-swatch-id-'+id).css('background-color', value);
+          var hsl = rgbToHsl(params[id]['value'])
+          $('#widget-'+id).data('hsl', hsl);
+          $('#color-picker-hue-id-'+id).val(hsl[0]);
 
           // store the value
           params[id]['value'] = value;
