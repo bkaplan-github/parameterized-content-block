@@ -428,7 +428,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
         // store the value
         params[id]['value'] = hex;
-        updaetContent();
+        updateContent();
       });
 
       // popup swatches swatch
