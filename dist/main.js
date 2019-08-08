@@ -319,14 +319,14 @@ function addWidget(id, label, value, locked, type, tac, options) {
           var hsl = rgbToHsl(rgb);
           widget.data('working_rgb', rgb);
           widget.data('working_hsl', hsl);
-
-          // update color widgets
-          $('#color-picker-hue-id-'+id).val(hsl[0]);
-          $('#color-picker-r-id-'+id).val(rgb[0]);
-          $('#color-picker-g-id-'+id).val(rgb[1]);
-          $('#color-picker-b-id-'+id).val(rgb[2]);
   
           if (widget.data('state') == "picker") {
+            // update color widgets
+            $('#color-picker-hue-id-'+id).val(hsl[0]);
+            $('#color-picker-r-id-'+id).val(rgb[0]);
+            $('#color-picker-g-id-'+id).val(rgb[1]);
+            $('#color-picker-b-id-'+id).val(rgb[2]);
+
             $('#color-picker-default-id-'+id).hide();
             $('#color-picker-custom-id-'+id).show();
           } else {
@@ -387,6 +387,15 @@ function addWidget(id, label, value, locked, type, tac, options) {
         if (widget.data('state') != 'picker') {
           widget.data('state','picker')
 
+          var rgb = widget.data('working_rgb');
+          var hsl = widget.data('working_hsl');
+
+          // update color widgets
+          $('#color-picker-hue-id-'+id).val(hsl[0]);
+          $('#color-picker-r-id-'+id).val(rgb[0]);
+          $('#color-picker-g-id-'+id).val(rgb[1]);
+          $('#color-picker-b-id-'+id).val(rgb[2]);
+
           $('#color-picker-default-id-'+id).hide();
           $('#color-picker-custom-id-'+id).show();
           $('#color-swatches-menu-id-'+id).removeClass('slds-is-active');
@@ -425,16 +434,9 @@ function addWidget(id, label, value, locked, type, tac, options) {
         var hsl = rgbToHsl(rgb);
         widget.data('working_rgb',rgb);
         widget.data('working_hsl',hsl);
-
-        // update color widgets
-        $('#color-picker-hue-id-'+id).val(hsl[0]);
-        $('#color-picker-r-id-'+id).val(rgb[0]);
-        $('#color-picker-g-id-'+id).val(rgb[1]);
-        $('#color-picker-b-id-'+id).val(rgb[2]);
       });
 
       // popup picker hue slider
-      // hsl(220, 46%, 55%)
       $('#color-picker-hue-id-'+id).data({'id': id, 'prev_val': -1}).mousemove(function() {
         var id = $(this).data('id');
         var hue = $(this).val();
