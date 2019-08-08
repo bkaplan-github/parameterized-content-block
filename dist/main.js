@@ -92,7 +92,11 @@ function escapeRegExp(text) {
 }
 
 function rgbToHex(rgb) {
-    return "#" + rgb[0].toString(16) + rgb[1].toString(16) + rgb[2].toString(16);
+    var r = rgb[0].toString(16);
+    var g = rgb[1].toString(16);
+    var b = rgb[2].toString(16);
+
+    return "#" + (r.length < 2 ? '0' + r : r) + (g.length < 2 ? '0' + g : g) + (b.length < 2 ? '0' + b : b);
 }
 
 function hexToRgb(hex) {
@@ -406,6 +410,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
       // popup Cancel button
       $('#color-cancel-id-'+id).data({'id': id}).click(function() {
         var id = $(this).data('id');
+        var widget = $('#widget-'+id);
 
         widget.data('opened',false);
         $('#color-selector-id-'+id).hide();
