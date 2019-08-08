@@ -325,8 +325,9 @@ function addWidget(id, label, value, locked, type, tac, options) {
           widget.data('working_hsl', hsl);
   
           if (widget.data('state') == "picker") {
-            // update color widgets
+            // init color widgets
             $('#color-picker-hue-id-'+id).val(hsl[0]);
+            $('#color-picker-hue-id-'+id).data('prev_val',hsl[0]);
             $('#color-picker-r-id-'+id).val(rgb[0]);
             $('#color-picker-g-id-'+id).val(rgb[1]);
             $('#color-picker-b-id-'+id).val(rgb[2]);
@@ -394,8 +395,9 @@ function addWidget(id, label, value, locked, type, tac, options) {
           var rgb = widget.data('working_rgb');
           var hsl = widget.data('working_hsl');
 
-          // update color widgets
+          // init color widgets
           $('#color-picker-hue-id-'+id).val(hsl[0]);
+          $('#color-picker-hue-id-'+id).data('prev_val',hsl[0]);
           $('#color-picker-r-id-'+id).val(rgb[0]);
           $('#color-picker-g-id-'+id).val(rgb[1]);
           $('#color-picker-b-id-'+id).val(rgb[2]);
@@ -450,22 +452,26 @@ function addWidget(id, label, value, locked, type, tac, options) {
       });
 
       // popup picker hue slider
-      $('#color-picker-hue-id-'+id).data({'id': id}).slide(function() {
+      $('#color-picker-hue-id-'+id).data({'id': id, 'prev_val': -1}).mousemove(function() {
         var id = $(this).data('id');
         var hue = $(this).val();
+        var prev_hue = $(this).data('prev_val');
+        if (hue != prev_hue) {
+          $(this).data('prev_val', hue);
 
-        var widget = $('#widget-'+id);
-        var hsl = widget.data('working_hsl');
-        hsl[0] = hue;
-        var rgb = hslToRgb(hsl);
+          var widget = $('#widget-'+id);
+          var hsl = widget.data('working_hsl');
+          hsl[0] = hue;
+          var rgb = hslToRgb(hsl);
 
-        widget.data('working_hsl', hsl);
-        widget.data('working_rgb', rgb);
+          widget.data('working_hsl', hsl);
+          widget.data('working_rgb', rgb);
 
-        // update color widgets
-        $('#color-picker-r-id-'+id).val(rgb[0]);
-        $('#color-picker-g-id-'+id).val(rgb[1]);
-        $('#color-picker-b-id-'+id).val(rgb[2]);
+          // update color widgets
+          $('#color-picker-r-id-'+id).val(rgb[0]);
+          $('#color-picker-g-id-'+id).val(rgb[1]);
+          $('#color-picker-b-id-'+id).val(rgb[2]);
+        }
       });
 
 
