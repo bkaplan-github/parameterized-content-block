@@ -416,11 +416,19 @@ function addWidget(id, label, value, locked, type, tac, options) {
         var id = $(this).data('id');
         var widget = $('#widget-'+id);
 
-        var rgb = widget.data('working_rgb');
-        params[id]['value'] = rgbToHex(rgb);
-
         widget.data('opened',false);
         $('#color-selector-id-'+id).hide();
+
+        var rgb = widget.data('working_rgb');
+        var hex = rgbToHex(rgb);
+
+        // update color swatch and input
+        $('#color-button-swatch-id-'+id).css('background', hex);
+        $('#color-input-id-'+id).val(hex);
+
+        // store the value
+        params[id]['value'] = hex;
+        updaetContent();
       });
 
       // popup swatches swatch
