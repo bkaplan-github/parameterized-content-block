@@ -91,8 +91,12 @@ function escapeRegExp(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 }
 
-function rgbToHex(rgb){
+function rgbToHex(rgb) {
     return "#" + rgb[0].toString(16) + rgb[1].toString(16) + rgb[2].toString(16);
+}
+
+function hexToRgb(hex) {
+    return [parseInt(hex.substring(1,3), 16), parseInt(hex.substring(3,5), 16), parseInt(hex.substring(5,7), 16)];
 }
 
 /**
@@ -101,13 +105,13 @@ function rgbToHex(rgb){
  * Assumes h, s, and l are contained in the set [0, 1] and
  * returns r, g, and b in the set [0, 255].
  *
- * @param   {Array}  hsl         The hue (0 - 360)
- * @return  {Array}  [r, g, b]   The RGB representation (0 - 255)
+ * @param   {Array}  The hsl color value (h=0-360, s=1-100, l=0-100)
+ * @return  {Array}  The rgb color value (r=0-255, g=0-255, b=0-255)
  */
 function hslToRgb(hsl){
     var h = hsl[0]/360; 
-    var s = hsl[1]/360; 
-    var l = hsl[2]/360;
+    var s = hsl[1]/100; 
+    var l = hsl[2]/100;
 
     var r, g, b;
 
@@ -139,13 +143,13 @@ function hslToRgb(hsl){
  * Assumes r, g, and b are contained in the set [0, 255] and
  * returns h, s, and l in the set [0, 1].
  *
- * @param   {String} #rrggbb   The rgb color value
- * @return  {Array}            The HSL representation (h=0-255, s=1-100, l=0-100)
+ * @param   {Array}     The rgb color value (r=0-255, g=0-255, b=0-255)
+ * @return  {Array}     The hsl color value (h=0-360, s=1-100, l=0-100)
  */
 function rgbToHsl(rgb){
-    var r = parseInt(rgb.substring(1,3), 16) / 255;
-    var g = parseInt(rgb.substring(3,5), 16) / 255;
-    var b = parseInt(rgb.substring(5,7), 16) / 255;
+    var r = rgb[0] / 255;
+    var g = rgb[1] / 255;
+    var b = rgb[2] / 255;
 
     var max = Math.max(r, g, b), min = Math.min(r, g, b);
     var h, s, l = (max + min) / 2;
@@ -298,22 +302,31 @@ function addWidget(id, label, value, locked, type, tac, options) {
       $('#workspace-container').append(widget);
 
       // initialize widget state
-      $('#widget-'+id).data({'id': id, 'prev_color':value, 'hsl':rgbToHsl(value), 'opened':false, "state":"swatches"});
+      $('#widget-'+id).data({'id': id, 'working_rgb':[0,0,0], 'working_hsl':[0,0,0], 'opened':false, "state":"swatches"});
 
       // color button
       $('#color-button-id-'+id).data({'id': id}).prop('disabled',locked).click(function() {
         var id = $(this).data('id');
         var widget = $('#widget-'+id);
         if (widget.data('opened')) {
-          widget.data('opened', false);
-          $('#color-selector-id-'+id).hide();
+          // widget.data('opened', false);
+          // $('#color-selector-id-'+id).hide();
         } else {
           widget.data('opened', true);
-          widget.data('prev_color', params[id]['value']);
           $('#color-selector-id-'+id).show();
+
+          var rgb = hexToRgb(params[id]['value']);
+          var hsl = rgbToHsl(rgb);
+          widget.data('working_rgb', rgb);
+          widget.data('working_hsl', hsl);
+
+          // update color widgets
+          $('#color-picker-hue-id-'+id).val(hsl[0]);
+          $('#color-picker-r-id-'+id).val(rgb[0]);
+          $('#color-picker-g-id-'+id).val(rgb[1]);
+          $('#color-picker-b-id-'+id).val(rgb[2]);
+  
           if (widget.data('state') == "picker") {
-            widget.data('hsl',rgbToHsl(params[id]['value']));
-            $('#color-picker-hue-id-'+id).val(widget.data('hsl')[0]);
             $('#color-picker-default-id-'+id).hide();
             $('#color-picker-custom-id-'+id).show();
           } else {
@@ -341,11 +354,8 @@ function addWidget(id, label, value, locked, type, tac, options) {
             $(this).val(value);
           }
 
-          // update color widgets
-          $('#color-button-swatch-id-'+id).css('background-color', value);
-          var hsl = rgbToHsl(value)
-          $('#widget-'+id).data('hsl', hsl);
-          $('#color-picker-hue-id-'+id).val(hsl[0]);
+          // update color swatch
+          $('#color-button-swatch-id-'+id).css('background', value);
 
           // store the value
           params[id]['value'] = value;
@@ -377,12 +387,6 @@ function addWidget(id, label, value, locked, type, tac, options) {
         if (widget.data('state') != 'picker') {
           widget.data('state','picker')
 
-          var hsl = rgbToHsl(params[id]['value'])
-          widget.data('hsl', hsl);
-
-          // update color widgets
-          $('#color-picker-hue-id-'+id).val(hsl[0]);
-
           $('#color-picker-default-id-'+id).hide();
           $('#color-picker-custom-id-'+id).show();
           $('#color-swatches-menu-id-'+id).removeClass('slds-is-active');
@@ -393,26 +397,18 @@ function addWidget(id, label, value, locked, type, tac, options) {
       // popup Cancel button
       $('#color-cancel-id-'+id).data({'id': id}).click(function() {
         var id = $(this).data('id');
-        var widget = $('#widget-'+id);
-        var value = widget.data('prev_color');
-
-        // update color widgets
-        $('#color-button-swatch-id-'+id).css('background-color', value);
-        $('#color-input-id-'+id).val(value);
 
         widget.data('opened',false);
         $('#color-selector-id-'+id).hide();
-
-        // store the previous value
-        params[id]['value'] = value;
-        updateContent();
       });
 
       // popup Done button
       $('#color-done-id-'+id).data({'id': id}).click(function() {
         var id = $(this).data('id');
         var widget = $('#widget-'+id);
-        var value = params[id]['value'];
+
+        var rgb = widget.data('working_rgb');
+        params[id]['value'] = rgbToHex(rgb);
 
         widget.data('opened',false);
         $('#color-selector-id-'+id).hide();
@@ -422,14 +418,19 @@ function addWidget(id, label, value, locked, type, tac, options) {
       $('a[name=color-swatch-id-'+id+']').data({'id': id}).click(function() {
         var id = $(this).data('id');
         var value = $(this).children("span").eq(0).attr("style").replace("background:", ""); // .children("span").eq(0).val(); // .css('background-color');
+        var widget = $('#widget-'+id);
 
         // update color widgets
-        $('#color-button-swatch-id-'+id).css('background-color', value);
-        $('#color-input-id-'+id).val(value);
+        var rgb = hexToRgb(value);
+        var hsl = rgbToHsl(rgb);
+        widget.data('working_rgb',rgb);
+        widget.data('working_hsl',hsl);
 
-        // store the value
-        params[id]['value'] = value;
-        updateContent();
+        // update color widgets
+        $('#color-picker-hue-id-'+id).val(hsl[0]);
+        $('#color-picker-r-id-'+id).val(rgb[0]);
+        $('#color-picker-g-id-'+id).val(rgb[1]);
+        $('#color-picker-b-id-'+id).val(rgb[2]);
       });
 
       // popup picker hue slider
@@ -437,27 +438,22 @@ function addWidget(id, label, value, locked, type, tac, options) {
       $('#color-picker-hue-id-'+id).data({'id': id, 'prev_val': -1}).mousemove(function() {
         var id = $(this).data('id');
         var hue = $(this).val();
-        var prev_value = $(this).data('prev_val');
-        if (value != prev_value) {
+        var prev_hue = $(this).data('prev_val');
+        if (hue != prev_hue) {
           $(this).data('prev_val', hue);
 
           var widget = $('#widget-'+id);
-          var hsl = widget.data('hsl');
+          var hsl = widget.data('working_hsl');
           hsl[0] = hue;
-          widget.data('hsl', hsl);
+          var rgb = hslToRgb(hsl);
 
-          // var value = rgbToHex(hslToRgb(hsl));
+          widget.data('working_hsl', hsl);
+          widget.data('working_rgb', rgb);
 
           // update color widgets
-          var rgb = hslToRgb(hsl);
           $('#color-picker-r-id-'+id).val(rgb[0]);
           $('#color-picker-g-id-'+id).val(rgb[1]);
           $('#color-picker-b-id-'+id).val(rgb[2]);
-          // $('#color-button-swatch-id-'+id).css('background-color', value);
-          // $('#color-input-id-'+id).val(value);
-
-          // params[id]['value'] = value;
-          // updateContent();
         }
       });
 
