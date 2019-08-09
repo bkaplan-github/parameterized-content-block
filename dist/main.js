@@ -521,65 +521,86 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
       $('#color-picker-r-id-'+id).data({'id': id, 'prev_val': -1}).change(function() {
         var id = $(this).data('id');
-        var r = parseInt($(this).val());
-        var widget = $('#widget-'+id);
+        var value = $(this).val();
+        
+        if (/^([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])$/i.test(value)) {
+          var r = parseInt(value);
+          var widget = $('#widget-'+id);
 
-        var rgb = widget.data('working_rgb');
-        rgb[0] = r;
-        var hsl = rgbToHsl(rgb);
-        var hex = rgbToHex(rgb);
+          var rgb = widget.data('working_rgb');
+          rgb[0] = r;
+          var hsl = rgbToHsl(rgb);
+          var hex = rgbToHex(rgb);
 
-        widget.data('working_hsl', hsl);
-        widget.data('working_rgb', rgb);
+          widget.data('working_hsl', hsl);
+          widget.data('working_rgb', rgb);
 
-        // update color widgets
-        $('#color-picker-hue-id-'+id).val(hsl[0]).data('prev_val',hsl[0]);
-        $('#color-picker-swatch-id-'+id).css('background', hex);
-        $('#color-picker-hex-id-'+id).val(hex).data('prev_val',hex);
-        $('#color-picker-g-id-'+id).val(rgb[1]).data('prev_val',rgb[1]);
-        $('#color-picker-b-id-'+id).val(rgb[2]).data('prev_val',rgb[2]);
+          // update color widgets
+          $('#color-picker-hue-id-'+id).val(hsl[0]).data('prev_val',hsl[0]);
+          $('#color-picker-swatch-id-'+id).css('background', hex);
+          $('#color-picker-hex-id-'+id).val(hex).data('prev_val',hex);
+          $('#color-picker-g-id-'+id).val(rgb[1]).data('prev_val',rgb[1]);
+          $('#color-picker-b-id-'+id).val(rgb[2]).data('prev_val',rgb[2]);
+        }
+        else {
+          $(this).val($(this).data('prev_val'));
+        }
       });
       
       $('#color-picker-g-id-'+id).data({'id': id, 'prev_val': -1}).change(function() {
         var id = $(this).data('id');
-        var g = parseInt($(this).val());
-        var widget = $('#widget-'+id);
+        var value = $(this).val();
 
-        var rgb = widget.data('working_rgb');
-        rgb[1] = g;
-        var hsl = rgbToHsl(rgb);
-        var hex = rgbToHex(rgb);
+        if (/^([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])$/i.test(value)) {
+          var g = parseInt(value);
+          var widget = $('#widget-'+id);
 
-        widget.data('working_hsl', hsl);
-        widget.data('working_rgb', rgb);
+          var rgb = widget.data('working_rgb');
+          rgb[1] = g;
+          var hsl = rgbToHsl(rgb);
+          var hex = rgbToHex(rgb);
 
-        // update color widgets
-        $('#color-picker-hue-id-'+id).val(hsl[0]).data('prev_val',hsl[0]);
-        $('#color-picker-swatch-id-'+id).css('background', hex);
-        $('#color-picker-hex-id-'+id).val(hex).data('prev_val',hex);
-        $('#color-picker-r-id-'+id).val(rgb[0]).data('prev_val',rgb[0]);
-        $('#color-picker-b-id-'+id).val(rgb[2]).data('prev_val',rgb[2]);
+          widget.data('working_hsl', hsl);
+          widget.data('working_rgb', rgb);
+
+          // update color widgets
+          $('#color-picker-hue-id-'+id).val(hsl[0]).data('prev_val',hsl[0]);
+          $('#color-picker-swatch-id-'+id).css('background', hex);
+          $('#color-picker-hex-id-'+id).val(hex).data('prev_val',hex);
+          $('#color-picker-r-id-'+id).val(rgb[0]).data('prev_val',rgb[0]);
+          $('#color-picker-b-id-'+id).val(rgb[2]).data('prev_val',rgb[2]);
+        }
+        else {
+          $(this).val($(this).data('prev_val'));
+        }
       });
       
       $('#color-picker-b-id-'+id).data({'id': id, 'prev_val': -1}).change(function() {
         var id = $(this).data('id');
-        var b = parseInt($(this).val());
-        var widget = $('#widget-'+id);
+        var value = $(this).val();
 
-        var rgb = widget.data('working_rgb');
-        rgb[2] = b;
-        var hsl = rgbToHsl(rgb);
-        var hex = rgbToHex(rgb);
+        if (/^([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])$/i.test(value)) {
+          var b = parseInt(value);
+          var widget = $('#widget-'+id);
 
-        widget.data('working_hsl', hsl);
-        widget.data('working_rgb', rgb);
+          var rgb = widget.data('working_rgb');
+          rgb[2] = b;
+          var hsl = rgbToHsl(rgb);
+          var hex = rgbToHex(rgb);
 
-        // update color widgets
-        $('#color-picker-hue-id-'+id).val(hsl[0]).data('prev_val',hsl[0]);
-        $('#color-picker-swatch-id-'+id).css('background', hex);
-        $('#color-picker-hex-id-'+id).val(hex).data('prev_val',hex);
-        $('#color-picker-r-id-'+id).val(rgb[0]).data('prev_val',rgb[0]);
-        $('#color-picker-g-id-'+id).val(rgb[1]).data('prev_val',rgb[1]);
+          widget.data('working_hsl', hsl);
+          widget.data('working_rgb', rgb);
+
+          // update color widgets
+          $('#color-picker-hue-id-'+id).val(hsl[0]).data('prev_val',hsl[0]);
+          $('#color-picker-swatch-id-'+id).css('background', hex);
+          $('#color-picker-hex-id-'+id).val(hex).data('prev_val',hex);
+          $('#color-picker-r-id-'+id).val(rgb[0]).data('prev_val',rgb[0]);
+          $('#color-picker-g-id-'+id).val(rgb[1]).data('prev_val',rgb[1]);
+        }
+        else {
+          $(this).val($(this).data('prev_val'));
+        }
       });
       
 
