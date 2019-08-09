@@ -103,6 +103,45 @@ function hexToRgb(hex) {
     return [parseInt(hex.substring(1,3), 16), parseInt(hex.substring(3,5), 16), parseInt(hex.substring(5,7), 16)];
 }
 
+function hsvToRgb(hsv) {
+    var r, g, b, i, f, p, q, t;
+    var h = hsv[0]/360, s = hsv[1]/100, v = hsv[2]/100;
+
+    i = Math.floor(h * 6);
+    f = h * 6 - i;
+    p = v * (1 - s);
+    q = v * (1 - f * s);
+    t = v * (1 - (1 - f) * s);
+    switch (i % 6) {
+        case 0: r = v, g = t, b = p; break;
+        case 1: r = q, g = v, b = p; break;
+        case 2: r = p, g = v, b = t; break;
+        case 3: r = p, g = q, b = v; break;
+        case 4: r = t, g = p, b = v; break;
+        case 5: r = v, g = p, b = q; break;
+    }
+    return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+}
+
+function rgbToHsv(rgb) {
+    var r = rgb[0], g = rgb[1], b = rgb[2];
+
+    var max = Math.max(r, g, b), min = Math.min(r, g, b),
+        d = max - min,
+        h,
+        s = (max === 0 ? 0 : d / max),
+        v = max / 255;
+
+    switch (max) {
+        case min: h = 0; break;
+        case r: h = (g - b) + d * (g < b ? 6: 0); h /= 6 * d; break;
+        case g: h = (b - r) + d * 2; h /= 6 * d; break;
+        case b: h = (r - g) + d * 4; h /= 6 * d; break;
+    }
+
+    return [Math.round(h * 360), Math.round(s * 100), Math.round(v * 100)];
+}
+
 /**
  * Converts an HSL color value to RGB. Conversion formula
  * adapted from http://en.wikipedia.org/wiki/HSL_color_space.
@@ -112,6 +151,7 @@ function hexToRgb(hex) {
  * @param   {Array}  The hsl color value (h=0-360, s=1-100, l=0-100)
  * @return  {Array}  The rgb color value (r=0-255, g=0-255, b=0-255)
  */
+/*
 function hslToRgb(hsl){
     var h = hsl[0]/360; 
     var s = hsl[1]/100; 
@@ -140,6 +180,7 @@ function hslToRgb(hsl){
 
     return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
 }
+*/
 
 /**
  * Converts an RGB color value to HSL. Conversion formula
@@ -150,6 +191,7 @@ function hslToRgb(hsl){
  * @param   {Array}     The rgb color value (r=0-255, g=0-255, b=0-255)
  * @return  {Array}     The hsl color value (h=0-360, s=1-100, l=0-100)
  */
+/*
 function rgbToHsl(rgb){
     var r = rgb[0] / 255;
     var g = rgb[1] / 255;
@@ -173,6 +215,7 @@ function rgbToHsl(rgb){
 
     return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
 }
+*/
 
 function updateContent() {
   var regex;
@@ -306,7 +349,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
       $('#workspace-container').append(widget);
 
       // initialize widget state
-      $('#widget-'+id).data({'id': id, 'working_rgb':[0,0,0], 'working_hsl':[0,0,0], 'opened':false, "state":"swatches"});
+      $('#widget-'+id).data({'id': id, 'working_rgb':[0,0,0], 'working_hsv':[0,0,0], 'opened':false, "state":"swatches"});
 
       // color button
       $('#color-button-id-'+id).data({'id': id}).click(function() {
@@ -321,14 +364,14 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
           var hex = params[id]['value'];
           var rgb = hexToRgb(hex);
-          var hsl = rgbToHsl(rgb);
+          var hsv = rgbToHsv(rgb);
           widget.data('working_rgb', rgb);
-          widget.data('working_hsl', hsl);
+          widget.data('working_hsv', hsv);
   
           switch (widget.data('state')) {
             case "picker":
               // init color widgets
-              $('#color-picker-hue-id-'+id).val(hsl[0]).data('prev_val',hsl[0]);
+              $('#color-picker-hue-id-'+id).val(hsv[0]).data('prev_val',hsv[0]);
               $('#color-picker-swatch-id-'+id).css('background', hex);
               $('#color-picker-hex-id-'+id).val(hex).data('prev_val',hex);
               $('#color-picker-r-id-'+id).val(rgb[0]).data('prev_val',rgb[0]);
@@ -399,11 +442,11 @@ function addWidget(id, label, value, locked, type, tac, options) {
           widget.data('state','picker')
 
           var rgb = widget.data('working_rgb');
-          var hsl = widget.data('working_hsl');
+          var hsv = widget.data('working_hsv');
           var hex = rgbToHex(rgb);
 
           // init color widgets
-          $('#color-picker-hue-id-'+id).val(hsl[0]).data('prev_val',hsl[0]);
+          $('#color-picker-hue-id-'+id).val(hsv[0]).data('prev_val',hsv[0]);
           $('#color-picker-swatch-id-'+id).css('background', hex);
           $('#color-picker-hex-id-'+id).val(hex).data('prev_val',hex);
           $('#color-picker-r-id-'+id).val(rgb[0]).data('prev_val',rgb[0]);
@@ -454,9 +497,9 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
         // update color widgets
         var rgb = hexToRgb(value);
-        var hsl = rgbToHsl(rgb);
+        var hsv = rgbToHsl(rgb);
         widget.data('working_rgb',rgb);
-        widget.data('working_hsl',hsl);
+        widget.data('working_hsl',hsv);
       });
 
       // popup picker hue slider
@@ -468,12 +511,12 @@ function addWidget(id, label, value, locked, type, tac, options) {
           $(this).data('prev_val', hue);
 
           var widget = $('#widget-'+id);
-          var hsl = widget.data('working_hsl');
-          hsl[0] = hue;
-          var rgb = hslToRgb(hsl);
+          var hsv = widget.data('working_hsv');
+          hsv[0] = hue;
+          var rgb = hsvToRgb(hsv);
           var hex = rgbToHex(rgb);
 
-          widget.data('working_hsl', hsl);
+          widget.data('working_hsv', hsv);
           widget.data('working_rgb', rgb);
 
           // update color widgets
@@ -501,14 +544,14 @@ function addWidget(id, label, value, locked, type, tac, options) {
           var widget = $('#widget-'+id);
 
           var rgb = hexToRgb(hex);
-          var hsl = rgbToHsl(rgb);
+          var hsv = rgbToHsv(rgb);
 
-          widget.data('working_hsl', hsl);
+          widget.data('working_hsv', hsv);
           widget.data('working_rgb', rgb);
 
           // update color widgets
           $(this).data('prev_val',hex);
-          $('#color-picker-hue-id-'+id).val(hsl[0]).data('prev_val',hsl[0]);
+          $('#color-picker-hue-id-'+id).val(hsv[0]).data('prev_val',hsv[0]);
           $('#color-picker-swatch-id-'+id).css('background', hex);
           $('#color-picker-r-id-'+id).val(rgb[0]).data('prev_val',rgb[0]);
           $('#color-picker-g-id-'+id).val(rgb[1]).data('prev_val',rgb[1]);
@@ -529,15 +572,15 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
           var rgb = widget.data('working_rgb');
           rgb[0] = r;
-          var hsl = rgbToHsl(rgb);
+          var hsv = rgbToHsv(rgb);
           var hex = rgbToHex(rgb);
 
-          widget.data('working_hsl', hsl);
+          widget.data('working_hsv', hsv);
           widget.data('working_rgb', rgb);
 
           // update color widgets
           $(this).val(r).data('prev_val',r);
-          $('#color-picker-hue-id-'+id).val(hsl[0]).data('prev_val',hsl[0]);
+          $('#color-picker-hue-id-'+id).val(hsv[0]).data('prev_val',hsv[0]);
           $('#color-picker-swatch-id-'+id).css('background', hex);
           $('#color-picker-hex-id-'+id).val(hex).data('prev_val',hex);
           $('#color-picker-g-id-'+id).val(rgb[1]).data('prev_val',rgb[1]);
@@ -558,15 +601,15 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
           var rgb = widget.data('working_rgb');
           rgb[1] = g;
-          var hsl = rgbToHsl(rgb);
+          var hsv = rgbToHsv(rgb);
           var hex = rgbToHex(rgb);
 
-          widget.data('working_hsl', hsl);
+          widget.data('working_hsv', hsv);
           widget.data('working_rgb', rgb);
 
           // update color widgets
           $(this).val(g).data('prev_val',g);
-          $('#color-picker-hue-id-'+id).val(hsl[0]).data('prev_val',hsl[0]);
+          $('#color-picker-hue-id-'+id).val(hsv[0]).data('prev_val',hsv[0]);
           $('#color-picker-swatch-id-'+id).css('background', hex);
           $('#color-picker-hex-id-'+id).val(hex).data('prev_val',hex);
           $('#color-picker-r-id-'+id).val(rgb[0]).data('prev_val',rgb[0]);
@@ -587,15 +630,15 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
           var rgb = widget.data('working_rgb');
           rgb[2] = b;
-          var hsl = rgbToHsl(rgb);
+          var hsv = rgbToHsv(rgb);
           var hex = rgbToHex(rgb);
 
-          widget.data('working_hsl', hsl);
+          widget.data('working_hsv', hsv);
           widget.data('working_rgb', rgb);
 
           // update color widgets
           $(this).val(b).data('prev_val',b);
-          $('#color-picker-hue-id-'+id).val(hsl[0]).data('prev_val',hsl[0]);
+          $('#color-picker-hue-id-'+id).val(hsv[0]).data('prev_val',hsv[0]);
           $('#color-picker-swatch-id-'+id).css('background', hex);
           $('#color-picker-hex-id-'+id).val(hex).data('prev_val',hex);
           $('#color-picker-r-id-'+id).val(rgb[0]).data('prev_val',rgb[0]);
