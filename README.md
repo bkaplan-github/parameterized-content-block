@@ -110,7 +110,7 @@ The choices of a selection parameter can define a value that is different than t
 A slider input is specified by adding the "type" option with a value of "slider". The "locked" option is used to keep the user from modifying this parameter (if set to true). The "label" option can be used to override the label that appears above the input.  The minimum and maximum slider values are specified using the required "min" and "max" data. A rollover description can be added to a selection input by adding the "description" option. See the "Text_Size" parameter in the above example.
 
 ### Color Input
-A color input is specified by adding the "type" option with a value of "color". The "locked" option is used to keep the user from modifying this parameter (if set to true). The "label" option can be used to override the label that appears above the input.  A rollover description can be added to a selection input by adding the "description" option. See the "Text_Color" parameter in the above example.
+A color input is specified by adding the "type" option with a value of "color". The "locked" option is used to keep the user from modifying this parameter (if set to true). The "label" option can be used to override the label that appears above the input.  A rollover description can be added to a selection input by adding the "description" option. Colors should be speficied in hex "#rrggbb" format.  See the "Text_Color" parameter in the above example.
 
 ## Future Enhancements
 * Add support for other types of inputs (checkboxes, radio buttons, etc).
