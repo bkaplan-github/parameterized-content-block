@@ -374,6 +374,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
           switch (widget.data('state')) {
             case "picker":
               // init color widgets
+              $('#color-picker-sv-marker-id-'+id).css('left', hsv[1]).css('bottom', hsv[2]);
               $('#color-picker-sv-id-'+id).css('background', 'hsl(' + hue + ', 100%, 50%)');
               $('#color-picker-hue-id-'+id).val(hue).data('prev_val',hue);
               $('#color-picker-swatch-id-'+id).css('background', hex);
@@ -451,6 +452,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
           var hue = hsv[0];
 
           // init color widgets
+          $('#color-picker-sv-marker-id-'+id).css('left', hsv[1]).css('bottom', hsv[2]);
           $('#color-picker-sv-id-'+id).css('background', 'hsl(' + hue + ', 100%, 50%)');
           $('#color-picker-hue-id-'+id).val(hue).data('prev_val',hue);
           $('#color-picker-swatch-id-'+id).css('background', hex);
@@ -525,6 +527,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
           // update color widgets
           $(this).data('prev_val', hue);
+          $('#color-picker-sv-marker-id-'+id).css('left', hsv[1]).css('bottom', hsv[2]);
           $('#color-picker-sv-id-'+id).css('background', 'hsl(' + hue + ', 100%, 50%)');
           $('#color-picker-swatch-id-'+id).css('background', hex);
           $('#color-picker-hex-id-'+id).val(hex).data('prev_val',hex);
@@ -558,6 +561,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
           // update color widgets
           $(this).data('prev_val',hex);
+          $('#color-picker-sv-marker-id-'+id).css('left', hsv[1]).css('bottom', hsv[2]);
           $('#color-picker-sv-id-'+id).css('background', 'hsl(' + hue + ', 100%, 50%)');
           $('#color-picker-hue-id-'+id).val(hue).data('prev_val',hue);
           $('#color-picker-swatch-id-'+id).css('background', hex);
@@ -589,6 +593,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
           // update color widgets
           $(this).val(r).data('prev_val',r);
+          $('#color-picker-sv-marker-id-'+id).css('left', hsv[1]).css('bottom', hsv[2]);
           $('#color-picker-sv-id-'+id).css('background', 'hsl(' + hue + ', 100%, 50%)');
           $('#color-picker-hue-id-'+id).val(hue).data('prev_val',hue);
           $('#color-picker-swatch-id-'+id).css('background', hex);
@@ -620,6 +625,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
           // update color widgets
           $(this).val(g).data('prev_val',g);
+          $('#color-picker-sv-marker-id-'+id).css('left', hsv[1]).css('bottom', hsv[2]);
           $('#color-picker-sv-id-'+id).css('background', 'hsl(' + hue + ', 100%, 50%)');
           $('#color-picker-hue-id-'+id).val(hue).data('prev_val',hue);
           $('#color-picker-swatch-id-'+id).css('background', hex);
@@ -651,6 +657,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
           // update color widgets
           $(this).val(b).data('prev_val',b);
+          $('#color-picker-sv-marker-id-'+id).css('left', hsv[1]).css('bottom', hsv[2]);
           $('#color-picker-sv-id-'+id).css('background', 'hsl(' + hue + ', 100%, 50%)');
           $('#color-picker-hue-id-'+id).val(hue).data('prev_val',hue);
           $('#color-picker-swatch-id-'+id).css('background', hex);
@@ -670,11 +677,30 @@ function addWidget(id, label, value, locked, type, tac, options) {
         var width = $(this).width();
         var height = $(this).height();
         var p_saturation =  Math.floor((left / width) * 100);
-        var p_value =  100 - Math.floor((top / height) * 100);
+        var p_value =  100 - Math.round((top / height) * 100);
 
         console.log(p_saturation + " " + p_value);
 
+        var widget = $('#widget-'+id);
+
+        var hsv = widget.data('working_hsv');
+        hsv[1] = p_saturation;
+        hsv[2] = p_value;
+        var rgb = hsvToRgb(hsv);
+        var hex = rgbToHex(rgb);
+        var hue = hsv[0];
+
+        widget.data('working_hsv', hsv);
+        widget.data('working_rgb', rgb);
+
+        // update color widgets
         $('#color-picker-sv-marker-id-'+id).css('left', p_saturation + '%').css('bottom', p_value + '%');
+        $('#color-picker-hue-id-'+id).val(hue).data('prev_val',hue);
+        $('#color-picker-swatch-id-'+id).css('background', hex);
+        $('#color-picker-hex-id-'+id).val(hex).data('prev_val',hex);
+        $('#color-picker-r-id-'+id).val(rgb[0]).data('prev_val',rgb[0]);
+        $('#color-picker-g-id-'+id).val(rgb[1]).data('prev_val',rgb[1]);
+        $('#color-picker-b-id-'+id).val(rgb[2]).data('prev_val',rgb[2]);
       });
 
 
