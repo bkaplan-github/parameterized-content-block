@@ -666,11 +666,11 @@ function addWidget(id, label, value, locked, type, tac, options) {
       $('#color-picker-sv-id-'+id).data({'id': id}).click(function(e) {
         var p = $(this).offset();
         var left = e.pageX - p.left;
-        var bottom = p.top - e.pageY;
+        var top = e.pageY - p.top;
         var width = $(this).width();
         var height = $(this).height();
         var px =  Math.round((left / width) * 100);
-        var py =  Math.round((bottom / height) * 100);
+        var py =  100 - Math.round((bottom / height) * 100);
 
         console.log(px + " " + py);
 
