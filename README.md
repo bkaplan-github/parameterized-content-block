@@ -9,7 +9,7 @@ Github repository:  https://github.com/bkaplan-github/parameterized-content-bloc
 
 Heroku app: https://parameterized-content-block.herokuapp.com/
 
-[![Parameterized Content Block](https://github.com/bkaplan-github/parameterized-content-block/blob/master/ParameterizedCB.jpg)](https://github.com/bkaplan-github/parameterized-content-block)
+[![Parameterized Content Block](https://github.com/bkaplan-github/parameterized-content-block/blob/master/ParameterizedCB.jpg)](https://github.com/bkaplan-github/parameterized-content-block) 
 
 ## Examples
 Examples are included in the "examples" folder for:
