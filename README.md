@@ -34,13 +34,14 @@ Create your parameterized HTML and add your block of SET statements with default
 
     %%[
         SET @Body_Text = "Hello World!"
-        SET @Text_Color = "#ff0000"
+        SET @Text_Align = "center"
         SET @Text_Size = "16"
+        SET @Text_Color = "#ff0000"
     ]%%
 
     <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-            <td align="left" valign="top" style="font-family: Helvetica, Arial, sans-serif; 
+            <td align="%%=v(@Text_Align)=%%" valign="top" style="font-family: Helvetica, Arial, sans-serif; 
             font-weight: normal; font-size: %%=v(@Text_Size)=%%px; line-height: 20px; color: %%=v(@Text_Color)=%%; 
             mso-line-height-rule: exactly;">%%=v(@Body_Text)=%%</td>
         </tr>
@@ -76,8 +77,9 @@ Global options like setting the content block's title or rollover description ar
     %%[
         /* {"title":"Text Input Example","description":"this an example content block","hide_locked":true} */
         SET @Body_Text = "Here is some text"
-        SET @Text_Color = "#ff0000"
+        SET @Text_Align = "center"
         SET @Text_Size = "16"
+        SET @Text_Color = "#ff0000"
     ]%%
 
 The "title" value will allow overriding the default content block title that appears at the top.  The "description" value will override the content block description that appears when the mouse hovers over the title or icon.  The "hide_locked" value, if true, will hide locked parameters in the interface.
@@ -87,8 +89,9 @@ Advanced options for inputs like rollover descriptions and different input types
 
     %%[
         SET @Body_Text = "Here is some text" /* {"label":"Enter Text Here","encoding":"html","description":"type your body text here"} */
-        SET @Text_Color = "#ff0000" /* {"locked":true,"type":"selection","choices":["#ff0000","#00ff00","#0000ff"],"description":"select a text color"} */
+        SET @Text_Align = "center" /* {"locked":true,"type":"selection","choices":["left","center","right"],"description":"select a text alignment"} */
         SET @Text_Size = "16" /* {"type":"slider","min":1,"max":50,"description":"text size"} */
+        SET @Text_Color = "#ff0000" /* {"type":"color","description":"select a text color"} */
     ]%%
 
 ### Text Input
@@ -106,8 +109,11 @@ The choices of a selection parameter can define a value that is different than t
 ### Slider Input
 A slider input is specified by adding the "type" option with a value of "slider". The "locked" option is used to keep the user from modifying this parameter (if set to true). The "label" option can be used to override the label that appears above the input.  The minimum and maximum slider values are specified using the required "min" and "max" data. A rollover description can be added to a selection input by adding the "description" option. See the "Text_Size" parameter in the above example.
 
+### Color Input
+A color input is specified by adding the "type" option with a value of "color". The "locked" option is used to keep the user from modifying this parameter (if set to true). The "label" option can be used to override the label that appears above the input.  A rollover description can be added to a selection input by adding the "description" option. See the "Text_Size" parameter in the above example.
+
 ## Future Enhancements
-* Add support for other types of inputs (color pickers, checkboxes, radio buttons, etc).
+* Add support for other types of inputs (checkboxes, radio buttons, etc).
 * Allow parsing of single quotes in the "SET" statements.
 * Allow parsing of "IIF" statements in the preview.
 * Allow editing the block in the "HTML" tab.
