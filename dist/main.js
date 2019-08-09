@@ -663,10 +663,10 @@ function addWidget(id, label, value, locked, type, tac, options) {
         }
       });
       
-      $('#color-picker-sv-id-'+id).data({'id': id}).click(function() {
+      $('#color-picker-sv-id-'+id).data({'id': id}).click(function(e) {
         var p = $(this).offset();
-        var left = p.left;
-        var top = p.top;
+        var left = e.pageX - p.left;
+        var top = e.pageY - p.top;
 
         console.log(left + " " + top);
 
