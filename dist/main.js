@@ -677,7 +677,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
         var width = $(this).width();
         var height = $(this).height();
         var p_saturation =  Math.floor((left / width) * 100);
-        var p_value =  100 - Math.round((top / height) * 100);
+        var p_value =  101 - Math.floor((top / height) * 100);
 
         console.log(p_saturation + " " + p_value);
 
