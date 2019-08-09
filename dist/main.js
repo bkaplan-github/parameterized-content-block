@@ -120,6 +120,7 @@ function hsvToRgb(hsv) {
         case 4: r = t, g = p, b = v; break;
         case 5: r = v, g = p, b = q; break;
     }
+
     return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
 }
 
@@ -497,9 +498,9 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
         // update color widgets
         var rgb = hexToRgb(value);
-        var hsv = rgbToHsl(rgb);
+        var hsv = rgbToHsv(rgb);
         widget.data('working_rgb',rgb);
-        widget.data('working_hsl',hsv);
+        widget.data('working_hsv',hsv);
       });
 
       // popup picker hue slider
