@@ -522,7 +522,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
       $('#color-picker-r-id-'+id).data({'id': id, 'prev_val': -1}).change(function() {
         var id = $(this).data('id');
         var value = $(this).val();
-        
+
         if (/^([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])$/i.test(value)) {
           var r = parseInt(value);
           var widget = $('#widget-'+id);
@@ -536,6 +536,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
           widget.data('working_rgb', rgb);
 
           // update color widgets
+          $(this).val(r).data('prev_val',r);
           $('#color-picker-hue-id-'+id).val(hsl[0]).data('prev_val',hsl[0]);
           $('#color-picker-swatch-id-'+id).css('background', hex);
           $('#color-picker-hex-id-'+id).val(hex).data('prev_val',hex);
@@ -564,6 +565,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
           widget.data('working_rgb', rgb);
 
           // update color widgets
+          $(this).val(g).data('prev_val',g);
           $('#color-picker-hue-id-'+id).val(hsl[0]).data('prev_val',hsl[0]);
           $('#color-picker-swatch-id-'+id).css('background', hex);
           $('#color-picker-hex-id-'+id).val(hex).data('prev_val',hex);
@@ -592,6 +594,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
           widget.data('working_rgb', rgb);
 
           // update color widgets
+          $(this).val(b).data('prev_val',g);
           $('#color-picker-hue-id-'+id).val(hsl[0]).data('prev_val',hsl[0]);
           $('#color-picker-swatch-id-'+id).css('background', hex);
           $('#color-picker-hex-id-'+id).val(hex).data('prev_val',hex);
