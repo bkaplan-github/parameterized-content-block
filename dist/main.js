@@ -674,10 +674,10 @@ function addWidget(id, label, value, locked, type, tac, options) {
         var p = $(this).offset();
         var left = e.pageX - p.left;
         var top = e.pageY - p.top;
-        var width = $(this).width();
-        var height = $(this).height();
-        var p_saturation =  Math.floor((left / width) * 100);
-        var p_value =  100 - Math.ceil((top / height) * 100);
+        var width = $(this).width() + 1;
+        var height = $(this).height() + 1;
+        var p_saturation =  Math.round((left / width) * 100);
+        var p_value =  100 - Math.round((top / height) * 100);
 
         console.log(" width:" + width + " height:" + height + " offX:" + p.left + " offY:" + p.top + " pageX:" + e.pageX + " pageY:" + e.pageY + " left:" + left + " top:" + top + " px:" + (left / width) + " py:" + (top / height) + " s:" + p_saturation + " v:" + p_value);
 
