@@ -1,7 +1,7 @@
 %%[
     /* {"title":"PCB Text on Background","description":"background image with live text"} */
     SET @BG_Image = "https://image.exct.net/lib/fe611570736303787417/m/1/8fa553dd-6799-420b-8c6a-45f567228d8d.jpg" /* {"description":"background image URL - always make sure the bg image is at least as tall as the content on desktop to avoid tiling"} */
-    SET @BG_Fallback_Color = "#4193cf" /* {"description":"fallback background color will display on clients that don't display background images"} */
+    SET @BG_Fallback_Color = "#4193cf" /* {"type":"color","description":"fallback background color will display on clients that don't display background images"} */
     SET @BG_Width = "650" /* {"description":"desktop width - should be the same as image width"} */
     SET @BG_Height = "400" /* {"description":"desktop and mobile height - can be a set height or &quot;auto&quot; to fit to contents (should be no more than image height)"} */
     SET @BG_Horizontal_Position = "center" /* {"type":"selection","choices":["left","center","right"],"description":"background horizontal position when clipped"} */
@@ -14,7 +14,7 @@
     SET @Text_Font_Weight = "normal" /* {"description":"font weight"} */
     SET @Text_Font_Size = "56" /* {"type":"slider","min":1,"max":100,"description":"font size"} */
     SET @Text_Line_Height = "60" /* {"type":"slider","min":1,"max":100,"description":"line height"} */
-    SET @Text_Color = "#ffffff" /* {"description":"text color"} */
+    SET @Text_Color = "#ffffff" /* {"type":"color","description":"text color"} */
     SET @Text_Width = "610" /* {"description":"width of the text area (to simulate horizontal padding)"} */
     SET @Text_Padding_Top = "20px" /* {"description":"padding above text"} */
     SET @Text_Padding_Bottom = "20px" /* {"description":"padding below text"} */

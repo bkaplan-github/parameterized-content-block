@@ -19,9 +19,9 @@
     SET @Bullet_Size = "30" /* {"type":"slider","min":1,"max":100,"description":"the size of the bullets"} */
     SET @Text_Size = "16" /* {"type":"slider","min":1,"max":100,"description":"the size of the text for list items"} */
     SET @Font_Family = "Arial, Helvetica, sans-serif" /* {"description":"the font family used for the text"} */
-    SET @Bullet_Color = "#000001" /* {"description":"the color of the bullets"} */
-    SET @Text_Color = "#000001" /* {"description":"the color of the text for list items"} */
-    SET @Link_Color = "#0000ff" /* {"description":"the color of links in list items"} */
+    SET @Bullet_Color = "#000001" /* {"type":"color","description":"the color of the bullets"} */
+    SET @Text_Color = "#000001" /* {"type":"color","description":"the color of the text for list items"} */
+    SET @Link_Color = "#0000ff" /* {"type":"color","description":"the color of links in list items"} */
     SET @Link_Decoration = "underline" /* {"type":"selection","choices":["underline","none"],"description":"the decoration type of links in list items"} */
     SET @Mobile_Class = "center-table pad-20L pad-20R" /* {"description":"the class(es) applied to the bulleted list on mobile displays"} */
     SET @Mobile_Bullet_Class = "" /* {"description":"the class(es) applied to the bullets on mobile displays"} */

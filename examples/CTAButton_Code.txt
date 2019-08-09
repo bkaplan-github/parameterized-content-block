@@ -11,11 +11,11 @@
     SET @Text_Font_Weight = "700" /* {"description":"font weight"} */
     SET @Text_Font_Size = "16" /* {"type":"slider","min":1,"max":100,"description":"font size"} */
     SET @Text_Line_Height = "20" /* {"type":"slider","min":1,"max":100,"description":"text line height"} */
-    SET @Text_Color = "#0000ff" /* {"description":"text color"} */
-    SET @Button_Color = "#aaaaff" /* {"description":"button color"} */
-    SET @Border_Color = "#0000ff" /* {"description":"border color"} */
+    SET @Text_Color = "#0000ff" /* {"type":"color","description":"text color"} */
+    SET @Button_Color = "#aaaaff" /* {"type":"color","description":"button color"} */
+    SET @Border_Color = "#0000ff" /* {"type":"color","description":"border color"} */
     SET @Border_Thickness = "3" /* {"type":"slider","min":1,"max":10,"description":"button border thickness"} */
-    SET @Border_Radius = "10" /* {"type":"slider","min":0,"max":100,"description":"button border roundness (always square on Outlook)"} */
+    SET @Border_Radius = "14" /* {"type":"slider","min":0,"max":100,"description":"button border roundness (always square on Outlook)"} */
     SET @Padding = "15px 30px" /* {"description":"padding around button"} */
     SET @Mobile_Class = "pad-20LR" /* {"description":"mobile class for outer <td>"} */
     SET @Mobile_Button_Class = "width-full" /* {"description":"mobile class for button <table>"} */
