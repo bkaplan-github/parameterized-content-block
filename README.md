@@ -104,7 +104,7 @@ A selection input is specified by adding the "type" option with a value of "sele
 
 The choices of a selection parameter can define a value that is different than the choice text displayed in the list using the following syntax:
 
-    SET @Text_Color = "#ff0000" /* {"type":"selection","choices":[{"value":"#ff0000","text":"Red"},{"value":"#00ff00","text":"Green"},{"value":"#0000ff","text":"Blue"}],"description":"select a text color"]} */ 
+    SET @Text_Align = "center" /* {"type":"selection","choices":[{"value":"left","text":"Left Justified"},{"value":"center","text":"Centered"},{"value":"right","text":"Right Justified"}],"description":"select a text color"]} */ 
 
 ### Slider Input
 A slider input is specified by adding the "type" option with a value of "slider". The "locked" option is used to keep the user from modifying this parameter (if set to true). The "label" option can be used to override the label that appears above the input.  The minimum and maximum slider values are specified using the required "min" and "max" data. A rollover description can be added to a selection input by adding the "description" option. See the "Text_Size" parameter in the above example.
