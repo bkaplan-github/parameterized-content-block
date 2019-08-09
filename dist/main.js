@@ -594,7 +594,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
           widget.data('working_rgb', rgb);
 
           // update color widgets
-          $(this).val(b).data('prev_val',g);
+          $(this).val(b).data('prev_val',b);
           $('#color-picker-hue-id-'+id).val(hsl[0]).data('prev_val',hsl[0]);
           $('#color-picker-swatch-id-'+id).css('background', hex);
           $('#color-picker-hex-id-'+id).val(hex).data('prev_val',hex);
