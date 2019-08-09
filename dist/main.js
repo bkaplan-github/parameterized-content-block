@@ -374,7 +374,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
           switch (widget.data('state')) {
             case "picker":
               // init color widgets
-              $('#color-picker-sv-marker-id-'+id).css('left', hsv[1]).css('bottom', hsv[2]);
+              $('#color-picker-sv-marker-id-'+id).css('left', hsv[1] + '%').css('bottom', hsv[2] + '%');
               $('#color-picker-sv-id-'+id).css('background', 'hsl(' + hue + ', 100%, 50%)');
               $('#color-picker-hue-id-'+id).val(hue).data('prev_val',hue);
               $('#color-picker-swatch-id-'+id).css('background', hex);
@@ -452,7 +452,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
           var hue = hsv[0];
 
           // init color widgets
-          $('#color-picker-sv-marker-id-'+id).css('left', hsv[1]).css('bottom', hsv[2]);
+          $('#color-picker-sv-marker-id-'+id).css('left', hsv[1] + '%').css('bottom', hsv[2] + '%');
           $('#color-picker-sv-id-'+id).css('background', 'hsl(' + hue + ', 100%, 50%)');
           $('#color-picker-hue-id-'+id).val(hue).data('prev_val',hue);
           $('#color-picker-swatch-id-'+id).css('background', hex);
@@ -527,7 +527,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
           // update color widgets
           $(this).data('prev_val', hue);
-          $('#color-picker-sv-marker-id-'+id).css('left', hsv[1]).css('bottom', hsv[2]);
+          $('#color-picker-sv-marker-id-'+id).css('left', hsv[1] + '%').css('bottom', hsv[2] + '%');
           $('#color-picker-sv-id-'+id).css('background', 'hsl(' + hue + ', 100%, 50%)');
           $('#color-picker-swatch-id-'+id).css('background', hex);
           $('#color-picker-hex-id-'+id).val(hex).data('prev_val',hex);
@@ -561,7 +561,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
           // update color widgets
           $(this).data('prev_val',hex);
-          $('#color-picker-sv-marker-id-'+id).css('left', hsv[1]).css('bottom', hsv[2]);
+          $('#color-picker-sv-marker-id-'+id).css('left', hsv[1] + '%').css('bottom', hsv[2] + '%');
           $('#color-picker-sv-id-'+id).css('background', 'hsl(' + hue + ', 100%, 50%)');
           $('#color-picker-hue-id-'+id).val(hue).data('prev_val',hue);
           $('#color-picker-swatch-id-'+id).css('background', hex);
@@ -593,7 +593,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
           // update color widgets
           $(this).val(r).data('prev_val',r);
-          $('#color-picker-sv-marker-id-'+id).css('left', hsv[1]).css('bottom', hsv[2]);
+          $('#color-picker-sv-marker-id-'+id).css('left', hsv[1] + '%').css('bottom', hsv[2] + '%');
           $('#color-picker-sv-id-'+id).css('background', 'hsl(' + hue + ', 100%, 50%)');
           $('#color-picker-hue-id-'+id).val(hue).data('prev_val',hue);
           $('#color-picker-swatch-id-'+id).css('background', hex);
@@ -625,7 +625,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
           // update color widgets
           $(this).val(g).data('prev_val',g);
-          $('#color-picker-sv-marker-id-'+id).css('left', hsv[1]).css('bottom', hsv[2]);
+          $('#color-picker-sv-marker-id-'+id).css('left', hsv[1] + '%').css('bottom', hsv[2] + '%');
           $('#color-picker-sv-id-'+id).css('background', 'hsl(' + hue + ', 100%, 50%)');
           $('#color-picker-hue-id-'+id).val(hue).data('prev_val',hue);
           $('#color-picker-swatch-id-'+id).css('background', hex);
@@ -657,7 +657,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
           // update color widgets
           $(this).val(b).data('prev_val',b);
-          $('#color-picker-sv-marker-id-'+id).css('left', hsv[1]).css('bottom', hsv[2]);
+          $('#color-picker-sv-marker-id-'+id).css('left', hsv[1] + '%').css('bottom', hsv[2] + '%');
           $('#color-picker-sv-id-'+id).css('background', 'hsl(' + hue + ', 100%, 50%)');
           $('#color-picker-hue-id-'+id).val(hue).data('prev_val',hue);
           $('#color-picker-swatch-id-'+id).css('background', hex);
