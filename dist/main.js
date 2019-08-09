@@ -515,7 +515,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
           $('#color-picker-b-id-'+id).val(rgb[2]).data('prev_val',rgb[2]);
         }
         else {
-          $(this).val($(this.data('prev_val')));
+          $(this).val($(this).data('prev_val'));
         }
       });
 
