@@ -485,7 +485,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
         }
       });
 
-      $('#color-picker-hex-id-'+id).data({'id': id, 'prev_val':$(this).val()}).change(function() {
+      $('#color-picker-hex-id-'+id).data({'id': id, 'prev_val': -1}).change(function() {
         var id = $(this).data('id');
         var hex = $(this).val();
         var widget = $('#widget-'+id);
@@ -504,7 +504,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
         $('#color-picker-b-id-'+id).val(rgb[2]).data('prev_val',rgb[2]);
       });
 
-      $('#color-picker-r-id-'+id).data({'id': id, 'prev_val':$(this).val()}).change(function() {
+      $('#color-picker-r-id-'+id).data({'id': id, 'prev_val': -1}).change(function() {
         var id = $(this).data('id');
         var r = parseInt($(this).val());
         var widget = $('#widget-'+id);
@@ -525,7 +525,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
         $('#color-picker-b-id-'+id).val(rgb[2]).data('prev_val',rgb[2]);
       });
       
-      $('#color-picker-g-id-'+id).data({'id': id, 'prev_val':$(this).val()}).change(function() {
+      $('#color-picker-g-id-'+id).data({'id': id, 'prev_val': -1}).change(function() {
         var id = $(this).data('id');
         var g = parseInt($(this).val());
         var widget = $('#widget-'+id);
@@ -546,7 +546,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
         $('#color-picker-b-id-'+id).val(rgb[2]).data('prev_val',rgb[2]);
       });
       
-      $('#color-picker-b-id-'+id).data({'id': id, 'prev_val':$(this).val()}).change(function() {
+      $('#color-picker-b-id-'+id).data({'id': id, 'prev_val': -1}).change(function() {
         var id = $(this).data('id');
         var b = parseInt($(this).val());
         var widget = $('#widget-'+id);
