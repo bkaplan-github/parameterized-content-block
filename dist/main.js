@@ -669,10 +669,12 @@ function addWidget(id, label, value, locked, type, tac, options) {
         var top = e.pageY - p.top;
         var width = $(this).width();
         var height = $(this).height();
+        var px =  Math.round((left / width) * 100);
+        var py =  Math.round((top / height) * 100);
 
-        console.log((left * 100 / width) + " " + (top * 100 / height));
+        console.log(px + " " + py);
 
-        $('#color-picker-sv-marker-id-'+id).css('left', left).css('top', top);
+        $('#color-picker-sv-marker-id-'+id).css('left', px + '%').css('top', py + '%');
       });
 
 
