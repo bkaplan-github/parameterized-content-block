@@ -670,7 +670,8 @@ function addWidget(id, label, value, locked, type, tac, options) {
         console.log(posX, posY);
 
         $('#color-picker-sv-marker-id-'+id).css('left', left).css('bottom', bottom);
-      }
+      });
+
 
     default: // text
       widget = '\r\n<div id="widget-' + id + '" class="slds-form-element" style="margin-bottom:10px;" title="' + description + '">\r\n<label class="slds-form-element__label" for="input-id-' + id + '"' + labelStyle + '>' + label + '</label>\r\n<div class="slds-form-element__control slds-input-has-fixed-addon">\r\n<input class="slds-input" type="text" id="input-id-' + id + '" placeholder="" />\r\n</div>\r\n</div>';
