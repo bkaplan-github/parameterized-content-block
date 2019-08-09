@@ -679,7 +679,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
         var p_saturation =  Math.floor((left / width) * 100);
         var p_value =  100 - Math.floor((top / height) * 100);
 
-        console.log("left" + p.left + " top:" + p.top + " pageX:" + e.pageX + " pageY:" + e.pageY + " width:" + width + " height:" + height + " left:" + left + " top:" + top + " s:" + p_saturation + " v:" + p_value);
+        console.log(" width:" + width + " height:" + height + " offX:" + p.left + " offY:" + p.top + " pageX:" + e.pageX + " pageY:" + e.pageY + " left:" + left + " top:" + top + " s:" + p_saturation + " v:" + p_value);
 
         var widget = $('#widget-'+id);
 
