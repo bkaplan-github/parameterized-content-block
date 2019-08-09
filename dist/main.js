@@ -679,8 +679,6 @@ function addWidget(id, label, value, locked, type, tac, options) {
         var p_saturation =  Math.round((left / width) * 100);
         var p_value =  100 - Math.round((top / height) * 100);
 
-        console.log(" width:" + width + " height:" + height + " offX:" + p.left + " offY:" + p.top + " pageX:" + e.pageX + " pageY:" + e.pageY + " left:" + left + " top:" + top + " px:" + (left / width) + " py:" + (top / height) + " s:" + p_saturation + " v:" + p_value);
-
         var widget = $('#widget-'+id);
 
         var hsv = widget.data('working_hsv');
@@ -702,6 +700,8 @@ function addWidget(id, label, value, locked, type, tac, options) {
         $('#color-picker-g-id-'+id).val(rgb[1]).data('prev_val',rgb[1]);
         $('#color-picker-b-id-'+id).val(rgb[2]).data('prev_val',rgb[2]);
       });
+
+      break;
 
 
     default: // text
