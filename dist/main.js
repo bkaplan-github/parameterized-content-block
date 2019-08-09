@@ -664,10 +664,11 @@ function addWidget(id, label, value, locked, type, tac, options) {
       });
       
       $('#color-picker-sv-id-'+id).data({'id': id}).click(function() {
-        var left = $(this).offset().left;
-        var bottom = $(this).offset().bottom;
+        var p = $(this).offset();
+        var left = p.left;
+        var bottom = p.bottom;
 
-        console.log(posX, posY);
+        console.log(left + " " + bottom);
 
         $('#color-picker-sv-marker-id-'+id).css('left', left).css('bottom', bottom);
       });
