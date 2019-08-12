@@ -354,8 +354,6 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
       // color button
       $('#color-button-id-'+id).data({'id': id}).click(function() {
-console.log("here");
-
         var id = $(this).data('id');
         var widget = $('#widget-'+id);
         if (widget.data('opened')) {
@@ -364,7 +362,6 @@ console.log("here");
         } else {
           widget.data('opened', true);
           $('#color-selector-id-'+id).addClass("slds-show").removeClass("slds-hide");
-console.log("show");
 
           var hex = params[id]['value'];
           var rgb = hexToRgb(hex);
@@ -386,13 +383,11 @@ console.log("show");
               $('#color-picker-g-id-'+id).val(rgb[1]).data('prev_val',rgb[1]);
               $('#color-picker-b-id-'+id).val(rgb[2]).data('prev_val',rgb[2]);
 
-console.log("picker");
               $('#color-picker-default-id-'+id).addClass("slds-hide").removeClass("slds-show");
               $('#color-picker-custom-id-'+id).addClass("slds-show").removeClass("slds-hide");
               break;
 
             default: // swatches
-console.log("swatches");
               $('#color-picker-default-id-'+id).addClass("slds-show").removeClass("slds-hide");
               $('#color-picker-custom-id-'+id).addClass("slds-hide").removeClass("slds-show");
               break;
