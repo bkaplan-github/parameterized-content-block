@@ -363,7 +363,7 @@ console.log("here");
           // $('#color-selector-id-'+id).hide();
         } else {
           widget.data('opened', true);
-          $('#color-selector-id-'+id).show();
+          $('#color-selector-id-'+id).addClass("slds-show").removeClass("slds-hide");
 console.log("show");
 
           var hex = params[id]['value'];
@@ -386,11 +386,13 @@ console.log("show");
               $('#color-picker-g-id-'+id).val(rgb[1]).data('prev_val',rgb[1]);
               $('#color-picker-b-id-'+id).val(rgb[2]).data('prev_val',rgb[2]);
 
+console.log("picker");
               $('#color-picker-default-id-'+id).hide();
               $('#color-picker-custom-id-'+id).show();
               break;
 
-            default:
+            default: // swatches
+console.log("swatches");
               $('#color-picker-default-id-'+id).show();
               $('#color-picker-custom-id-'+id).hide();
               break;
