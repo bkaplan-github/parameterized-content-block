@@ -387,14 +387,14 @@ console.log("show");
               $('#color-picker-b-id-'+id).val(rgb[2]).data('prev_val',rgb[2]);
 
 console.log("picker");
-              $('#color-picker-default-id-'+id).hide();
-              $('#color-picker-custom-id-'+id).show();
+              $('#color-picker-default-id-'+id).addClass("slds-hide").removeClass("slds-show");
+              $('#color-picker-custom-id-'+id).addClass("slds-show").removeClass("slds-hide");
               break;
 
             default: // swatches
 console.log("swatches");
-              $('#color-picker-default-id-'+id).show();
-              $('#color-picker-custom-id-'+id).hide();
+              $('#color-picker-default-id-'+id).addClass("slds-show").removeClass("slds-hide");
+              $('#color-picker-custom-id-'+id).addClass("slds-hide").removeClass("slds-show");
               break;
           }
         }
@@ -437,8 +437,8 @@ console.log("swatches");
         if (widget.data('state') != 'swatches') {
           widget.data('state','swatches');
 
-          $('#color-picker-default-id-'+id).show();
-          $('#color-picker-custom-id-'+id).hide();
+          $('#color-picker-default-id-'+id).addClass("slds-show").removeClass("slds-hide");
+          $('#color-picker-custom-id-'+id).addClass("slds-hide").removeClass("slds-show");
           $('#color-swatches-menu-id-'+id).addClass('slds-is-active');
           $('#color-picker-menu-id-'+id).removeClass('slds-is-active');
         }
@@ -466,8 +466,8 @@ console.log("swatches");
           $('#color-picker-g-id-'+id).val(rgb[1]).data('prev_val',rgb[1]);
           $('#color-picker-b-id-'+id).val(rgb[2]).data('prev_val',rgb[2]);
 
-          $('#color-picker-default-id-'+id).hide();
-          $('#color-picker-custom-id-'+id).show();
+          $('#color-picker-default-id-'+id).addClass("slds-hide").removeClass("slds-show");
+          $('#color-picker-custom-id-'+id).addClass("slds-show").removeClass("slds-hide");
           $('#color-swatches-menu-id-'+id).removeClass('slds-is-active');
           $('#color-picker-menu-id-'+id).addClass('slds-is-active');
         }
