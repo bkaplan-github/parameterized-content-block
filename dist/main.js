@@ -354,8 +354,8 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
       // color button
       $('#color-button-id-'+id).data({'id': id}).click(function() {
-        console.log("here");
-        
+console.log("here");
+
         var id = $(this).data('id');
         var widget = $('#widget-'+id);
         if (widget.data('opened')) {
@@ -364,6 +364,7 @@ function addWidget(id, label, value, locked, type, tac, options) {
         } else {
           widget.data('opened', true);
           $('#color-selector-id-'+id).show();
+console.log("show");
 
           var hex = params[id]['value'];
           var rgb = hexToRgb(hex);
