@@ -354,6 +354,8 @@ function addWidget(id, label, value, locked, type, tac, options) {
 
       // color button
       $('#color-button-id-'+id).data({'id': id}).click(function() {
+        console.log("here");
+        
         var id = $(this).data('id');
         var widget = $('#widget-'+id);
         if (widget.data('opened')) {
