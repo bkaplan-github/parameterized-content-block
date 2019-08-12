@@ -360,7 +360,7 @@ console.log("here");
         var widget = $('#widget-'+id);
         if (widget.data('opened')) {
           // widget.data('opened', false);
-          // $('#color-selector-id-'+id).hide();
+          // $('#color-selector-id-'+id).addClass("slds-hide").removeClass("slds-show");
         } else {
           widget.data('opened', true);
           $('#color-selector-id-'+id).addClass("slds-show").removeClass("slds-hide");
@@ -479,7 +479,7 @@ console.log("swatches");
         var widget = $('#widget-'+id);
 
         widget.data('opened',false);
-        $('#color-selector-id-'+id).hide();
+        $('#color-selector-id-'+id).addClass("slds-hide").removeClass("slds-show");
       });
 
       // popup Done button
@@ -488,7 +488,7 @@ console.log("swatches");
         var widget = $('#widget-'+id);
 
         widget.data('opened',false);
-        $('#color-selector-id-'+id).hide();
+        $('#color-selector-id-'+id).addClass("slds-hide").removeClass("slds-show");
 
         var rgb = widget.data('working_rgb');
         var hex = rgbToHex(rgb);
