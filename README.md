@@ -113,7 +113,7 @@ A slider input is specified by adding the "type" option with a value of "slider"
 A color input is specified by adding the "type" option with a value of "color". The "locked" option is used to keep the user from modifying this parameter (if set to true). The "label" option can be used to override the label that appears above the input.  A rollover description can be added to a selection input by adding the "description" option. Colors should be speficied in hex "#rrggbb" format.  See the "Text_Color" parameter in the above example.
 
 ## Versions
-* 1.5 - removed the restriction on how the SET statement block is formatted.  Added a color picker.
+* 1.5 - removed the restriction on how the SET statement block is formatted.  Added a color picker.  Changed the source code folder structure to make it easier to update the lightning package in the future.
 * 1.0 - first release.
 
 ## Future Enhancements
