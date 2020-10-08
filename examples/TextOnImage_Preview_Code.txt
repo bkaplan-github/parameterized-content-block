@@ -1,15 +1,15 @@
 <!-- background image -->
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
-    <td class="%%=v(@Mobile_Class)=%%" align="%%=v(@Text_Horizontal_Align)=%%" valign="%%=v(@Text_Vertical_Align)=%%" width="%%=v(@BG_Width)=%%" height="%%=v(@BG_Height)=%%" bgcolor="%%=v(@BG_Fallback_Color)=%%" background="%%=v(@BG_Image)=%%" style="background-size: %%=v(@BG_Scaling)=%%; background-position: %%=v(@BG_Horizontal_Position)=%% %%=v(@BG_Vertical_Position)=%%; background-repeat: repeat;">
+    <td class="%%=v(@Mobile_Class)=%%" align="%%=v(@Content_Horizontal_Align)=%%" valign="%%=v(@Content_Vertical_Align)=%%" width="%%=v(@BG_Width)=%%" height="%%=v(@BG_Height)=%%" bgcolor="%%=v(@BG_Fallback_Color)=%%" background="%%=v(@BG_Image)=%%" style="background-size: %%=v(@BG_Scaling)=%%; background-position: %%=v(@BG_Horizontal_Position)=%% %%=v(@BG_Vertical_Position)=%%; background-repeat: repeat;">
       <div>
         <table width="100%" height="%%=v(@BG_Height)=%%" border="0" cellpadding="0" cellspacing="0">
           <tr>
-            <td height="%%=v(@BG_Height)=%%" align="center" valign="%%=v(@Text_Vertical_Align)=%%">
+            <td height="%%=v(@BG_Height)=%%" align="%%=v(@Content_Horizontal_Align)=%%" valign="%%=v(@Content_Vertical_Align)=%%">
 
               <table class="%%=v(@Mobile_Table_Class)=%%" width="%%=v(@Text_Width)=%%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td class="%%=v(@Mobile_Text_Class)=%%" align="%%=v(@Text_Horizontal_Align)=%%" valign="%%=v(@Text_Vertical_Align)=%%" style="padding-top: %%=v(@Text_Padding_Top)=%%; padding-bottom: %%=v(@Text_Padding_Bottom)=%%; font-family: %%=v(@Text_Font_Family)=%%; font-weight: %%=v(@Text_Font_Weight)=%%; font-size: %%=v(@Text_Font_Size)=%%px; line-height: %%=v(@Text_Line_Height)=%%px; color: %%=v(@Text_Color)=%%; mso-line-height-rule: exactly;">%%=v(@Text)=%%</td>
+                  <td class="%%=v(@Mobile_Text_Class)=%%" align="%%=v(@Text_Justification)=%%" valign="%%=v(@Content_Vertical_Align)=%%" style="padding-top: %%=v(@Text_Padding_Top)=%%; padding-bottom: %%=v(@Text_Padding_Bottom)=%%; font-family: %%=v(@Text_Font_Family)=%%; font-weight: %%=v(@Text_Font_Weight)=%%; font-size: %%=v(@Text_Font_Size)=%%px; line-height: %%=v(@Text_Line_Height)=%%px; color: %%=v(@Text_Color)=%%; mso-line-height-rule: exactly;">%%=v(@Text)=%%</td>
                 </tr>
               </table>
 

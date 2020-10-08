@@ -1,21 +1,22 @@
 %%[
     /* {"title":"PCB Text on Background","description":"background image with live text"} */
-    SET @BG_Image = "https://image.exct.net/lib/fe611570736303787417/m/1/8fa553dd-6799-420b-8c6a-45f567228d8d.jpg" /* {"description":"background image URL - always make sure the bg image is at least as tall as the content on desktop to avoid tiling"} */
+    SET @BG_Image = "https://image.s1.sfmc-content.com/lib/fe611570736303787417/m/1/Background640.jpg" /* {"description":"background image URL - always make sure the bg image is at least as tall as the content on desktop to avoid tiling"} */
     SET @BG_Fallback_Color = "#4193cf" /* {"type":"color","description":"fallback background color will display on clients that don't display background images"} */
-    SET @BG_Width = "650" /* {"description":"desktop width - should be the same as image width"} */
+    SET @BG_Width = "640" /* {"description":"desktop width - should be the same as image width"} */
     SET @BG_Height = "400" /* {"description":"desktop and mobile height - can be a set height or &quot;auto&quot; to fit to contents (should be no more than image height)"} */
     SET @BG_Horizontal_Position = "center" /* {"type":"selection","choices":["left","center","right"],"description":"background horizontal position when clipped"} */
-    SET @BG_Vertical_Position = "top" /* {"type":"selection","choices":["top",{"value":"center","text":"middle"},"bottom"],"description":"background vertical position when clipped"} */
-    SET @BG_Scaling = "cover" /* {"type":"selection","choices":[{"value":"cover","text":"cover"},{"value":"auto","text":"tile/clip"}],"description":"cover - if you want background to shrink horizontally & clip vertically when cell height is shorter than image height and clip horizontally & enlarge vertically if taller&#10;tile/clip - if you want background to stay the original size but clip or tile in each direction"} */
+    SET @BG_Vertical_Position = "top" /* {"type":"selection","choices":["top",{"value":"center","text":"middle"},"bottom"],"description":"background vertical position when clipped (note 'middle' does not work with Outlook"} */
+    SET @BG_Scaling = "cover" /* {"type":"selection","choices":[{"value":"cover","text":"cover"},{"value":"auto","text":"tile/clip"},{"value":"100% 100%","text":"stretch"},{"value":"100% auto","text":"fit horizontal"},{"value":"contain","text":"contain"}],"description":"mobile background behavior:&#10;&bull; cover - background shrinks horizontally & clips vertically when cell height is shorter than image height and clips horizontally & enlarges vertically if taller&#10;&bull; tile/clip - background stays the original size but clips or tiles in each direction&#10;&bull; stretch - background stretches to cover cell&#10;&bull; fit horizontal - background scales horizontally to fit & clips or tiles vertically&#10;&bull; contain - background scales to fit one direction and tiles the other"} */
+    SET @Content_Horizontal_Align = "center" /* {"type":"selection","choices":["left","center","right"],"description":"content horizontal align"} */
+    SET @Content_Vertical_Align = "middle" /* {"type":"selection","choices":["top","middle","bottom"],"description":"content vertical align"} */
     SET @Text = "This <span style=""color:blue"">is</span><br>some text." /* {"description":"text to display over background image"} */
-    SET @Text_Horizontal_Align = "center" /* {"type":"selection","choices":["left","center","right"],"description":"content horizontal align"} */
-    SET @Text_Vertical_Align = "middle" /* {"type":"selection","choices":["top","middle","bottom"],"description":"content vertical align"} */
+    SET @Text_Justification = "center" /* {"type":"selection","choices":["left","center","right"],"description":"content text justicifation"} */
     SET @Text_Font_Family = "Arial, Helvetica, sans-serif" /* {"description":"font family for text"} */
     SET @Text_Font_Weight = "normal" /* {"description":"font weight"} */
     SET @Text_Font_Size = "56" /* {"type":"slider","min":1,"max":100,"description":"font size"} */
     SET @Text_Line_Height = "60" /* {"type":"slider","min":1,"max":100,"description":"line height"} */
     SET @Text_Color = "#ffffff" /* {"type":"color","description":"text color"} */
-    SET @Text_Width = "610" /* {"description":"width of the text area (to simulate horizontal padding)"} */
+    SET @Text_Width = "400" /* {"description":"width of the text area (to simulate horizontal padding)"} */
     SET @Text_Padding_Top = "20px" /* {"description":"padding above text"} */
     SET @Text_Padding_Bottom = "20px" /* {"description":"padding below text"} */
     SET @Mobile_Class = "width-full" /* {"description":"mobile class for outer <td>"} */
@@ -26,20 +27,20 @@
 <!-- background image -->
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
-    <td class="%%=v(@Mobile_Class)=%%" align="%%=v(@Text_Horizontal_Align)=%%" valign="%%=v(@Text_Vertical_Align)=%%" width="%%=v(@BG_Width)=%%" height="%%=v(@BG_Height)=%%" bgcolor="%%=v(@BG_Fallback_Color)=%%" background="%%=v(@BG_Image)=%%" style="background-size: %%=v(@BG_Scaling)=%%; background-position: %%=v(@BG_Horizontal_Position)=%% %%=v(@BG_Vertical_Position)=%%; background-repeat: repeat;">
+    <td class="%%=v(@Mobile_Class)=%%" align="%%=v(@Content_Horizontal_Align)=%%" valign="%%=v(@Content_Vertical_Align)=%%" width="%%=v(@BG_Width)=%%" height="%%=v(@BG_Height)=%%" bgcolor="%%=v(@BG_Fallback_Color)=%%" background="%%=v(@BG_Image)=%%" style="background-size: %%=v(@BG_Scaling)=%%; background-position: %%=v(@BG_Horizontal_Position)=%% %%=v(@BG_Vertical_Position)=%%; background-repeat: repeat;">
       <!--[if (gte mso 9)|(IE)]>
       <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:%%=v(@BG_Width)=%%px; height:%%=IIF(@BG_Height == "auto", "auto", Concat(@BG_Height, "px"))=%%;">
-      <v:fill type="tile" src="%%=v(@BG_Image)=%%" color="%%=v(@BG_Fallback_Color)=%%" />
+      <v:fill type="tile" %%=IIF(@BG_Vertical_Position == 'bottom', 'position="0,1"', '')=%% src="%%=v(@BG_Image)=%%" color="%%=v(@BG_Fallback_Color)=%%" />
       <v:textbox style="mso-fit-shape-to-text:%%=IIF(@BG_Height == "auto", "true", "false")=%%;" inset="0,0,0,0">
       <![endif]-->
       <div>
         <table width="100%" height="%%=v(@BG_Height)=%%" border="0" cellpadding="0" cellspacing="0">
           <tr>
-            <td height="%%=v(@BG_Height)=%%" align="center" valign="%%=v(@Text_Vertical_Align)=%%">
+            <td height="%%=v(@BG_Height)=%%" align="%%=v(@Content_Horizontal_Align)=%%" valign="%%=v(@Content_Vertical_Align)=%%">
 
               <table class="%%=v(@Mobile_Table_Class)=%%" width="%%=v(@Text_Width)=%%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td class="%%=v(@Mobile_Text_Class)=%%" align="%%=v(@Text_Horizontal_Align)=%%" valign="%%=v(@Text_Vertical_Align)=%%" style="padding-top: %%=v(@Text_Padding_Top)=%%; padding-bottom: %%=v(@Text_Padding_Bottom)=%%; font-family: %%=v(@Text_Font_Family)=%%; font-weight: %%=v(@Text_Font_Weight)=%%; font-size: %%=v(@Text_Font_Size)=%%px; line-height: %%=v(@Text_Line_Height)=%%px; color: %%=v(@Text_Color)=%%; mso-line-height-rule: exactly;">%%=v(@Text)=%%</td>
+                  <td class="%%=v(@Mobile_Text_Class)=%%" align="%%=v(@Text_Justification)=%%" valign="%%=v(@Content_Vertical_Align)=%%" style="padding-top: %%=v(@Text_Padding_Top)=%%; padding-bottom: %%=v(@Text_Padding_Bottom)=%%; font-family: %%=v(@Text_Font_Family)=%%; font-weight: %%=v(@Text_Font_Weight)=%%; font-size: %%=v(@Text_Font_Size)=%%px; line-height: %%=v(@Text_Line_Height)=%%px; color: %%=v(@Text_Color)=%%; mso-line-height-rule: exactly;">%%=v(@Text)=%%</td>
                 </tr>
               </table>
 
