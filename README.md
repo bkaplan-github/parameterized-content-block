@@ -97,6 +97,8 @@ Advanced options for inputs like rollover descriptions and different input types
     ]%%
 
 ### Text Input
+[![Text Input](https://github.com/bkaplan-github/parameterized-content-block/blob/master/images/Input_Text.jpg)](https://github.com/bkaplan-github/parameterized-content-block)
+
 A text input is the default type so no "type" option is required (it defaults to "text"). The "locked" option is used to keep the user from modifying this parameter (if set to true).  The "label" option can be used to override the label that appears above the input.  The "encoding" option can be set to specify additional encoding should be done to the text (see below).  A rollover description can be added to a text input by adding the "description" option. See the "Body_Text" parameter in the above example.
 
 **Default encoding:** Setting the "encoding" option to "none" (the default) does not do any additional processing on the text when it gets inserted into the code.  If the text is going to be inserted into HTML (as it usually is) the input must contain valid HTML, with HTML-reserved characters "&lt;", "&gt;", "&amp;" and double-quotes explicitly encoded with eqivalent HTML entities "&amp;lt;", "&amp;gt;", "&amp;amp;" and "&amp;quot;" (unless used for HTML tags).
@@ -106,6 +108,8 @@ A text input is the default type so no "type" option is required (it defaults to
 **URL encoding:**  An "encoding" value of "url" will URL-encode the value typed into the text input.  URL-encoded entities (such as "%20") should not be entered (or they will themselves be encoded).  Special characters "/", "?", ":", ",", "@", "&", "=", "+", "$", and "#" will not be encoded.  AMPscript between "%%=" and "=%%" will not be encoded.
 
 ### Selection Input
+[![Selection Input](https://github.com/bkaplan-github/parameterized-content-block/blob/master/images/Input_Selection.jpg)](https://github.com/bkaplan-github/parameterized-content-block)
+
 A selection input is specified by adding the "type" option with a value of "selection". The "locked" option is used to keep the user from modifying this parameter (if set to true). The "label" option can be used to override the label that appears above the input.  The choices for the selection list are specified using the required "choices" data. A rollover description can be added to a selection input by adding the "description" option. See the "Text_Align" parameter in the above example.
 
 The choices of a selection parameter can define a value that is different than the choice text displayed in the list using the following syntax:
@@ -113,9 +117,13 @@ The choices of a selection parameter can define a value that is different than t
     SET @Text_Align = "center" /* {"type":"selection","choices":[{"value":"left","text":"Left Justified"},{"value":"center","text":"Centered"},{"value":"right","text":"Right Justified"}],"description":"select a text color"]} */ 
 
 ### Slider Input
+[![Slider Input](https://github.com/bkaplan-github/parameterized-content-block/blob/master/images/Input_Slider.jpg)](https://github.com/bkaplan-github/parameterized-content-block)
+
 A slider input is specified by adding the "type" option with a value of "slider". The "locked" option is used to keep the user from modifying this parameter (if set to true). The "label" option can be used to override the label that appears above the input.  The minimum and maximum slider values are specified using the required "min" and "max" data. A rollover description can be added to a selection input by adding the "description" option. See the "Text_Size" parameter in the above example.
 
 ### Color Input
+[![Color Input](https://github.com/bkaplan-github/parameterized-content-block/blob/master/images/Input_Color.jpg)](https://github.com/bkaplan-github/parameterized-content-block)
+
 A color input is specified by adding the "type" option with a value of "color". The "locked" option is used to keep the user from modifying this parameter (if set to true). The "label" option can be used to override the label that appears above the input.  A rollover description can be added to a selection input by adding the "description" option. Colors should be speficied in hex "#rrggbb" format.  See the "Text_Color" parameter in the above example.
 
 ## Versions
