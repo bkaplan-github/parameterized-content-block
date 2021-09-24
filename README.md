@@ -87,7 +87,9 @@ Global options like setting the content block's title or rollover description ar
 The "title" value will allow overriding the default content block title that appears at the top.  The "description" value will override the content block description that appears when the mouse hovers over the title or icon.  The "hide_locked" value, if true, will hide locked parameters in the interface.
 
 ## Advanced Input Options
-Advanced options for inputs like rollover descriptions and different input types are achieved by adding data within comments after the AMPscript "SET" statements.  For example:
+Advanced options for inputs like rollover descriptions and different input types are achieved by adding data within comments after the AMPscript "SET" statements.
+
+### Example
 
     %%[
         SET @Body_Text = "Here is some text" /* {"label":"Enter Text Here","encoding":"html","description":"type your body text here"} */
